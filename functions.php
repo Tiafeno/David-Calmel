@@ -61,7 +61,7 @@ function davidcalmel_widgets_init() {
 }
 add_action( 'widgets_init', 'davidcalmel_widgets_init' );
 
-function twentysixteen_fonts_url() {
+function fonts_url() {
   $fonts_url = '';
   $fonts = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
   $subsets   = 'latin,latin-ext';
@@ -80,7 +80,7 @@ function twentysixteen_fonts_url() {
  */
 function davidcalmel_scripts() {
 	// Add custom fonts, used in the main stylesheet.
-	//wp_enqueue_style( 'twentysixteen-fonts', twentysixteen_fonts_url(), array(), null );
+	//wp_enqueue_style( 'twentysixteen-fonts', fonts_url(), array(), null );
 
 	// Add Genericons, used in the main stylesheet.
 	wp_enqueue_style( 'uikit', get_template_directory_uri() . '/dist/css/uikit.css', array() );
@@ -116,19 +116,22 @@ add_filter('nav_menu_css_class' , 'uk_active_nav_class' , 10 , 2);
 
 function get_Title(){
   $parent_terms = get_the_category();
-  if(is_category(get_cat_ID(single_term_title("", false)))){
-    $child = get_category(get_cat_ID(single_term_title("", false)));
+  if (is_category( get_cat_ID( single_term_title("", false) )) ){
+    $child = get_category( get_cat_ID( single_term_title("", false) ) );
     $parent = $child->parent;
-    if($parent > 0):
-      $pname = get_category($parent);
+    if ($parent > 0):
+      $pname = get_category( $parent );
       return $pname->name;
     endif;
   }
-  if(is_array($parent_terms) && empty($parent_terms)) return get_the_title();
+  if (is_array( $parent_terms ) && empty( $parent_terms )) 
+		return get_the_title();
   foreach ( $parent_terms as $pterm ) {
     //Get the Child terms
-    if($pterm->parent != 0 || $pterm->term_id === 1) continue;
+    if ($pterm->parent != 0 || $pterm->term_id === 1) continue;
     return $pterm->name;
   }
 
 }
+
+add_theme_support( 'title-tag' );

@@ -19,7 +19,6 @@
   <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
-
   <?php wp_head(); ?>
 </head>
 
@@ -59,7 +58,11 @@
 
           <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="#"><h1 class="navbar-title">PORTFOLIO </h1></a></li>
+                <li class="uk-active">
+                  <a href="#">
+                    <h1 class="navbar-title">PORTFOLIO </h1>
+                  </a>
+                </li>
             </ul>
           </div>
 

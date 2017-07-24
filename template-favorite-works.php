@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Home Page
+ * Template Name: Template Home Favorite Works
  *
  * @package WordPress
  * @subpackage Twenty_Fourteen
@@ -28,14 +28,14 @@
          foreach ( $parent_terms as $pterm ) {
            //Get the Child terms
            $terms = get_terms( 'category', array( 'parent' => $pterm->term_id, 'orderby' => 'slug', 'hide_empty' => false ) );
-           if (!$terms || is_wp_error($terms))
+           if (!$terms || is_wp_error( $terms ))
                $terms = array();
 
            foreach ( $terms as $term ) {
-             $ID = get_cat_ID($term->name);
-             if(strtolower(get_Title()) === $term->name) continue;
+             $ID = get_cat_ID( $term->name );
+             if (strtolower( get_Title() ) === $term->name) continue;
          ?>
-             <li class="category-menu"><a href="<?= esc_url(get_category_link($ID)) ?>"><?= $term->name ?></a></li>
+             <li class="category-menu"><a href="<?= esc_url( get_category_link( $ID ) ) ?>"><?= $term->name ?></a></li>
          <?php
            }
          }
