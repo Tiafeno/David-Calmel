@@ -6,7 +6,6 @@
  * @subpackage Twenty_Fourteen
  * @since Twenty Fourteen 1.0
  */
- $CAT = null;
 
  get_header('home'); ?>
 
@@ -24,7 +23,6 @@
            <ul class="uk-navbar-nav uk-visible@m">
          <?php
          $parent_terms = get_terms('category', array('name' => 'portfolio', 'hide_empty' => false ) );
-         $ctgs = array();
          foreach ( $parent_terms as $pterm ) {
            //Get the Child terms
            $terms = get_terms( 'category', array( 'parent' => $pterm->term_id, 'orderby' => 'slug', 'hide_empty' => false ) );
@@ -34,7 +32,6 @@
            foreach ( $terms as $term ) {
              $ID = get_cat_ID( $term->name );
              if (strtolower( get_Title() ) === $term->name) {
-               $CAT = $term->name;
                continue;
              }
          ?>

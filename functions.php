@@ -20,8 +20,7 @@
  * For more information on hooks, actions, and filters,
  * {@link https://codex.wordpress.org/Plugin_API}
  *
- * @package DavidCalmel
- * @subpackage David_Calmel
+ * @package David-Calmel
  * @since David Calmel 1.0
  */
 
@@ -84,6 +83,7 @@ function davidcalmel_scripts() {
 
 	// Add Genericons, used in the main stylesheet.
 	wp_enqueue_style( 'uikit', get_template_directory_uri() . '/dist/css/uikit.css', array() );
+	wp_enqueue_style( 'DC-style', get_template_directory_uri() . '/dist/css/style.css', array() );
 
 	// Theme stylesheet.
 	wp_enqueue_style( 'davidcalmel_style', get_stylesheet_uri() );
