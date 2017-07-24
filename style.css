@@ -134,3 +134,7 @@ header.header-category-nav  .category-title{
 #main-content{
   padding-top: 10px;
 }
+
+#primary-content .content-main{
+  margin-top: 15px;
+}

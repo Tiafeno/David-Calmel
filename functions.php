@@ -24,6 +24,15 @@
  * @since David Calmel 1.0
  */
 
+ if (!defined('BRAND_PAGE_ID')){
+	 define('BRAND_PAGE_ID', null);
+ }
+
+ function getBrandPage(){
+	 if (is_null(BRAND_PAGE_ID)) exit('Page brand id not defined');
+	 return BRAND_PAGE_ID;
+ }
+
  /*
 	 * Enable support for Post Formats.
 	 *
@@ -83,7 +92,6 @@ function davidcalmel_scripts() {
 
 	// Add Genericons, used in the main stylesheet.
 	wp_enqueue_style( 'uikit', get_template_directory_uri() . '/dist/css/uikit.css', array() );
-	wp_enqueue_style( 'DC-style', get_template_directory_uri() . '/dist/css/style.css', array() );
 
 	// Theme stylesheet.
 	wp_enqueue_style( 'davidcalmel_style', get_stylesheet_uri() );
@@ -91,6 +99,7 @@ function davidcalmel_scripts() {
 	wp_enqueue_script( 'uikit', get_template_directory_uri().'/dist/js/uikit.js', array('jquery'), false, false );
   wp_enqueue_script( 'uikit-icons', get_template_directory_uri().'/dist/js/uikit-icons.js', array('uikit'), false, false );
 	wp_enqueue_script( 'davidcalmel-script', get_template_directory_uri().'/assets/js/scripts.js', array( 'jquery' ), false, false );
+	wp_enqueue_script( 'sticky', get_template_directory_uri().'/dist/sticky/jquery.sticky.js', array('jquery'), false, false );
 
 	wp_localize_script( 'davidcalmel-script', 'iOt', array(
 		'expand'   => __( 'expand child menu', 'twentysixteen' ),
