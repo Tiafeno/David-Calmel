@@ -24,7 +24,7 @@
 
 <body <?php body_class(); ?>>
   <header class="header-nav-top">
-    <div class="uk-container uk-container-small">
+    <div class="uk-container uk-container-small animated  slideInDown">
       <div class="uk-text-left" uk-grid>
           <div class="uk-width-1-4">
               <div class="uk-card uk-card-default uk-card-body navbar-card-slogan">
@@ -35,7 +35,7 @@
       </div>
     </div>
     <header class="header-nav-down">
-      <div class="uk-container uk-container-small">
+      <div class="uk-container uk-container-small animated  slideInLeft">
         <div class="uk-text-left" uk-grid>
             <div class="uk-width-3-4 uk-animation-toggle">
                 <div class="uk-card uk-card-default uk-card-body navbar-card-slogan uk-animation-slide-top-small">
@@ -53,7 +53,7 @@
         </div>
 
       </div>
-      <div class="uk-container uk-container-small">
+      <div class="uk-container uk-container-small animated  slideInUp">
         <nav class="uk-navbar-transparent uk-navbar" uk-navbar>
 
           <div class="uk-navbar-left">
@@ -67,13 +67,6 @@
           </div>
 
           <div class="uk-navbar-right">
-            <!-- <ul class="uk-navbar-nav uk-visible@m">
-              <li><a href="#">Parent</a></li>
-              <li class="uk-active"><a href="#">Active</a></li>
-              <li><a href="#">Item</a></li>
-              <li><a href="#">Item</a></li>
-              <li><a href="#">Item</a></li>
-            </ul> -->
             <?php if ( has_nav_menu( 'primary' ) ) : ?>
 								<?php
 									wp_nav_menu( array(
@@ -106,16 +99,6 @@
               									 ) );
               								?>
               						<?php endif; ?> <!-- .offcanvas main-navigation -->
-
-                          <!--<div class="uk-card-body">
-                            <ul class="uk-nav uk-nav-default">
-                              <li><a href="#">Parent</a></li>
-                              <li class="uk-active"><a href="#">Active</a></li>
-                              <li><a href="#">Item</a></li>
-                              <li><a href="#">Item</a></li>
-                              <li><a href="#">Item</a></li>
-                            </ul>
-                          </div> -->
                         </div>
                     </div>
                 </div>

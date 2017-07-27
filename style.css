@@ -115,9 +115,9 @@ header.header-category-nav h2{
   text-transform: uppercase;
 }
 
-header.header-category-nav li.category-menu{
+header.header-category-nav ul.category-menu li{
   float: left;
-  width: 150px;
+  width: 145px;
 }
 header.header-category-nav ul.uk-navbar-nav{
   width: 450px;

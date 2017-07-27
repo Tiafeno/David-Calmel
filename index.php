@@ -3,16 +3,11 @@
 * The main template file
 *
 *
-* @package WordPress
+* @package Tiafeno
 * @subpackage David_Calmel
 * @since David Calmel 1.0
 */
 get_header();
-$e = null;
-if ( is_home() ) :
-  $e = 'sssssssssssssssssssssss';
-endif;
-
 ?>
 
 <div id="primary">

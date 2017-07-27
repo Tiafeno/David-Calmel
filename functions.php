@@ -31,8 +31,8 @@
 	 ]));
  }
 
-	if (!defined('POSTNAME')){
-		define('POSTNAME', serialize([
+	if (!defined('POST')){
+		define('POST', serialize([
       [ 'type' => '360deg', 'name' => '360°'],
       [ 'type' => 'digital', 'name' => 'Digital'],
       [ 'type' => 'marketing', 'name' => 'Marketing'],
@@ -62,9 +62,10 @@
 		'chat',
 	) );
 
-	// This theme uses wp_nav_menu() in two locations.
+	// This theme uses wp_nav_menu() in 3 locations.
  register_nav_menus( array(
    'primary' => __( 'Primary Menu', 'twentysixteen' ),
+	 'secondary' => 'Secondary Menu',
    'social'  => __( 'Social Links Menu', 'twentysixteen' ),
  ) );
 
@@ -104,6 +105,7 @@ function davidcalmel_scripts() {
 
 	// Add Genericons, used in the main stylesheet.
 	wp_enqueue_style( 'uikit', get_template_directory_uri() . '/dist/css/uikit.css', array() );
+	wp_enqueue_style( 'animation', get_template_directory_uri() . '/assets/css/animate.css', array() );
 
 	// Theme stylesheet.
 	wp_enqueue_style( 'davidcalmel_style', get_stylesheet_uri() );
@@ -120,6 +122,10 @@ function davidcalmel_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'davidcalmel_scripts' );
+
+function davidcalmel_scripts_home(){
+	return;
+}
 
 
 /**

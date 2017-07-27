@@ -11,7 +11,7 @@
 
  <div id="primary"  class="uk-container  uk-container-large uk-padding-remove-left uk-padding-remove-right">
    <?php if ( have_posts() ) : ?>
-     <header class="header-category-nav">
+     <header class="header-category-nav animated slideInDown">
        <div class="uk-container uk-container-small uk-navbar">
          <div class="uk-navbar-left">
            <ul class="uk-navbar-nav category-title">
@@ -20,27 +20,16 @@
          </div>
 
          <div class="uk-navbar-right">
-           <ul class="uk-navbar-nav uk-visible@m">
-         <?php
-         $parent_terms = get_terms('category', array('name' => 'portfolio', 'hide_empty' => false ) );
-         foreach ( $parent_terms as $pterm ) {
-           //Get the Child terms
-           $terms = get_terms( 'category', array( 'parent' => $pterm->term_id, 'orderby' => 'slug', 'hide_empty' => false ) );
-           if (!$terms || is_wp_error( $terms ))
-               $terms = array();
-
-           foreach ( $terms as $term ) {
-             $ID = get_cat_ID( $term->name );
-             if (strtolower( get_Title() ) === $term->name) {
-               continue;
-             }
-         ?>
-             <li class="category-menu"><a href="<?= esc_url( get_category_link( $ID ) ) ?>"><?= $term->name ?></a></li>
-         <?php
-           }
-         }
-         ?>
-           </ul>
+         <?php if ( has_nav_menu( 'secondary' ) ) : ?>
+								<?php
+									wp_nav_menu( array(
+                    'menu_class' => 'uk-navbar-nav uk-visible@m category-menu',
+                    'container_class' => '',
+										'theme_location' => 'secondary',
+                    'container_class' => 'container_class_menu'
+									 ) );
+								?>
+						<?php endif; ?> <!-- .main-navigation -->
          </div>
 
        </div>

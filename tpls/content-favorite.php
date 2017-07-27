@@ -2,7 +2,7 @@
 $FavoriteContents = [];
 $Brands = [];
 $POSTTYPE = (array)unserialize(POSTTYPE);
-$POSTNAME = (array)unserialize(POSTNAME);
+$POST = (array)unserialize(POST);
 while (list(, $type) = each( $POSTTYPE )){
   $args = [
     'post_type' => $type
@@ -14,12 +14,14 @@ while (list(, $type) = each( $POSTTYPE )){
       if ( (int)get_post_meta($Contents->post->ID, 'favorite_works', true) === 1 ){
         $FavoriteContents[$type][] = [
           'title' => get_the_title( $Contents->post->ID ),
-          'content' => $Contents->post->post_content
+          'content' => $Contents->post->post_content,
+          'thumbnail_url' => get_the_post_thumbnail_url( $Contents->post->ID, 'full' ),
+          'link' => get_permalink( $Contents->post->ID )
         ];
       }
     endwhile;
   }
-  foreach ($POSTNAME as $key => $value) {
+  foreach ($POST as $key => $value) {
     # code...
     if ($type === $value[ 'type' ]){
       $Brands[] = [
@@ -32,6 +34,10 @@ while (list(, $type) = each( $POSTTYPE )){
 }
 //print_r($FavoriteContents);
 ?> 
+<script> 
+  var PostType = <?= json_encode($POSTTYPE, JSON_PRETTY_PRINT); ?>;
+  var FavoriteContents = <?= json_encode($FavoriteContents, JSON_PRETTY_PRINT); ?>; 
+</script>
 
  <div class="uk-child-width-1-3@m uk-grid-match content-main" uk-grid>  
 
@@ -43,7 +49,7 @@ foreach($Brands as $key => $brand):
     <div class="uk-card-body">
       <h3 class="uk-card-title">
         <a href="#">
-          <?= strtoupper( $brand[ 'name' ] ) ?>
+         BRAND <?= strtoupper( $brand[ 'name' ] ) ?>
         </a>
       </h3>
     </div>

@@ -59,18 +59,11 @@
 
           <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="#"><h1 class="navbar-title"><!-- PORTFOLIO --><?php echo get_Title(); ?></h1></a></li>
+                <li class="uk-active"><a href="#"><h1 class="navbar-title"><!-- PORTFOLIO --><?php echo single_cat_title() ; ?></h1></a></li>
             </ul>
           </div>
 
           <div class="uk-navbar-right">
-            <!-- <ul class="uk-navbar-nav uk-visible@m">
-              <li><a href="#">Parent</a></li>
-              <li class="uk-active"><a href="#">Active</a></li>
-              <li><a href="#">Item</a></li>
-              <li><a href="#">Item</a></li>
-              <li><a href="#">Item</a></li>
-            </ul> -->
             <?php if ( has_nav_menu( 'primary' ) ) : ?>
 								<?php
 									wp_nav_menu( array(
@@ -103,16 +96,6 @@
               									 ) );
               								?>
               						<?php endif; ?> <!-- .offcanvas main-navigation -->
-
-                          <!--<div class="uk-card-body">
-                            <ul class="uk-nav uk-nav-default">
-                              <li><a href="#">Parent</a></li>
-                              <li class="uk-active"><a href="#">Active</a></li>
-                              <li><a href="#">Item</a></li>
-                              <li><a href="#">Item</a></li>
-                              <li><a href="#">Item</a></li>
-                            </ul>
-                          </div> -->
                         </div>
                     </div>
                 </div>
