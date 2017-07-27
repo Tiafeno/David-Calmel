@@ -2,9 +2,9 @@
 /**
  * Template Name: Small Width Page
  *
- * @package WordPress
- * @subpackage Twenty_Fourteen
- * @since Twenty Fourteen 1.0
+ * @package Tiafeno
+ * @subpackage David-Calmel
+ * @since David Calmel 1.0
  */
 
  get_header();
