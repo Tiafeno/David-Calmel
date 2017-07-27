@@ -54,7 +54,7 @@
         * called content-___.php (where ___ is the Post Format name) and that will be used instead.
         */
 
-       get_template_part( 'tpls/content','home');
+       get_template_part( 'tpls/content','favorite');
 
      endwhile;
    ?> </div> <?php

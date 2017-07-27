@@ -24,14 +24,26 @@
  * @since David Calmel 1.0
  */
 
- if (!defined('BRAND_PAGE_ID')){
-	 define('BRAND_PAGE_ID', null);
+ if (!defined('POSTTYPE')){
+	 define('POSTTYPE', serialize([
+      '360deg', 'digital', 'marketing', 'advertising',
+      'edition', 'packaging', 'branding', 'event', 'store_booth'
+	 ]));
  }
 
- function getBrandPage(){
-	 if (is_null(BRAND_PAGE_ID)) exit('Page brand id not defined');
-	 return BRAND_PAGE_ID;
- }
+	if (!defined('POSTNAME')){
+		define('POSTNAME', serialize([
+      [ 'type' => '360deg', 'name' => '360°'],
+      [ 'type' => 'digital', 'name' => 'Digital'],
+      [ 'type' => 'marketing', 'name' => 'Marketing'],
+      [ 'type' => 'advertising', 'name' => 'Advertising'],
+      [ 'type' => 'edition', 'name' => 'Edition'],
+      [ 'type' => 'packaging', 'name' => 'Packaging'],
+      [ 'type' => 'branding', 'name' => 'Branding'],
+      [ 'type' => 'event', 'name' => 'Event'],
+      [ 'type' => 'store_booth', 'name' => 'Store & Booth']
+		]));
+	}
 
  /*
 	 * Enable support for Post Formats.
