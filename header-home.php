@@ -24,20 +24,22 @@
 
 <body <?php body_class(); ?>>
   <header class="header-nav-top">
-    <div class="uk-container uk-container-small animated  slideInDown">
-      <div class="uk-text-left" uk-grid>
-          <div class="uk-width-1-4">
-              <div class="uk-card uk-card-default uk-card-body navbar-card-slogan">
-                <!--<p>DAVID ALEXANDRE CALMEL</p> -->
-                <p class="blogingo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">DAVID ALEXANDRE CALMEL <?php //bloginfo( 'name' ); ?></a></p>
-              </div>
-          </div>
+    <header class="container-nav-top">
+      <div class="uk-container uk-container-small animated  slideInDown">
+        <div class="uk-text-left" uk-grid>
+            <div class="uk-width-1-4">
+                <div class="uk-card uk-card-default uk-card-body navbar-card-slogan">
+                  <!--<p>DAVID ALEXANDRE CALMEL</p> -->
+                  <p class="blogingo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">DAVID ALEXANDRE CALMEL <?php //bloginfo( 'name' ); ?></a></p>
+                </div>
+            </div>
+        </div>
       </div>
-    </div>
+    </header>
     <header class="header-nav-down sticky-menu">
-      <div class="uk-container uk-container-small animated  slideInLeft">
+      <div class="uk-container uk-container-small animated  slideInLeft HeaderSlogan">
         <div class="uk-text-left onStickyStartHide" uk-grid>
-            <div class="uk-width-3-4 uk-animation-toggle">
+            <div class="uk-width-3-4 ">
                 <div class="uk-card uk-card-default uk-card-body navbar-card-slogan uk-animation-slide-top-small">
                   <?php
                   $description = get_bloginfo( 'description', 'display' );

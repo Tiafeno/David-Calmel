@@ -11,7 +11,7 @@
 
  <div id="primary"  class="uk-container  uk-container-large uk-padding-remove-left uk-padding-remove-right">
    <?php if ( have_posts() ) : ?>
-     <header class="header-category-nav animated slideInDown">
+     <header class="header-category-nav animated slideInUp">
        <div class="uk-container uk-container-small uk-navbar">
          <div class="uk-navbar-left">
            <ul class="uk-navbar-nav category-title">
@@ -34,7 +34,7 @@
 
        </div>
      </header>
-     <div id="primary-content" class="uk-container  uk-container-small">
+     <div id="primary-content" class="uk-container  uk-container-small animated  slideInUp">
      <?php
      while ( have_posts() ) : the_post();
      /*
