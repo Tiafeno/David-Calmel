@@ -34,7 +34,7 @@ get_header('home'); ?>
               endwhile; ?>
                     <li><a href="<?= esc_url( home_url( '/' ) ) ?>">Favorite Works</a></li>
        <?php endif; ?>
-          </ul> <!-- .secondary-navigation -->
+            </ul> <!-- .secondary-navigation -->
          </div>
 
        </div>

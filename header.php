@@ -3,7 +3,7 @@
  * The main template file
  *
  *
- * @package WordPress
+ * @package Tiafeno
  * @subpackage David_Calmel
  * @since David Calmel 1.0
  */

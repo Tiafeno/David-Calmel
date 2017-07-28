@@ -3,7 +3,7 @@
  * The main template file
  *
  *
- * @package WordPress
+ * @package Tiafeno
  * @subpackage David_Calmel
  * @since David Calmel 1.0
  */
@@ -34,9 +34,9 @@
           </div>
       </div>
     </div>
-    <header class="header-nav-down">
+    <header class="header-nav-down sticky-menu">
       <div class="uk-container uk-container-small animated  slideInLeft">
-        <div class="uk-text-left" uk-grid>
+        <div class="uk-text-left onStickyStartHide" uk-grid>
             <div class="uk-width-3-4 uk-animation-toggle">
                 <div class="uk-card uk-card-default uk-card-body navbar-card-slogan uk-animation-slide-top-small">
                   <?php
@@ -53,7 +53,7 @@
         </div>
 
       </div>
-      <div class="uk-container uk-container-small animated  slideInUp">
+      <div class="uk-container uk-container-small animated  slideInRight">
         <nav class="uk-navbar-transparent uk-navbar" uk-navbar>
 
           <div class="uk-navbar-left">

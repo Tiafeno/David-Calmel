@@ -129,7 +129,7 @@ function davidcalmel_scripts_home(){
 
 
 /**
- * Add Class (uk-active) for active menu item.
+ * Add Class (uk-active) for active and current menu item.
  *
  * @since David Calmel 1.0
  */

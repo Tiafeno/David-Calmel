@@ -22,7 +22,6 @@ while (list(, $type) = each( $POSTTYPE )){
     endwhile;
   }
   foreach ($POST as $key => $value) {
-    # code...
     if ($type === $value[ 'type' ]){
       $Brands[] = [
         'type' => $type,
