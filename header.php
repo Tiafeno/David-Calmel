@@ -60,7 +60,11 @@
 
           <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="#"><h1 class="navbar-title"><!-- PORTFOLIO --><?php echo single_cat_title() ; ?></h1></a></li>
+                <li class="uk-active">
+                  <a href="#">
+                    <h1 class="navbar-title"><?= the_title() ?></h1>
+                  </a>
+                </li>
             </ul>
           </div>
 
