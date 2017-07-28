@@ -119,17 +119,22 @@ header.header-category-nav ul.category-menu li{
   float: left;
   width: 145px;
 }
-header.header-category-nav ul.uk-navbar-nav{
+/* header.header-category-nav ul.uk-navbar-nav{
   width: 450px;
-}
+} */
 header.header-category-nav ul li > a{
   color: white !important;
 }
 
 header.header-category-nav  .category-title{
-  width: 560px !important;
+  width: 500px;
 }
 
+@media(max-width: 640px){
+  header.header-category-nav  .category-title{
+    width: inherit;
+  }
+}
 /* Content */
 #main-content{
   padding-top: 10px;

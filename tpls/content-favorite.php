@@ -44,7 +44,7 @@ while (list(, $type) = each( $POSTTYPE )){
 foreach($Brands as $key => $brand):
 ?>
      
-  <div class="uk-card uk-card-secondary uk-card-hover">
+  <div class="uk-card uk-card-primary">
     <div class="uk-card-body">
       <h3 class="uk-card-title">
         <a href="#">
