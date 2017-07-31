@@ -83,7 +83,7 @@ header nav .uk-navbar-right ul li{
 }
 
 .uk-navbar-right ul.uk-navbar-nav{
-  display: flow-root;
+  display: block;
   width: 341px;
 }
 

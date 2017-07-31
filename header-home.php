@@ -58,7 +58,7 @@
         </div>
 
       </div>
-      <div class="uk-container uk-container-small animated  slideInRight">
+      <div class="uk-container uk-container-small animated  slideInRight HeaderMenu">
         <nav class="uk-navbar-transparent uk-navbar" uk-navbar>
 
           <div class="uk-navbar-left">
