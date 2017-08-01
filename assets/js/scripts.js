@@ -16,8 +16,6 @@
     var StickyWrapperHeight = null;
     var HeaderSloganHeight = null;
     var HeaderMenuHeight = null;
-    $( ".sticky-menu" ).sticky({ topSpacing: 0, zIndex: 999 });
-
     /*
     ** Calcule responsive content on resize window and callback 
     ** @return : void
@@ -34,43 +32,56 @@
     ** First execute plugin sticky menu, Start, Update and End event Bind
     ** @return : void
     */
+    var windowHeight = $( window ).height();
+    var bodyHeight = $( 'body' ).height();
+    var isIn = false;
+    calcResponsive(function() {
+      var wHeight = parseFloat( windowHeight );
+      var bHeight = parseFloat( bodyHeight );
+      var newBodyHeight = bHeight - parseFloat(StickyWrapperHeight);
+      if (newBodyHeight <= wHeight){
+        isIn = true;
+      }
+    });
 
-    onSticky(function(){
-      HeaderSloganHeight = $( '.HeaderSlogan' ).css( 'height' );
-      /*
-      ** Start Sticky menu 
-      **
-      */
-      $( ".sticky-menu" )
-      .on( 'sticky-update', function() { console.log( "Update" ); })
-      .on( 'sticky-start', function() {
-        calcResponsive(function() {
-          if (MainContentHeight >= _ConstContentHeight) {
-            $( ".onStickyStartHide" ).hide('fadein', function() {
-              var HeightStickyStart = parseFloat( StickyWrapperHeight ) - parseFloat( HeaderSloganHeight );
-              $( '#sticky-wrapper' ).animate({
-                height: HeightStickyStart + 'px'
-              }, 400, function() { });
-            });
-          }
-        });
-      })
-      .on( 'sticky-end', function() {
-        $( ".onStickyStartHide" ).show("fast", function() {
+    if (!isIn) {
+      $( ".sticky-menu" ).sticky({ topSpacing: 0, zIndex: 999 });
+      onSticky(function(){
+        HeaderSloganHeight = $( '.HeaderSlogan' ).css( 'height' );
+        /*
+        ** Start Sticky menu 
+        **
+        */
+        $( ".sticky-menu" )
+        .on( 'sticky-update', function() { console.log( "Update" ); })
+        .on( 'sticky-start', function() {
           calcResponsive(function() {
-            HeaderSloganHeight = $( '.HeaderSlogan' ).css( 'height' );
-            $( '#sticky-wrapper' ).animate({
-              height : StickyWrapperHeight
-            }, 200, function(){
-              // End animation
+            if (MainContentHeight >= _ConstContentHeight) {
+              $( ".onStickyStartHide" ).hide('fadein', function() {
+                var HeightStickyStart = parseFloat( StickyWrapperHeight ) - parseFloat( HeaderSloganHeight );
+                $( '#sticky-wrapper' ).animate({
+                  height: HeightStickyStart + 'px'
+                }, 400, function() { });
+              });
+            }
+          });
+        })
+        .on( 'sticky-end', function() {
+          $( ".onStickyStartHide" ).show("fast", function() {
+            calcResponsive(function() {
+              HeaderSloganHeight = $( '.HeaderSlogan' ).css( 'height' );
+              $( '#sticky-wrapper' ).animate({
+                height : StickyWrapperHeight
+              }, 200, function(){
+                // End animation
 
+              });
             });
           });
         });
+        /**--------- End Sticky --------------- */
       });
-      /**--------- End Sticky --------------- */
-    });
-
+    }
     /*
     ** Calcul responsive content and call the callback function in 200ms
     ** @return : void

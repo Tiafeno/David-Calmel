@@ -12,27 +12,26 @@ Text Domain: davidcalmel
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
-@keyframes animTitle {
-  0% {font-size: 60px; }
-  100% {font-size: 80px ; }
-}
 
 @media(max-width: 640px){
   .navbar-title{
-    font-size: 60px
+    font-size: 40px;
+    top: 34px;
   }
 }
 
 @media(min-width: 640px){
   .navbar-title{
-    font-size: 80px;
-    animation-name: animTitle;
-    animation-duration: 1s;
+    font-size: 60px;
+    top: 25px;
   }
 }
 
 .blogingo a{
   color: aliceblue;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 2px;
 }
 
 .navbar-card-slogan {
@@ -41,26 +40,35 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .header-nav-top .navbar-card-slogan p{
   font-weight: bold;
 }
-.header-nav-down{
+.header-nav-down, .HeaderMenu{
   background: #2D2E83;
-  border-top: 10px solid #fff;
 }
 
-.header-nav-down .uk-container .uk-card-default,
-.header-nav-top .uk-container .uk-card-default{
+.header-nav-down{
+  border-top: 3px solid #fff;
+}
+
+.uk-container .uk-card-default{
   background: none;
   box-shadow: none;
   padding-left: 21px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.header-nav-down .navbar-card-slogan span{
+  font-size: 10px;
+  letter-spacing: 3px;
+  word-break: break-word;
+  line-height: 0;
 }
 
 .header-nav-top .container-nav-top{
   background: #00A6DE;
 }
-.header-nav-down h1.navbar-title{
+.HeaderMenu h1.navbar-title{
   font-weight: bolder;
   color: white;
   position: relative;
-  top: 18px;
   text-transform: uppercase;
 }
 
@@ -74,6 +82,11 @@ header nav .uk-navbar-right ul li{
   color: #00A6DE;
   font-weight: 500;
 }
+
+.uk-navbar-nav > li > a{
+  font-size : 0.685rem !important;
+}
+
 .uk-navbar-right .uk-navbar-nav > li > a:hover, .uk-active{
   color: #1963ad;
 }
@@ -110,8 +123,8 @@ header.header-category-nav{
 header.header-category-nav h2{
   color: white;
   font-weight: bold;
-  font-size: 50px;
-  padding-top: 15px;
+  font-size: 36px;
+  padding-top: 20px;
   text-transform: uppercase;
 }
 
@@ -137,9 +150,39 @@ header.header-category-nav  .category-title{
 }
 /* Content */
 #main-content{
-  padding-top: 10px;
+  padding-top: 3px;
 }
 
 #primary-content .content-main{
   margin-top: 15px;
+}
+
+.is-sticky .sticky-menu {
+  background: #2D2E83;
+}
+
+.fw-containers{
+  display: inline-block;
+  width: 100%;
+  margin-top: 4px;
+}
+.fw-containers .fw-container{
+  display: inline-block;
+  float: left;
+}
+
+.fw-background-container{
+  width: 300px;
+  height: 300px;
+  float: left;
+  background-size: contain;
+}
+.fw-background-container .fw-container {
+  display: inline-block;
+  float: left;
+}
+
+.fw-container .fw-background-container a{
+  color : #fff;
+  font-weight: bold;
 }

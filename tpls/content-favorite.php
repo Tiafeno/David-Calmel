@@ -38,22 +38,22 @@ while (list(, $type) = each( $POSTTYPE )){
   var FavoriteContents = <?= json_encode($FavoriteContents, JSON_PRETTY_PRINT); ?>; 
 </script>
 
- <div class="uk-child-width-1-3@m uk-grid-match content-main" uk-grid>  
-
+  <div class="fw-containers">
 <?php
+$thumb = wp_get_attachment_image_src( 1816 , 'full');
 foreach($Brands as $key => $brand):
 ?>
-     
-  <div class="uk-card uk-card-primary">
-    <div class="uk-card-body">
-      <h3 class="uk-card-title">
-        <a href="#">
-         BRAND <?= strtoupper( $brand[ 'name' ] ) ?>
-        </a>
-      </h3>
-    </div>
-  </div>
+    <div class="fw-container uk-inline">
+        <div class="fw-background-container"  style="background-image: url(<?= $thumb[0] ?>);">
+          <div class="uk-label  uk-label-success uk-position-bottom-right ">
+            <a href="#">
+              <?= strtoupper( $brand[ 'name' ] ) ?>
+            </a>
 
+          </div>
+        </div>
+
+    </div>
     
 <?php  endforeach;
 ?> </div>  

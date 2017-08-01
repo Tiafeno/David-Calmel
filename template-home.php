@@ -13,7 +13,7 @@
    <?php if ( have_posts() ) : ?>
      <header class="header-category-nav animated slideInUp">
        <div class="uk-container uk-container-small uk-navbar">
-         <div class="uk-navbar-left">
+         <div class="uk-navbar-left animated  slideInLeft">
            <ul class="uk-navbar-nav category-title">
                <li class="uk-active"><a href="#"><h2><?= get_Title() ?></h2></a></li>
            </ul>
@@ -34,7 +34,7 @@
 
        </div>
      </header>
-     <div id="primary-content" class="uk-container  uk-container-small animated  slideInUp">
+     <div id="primary-content" class="uk-container  uk-container-large animated  slideInUp">
      <?php
      while ( have_posts() ) : the_post();
      /*
