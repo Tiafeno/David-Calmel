@@ -89,10 +89,15 @@ get_header('home');
       $args = [ 'post_type' => $ContentType, 'orderby' => 'menu_order'];
       $ContentQuery = new WP_Query( $args );
       if ($ContentQuery->have_posts()):
-        while ( $ContentQuery->have_posts() ) : $ContentQuery->the_post();  ?>
+        while ( $ContentQuery->have_posts() ) : $ContentQuery->the_post();
+          $url =  get_the_post_thumbnail_url($ContentQuery->post->ID, '300x300');
+          if (empty($url) || $url === ''){
+            $url = get_template_directory_uri().'/images/cover.jpg';
+          }  
+    ?>
 
           <div class="fw-container uk-inline">
-            <div class="fw-background-container"  style="background-image: url(<?= $thumb[0] ?>);">
+            <div class="fw-background-container"  style="background-image: url(<?= $url ?>);">
               <div class="uk-label  uk-label-success uk-position-bottom-right ">
                 <a href="<?= get_permalink() ?>">
                   <?= strtoupper( $ContentQuery->post->post_title ) ?>

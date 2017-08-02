@@ -40,11 +40,12 @@ while (list(, $type) = each( $POSTTYPE )){
 
   <div class="fw-containers">
 <?php
-$thumb = wp_get_attachment_image_src( 1816 , 'full');
+
+$url = get_template_directory_uri().'/images/cover.jpg';
 foreach($Brands as $key => $brand):
 ?>
     <div class="fw-container uk-inline">
-        <div class="fw-background-container"  style="background-image: url(<?= $thumb[0] ?>);">
+        <div class="fw-background-container"  style="background-image: url(<?= $url ?>);">
           <div class="uk-label  uk-label-success uk-position-bottom-right ">
             <a href="#">
               <?= strtoupper( $brand[ 'name' ] ) ?>
