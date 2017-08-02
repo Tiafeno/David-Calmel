@@ -76,7 +76,10 @@
       /*
       ** Send from callback function
       */
-      callback( newWidth );
+      if (newWidth != Infinity){
+        callback( newWidth );
+      } else calcBoxsRangeWidth( callback );
+        
     }
 
     $( ".sticky-menu" ).sticky({ topSpacing: 0, zIndex: 999 });

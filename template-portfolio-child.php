@@ -9,39 +9,81 @@
 
 global $post;
 $args = [ 'post_type' => 'page', 'post_parent' => $post->post_parent, 'orderby' => 'menu_order'];
-$selfPostID = $post->ID;
+$selfPost = $post;
 $pChild = new WP_Query( $args );
-get_header('home'); ?>
+
+$HTMLlists = '';
+if ($pChild->have_posts()):
+   while ( $pChild->have_posts() ) : $pChild->the_post();
+    if ( (int)$selfPost->ID != (int)$pChild->post->ID):
+      $HTMLlists .= '<li><a href="' . get_permalink( $pChild->post->ID ) . '">'. esc_html($pChild->post->post_title) .'</a></li>';
+    endif;
+   endwhile;
+   $HTMLlists .= '<li><a href="'. esc_url( home_url( '/' ) ) .'">FAVORITE WORKS</a></li>';
+endif;
+get_header('home'); 
+?>
+
+<style type="text/css">
+  ul.category-nav-offcanvas > li {
+    float: left;
+    list-style: none;
+    padding-left: 14px;
+  }
+  ul.category-nav-offcanvas > li > a{
+    height: inherit;
+    justify-content: space-between;
+    color: #00A6DE;
+    font-weight: 500;
+    font-size: 0.685rem !important;
+  }
+  .header-offcanvas-title {
+    padding-left: 43px;
+  }
+  .header-category-nav-offcanvas .section-offcanvas{
+    -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+    transition: transform 2s;
+  }
+
+</style>
 
  <div id="primary"  class="uk-container  uk-container-large uk-padding-remove-left uk-padding-remove-right">
 <?php if ( have_posts() ) : ?>
-      <header class="header-category-nav">
+
+      <header class="header-category-nav-offcanvas animated slideInUp uk-hidden@m">
+        <div class="uk-section uk-section-secondary section-offcanvas">
+          <div class="uk-container uk-container-small">
+               <h2 class="header-offcanvas-title"><?= $selfPost->post_title ?></h2>
+          </div>
+          <div class="uk-container uk-container-small uk-text-center">
+            <ul class="category-nav-offcanvas" style="padding-right: 29px;">
+        <?php if ($pChild->have_posts()): print $HTMLlists; endif; ?>
+            </ul> <!-- .secondary-navigation -->
+          </div>
+        </div>
+      </header>
+
+      <header class="header-category-nav animated slideInUp uk-visible@m">
        <div class="uk-container uk-container-small uk-navbar">
          <div class="uk-navbar-left">
            <ul class="uk-navbar-nav category-title">
-               <li class="uk-active"><a href="#"><h2><?= get_Title() ?></h2></a></li>
+               <li class="uk-active"><a href="#"><h2><?= $selfPost->post_title ?></h2></a></li>
            </ul>
          </div>
 
          <div class="uk-navbar-right">
             <ul class="uk-navbar-nav uk-visible@m category-menu">
-      <?php if ($pChild->have_posts()):
-              while ( $pChild->have_posts() ) : $pChild->the_post();
-                if ( (int)$selfPostID != (int)$pChild->post->ID): ?>
-                    <li><a href="<?= get_permalink( $pChild->post->ID ) ?>"><?= esc_html($pChild->post->post_title) ?></a></li>
-         <?php  endif;
-              endwhile; ?>
-                    <li><a href="<?= esc_url( home_url( '/' ) ) ?>">Favorite Works</a></li>
-      <?php endif; ?>
+        <?php if ($pChild->have_posts()): print $HTMLlists; endif; ?>
             </ul> <!-- .secondary-navigation -->
          </div>
 
        </div>
      </header>
+
      <div id="primary-content" class="uk-container  uk-container-small">
       <div class="uk-child-width-1-3@m uk-grid-match content-main" uk-grid>  
 <?php
-    $ContentType = get_post_meta( $selfPostID, 'content_type', true );
+    $ContentType = get_post_meta( $selfPost->ID, 'content_type', true );
     $args = [ 'post_type' => $ContentType, 'orderby' => 'menu_order'];
     $ContentQuery = new WP_Query( $args );
     if ($ContentQuery->have_posts()):
