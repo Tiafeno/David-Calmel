@@ -87,8 +87,8 @@
 
       </div>
     </header>
-    <header class="sticky-menu">
-      <div class="uk-container uk-container-large HeaderMenu">
+    <header class="sticky-menu HeaderMenu">
+      <div class="uk-container uk-container-large">
         <nav class="uk-navbar-transparent uk-navbar uk-container uk-container-small animated  slideInRight" uk-navbar>
           <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
