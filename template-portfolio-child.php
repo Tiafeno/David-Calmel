@@ -25,6 +25,9 @@ get_header('home');
 ?>
 
 <style type="text/css">
+  ul.category-nav-offcanvas {
+    padding-right: 29px;
+  }
   ul.category-nav-offcanvas > li {
     float: left;
     list-style: none;
@@ -56,7 +59,7 @@ get_header('home');
                <h2 class="header-offcanvas-title"><?= $selfPost->post_title ?></h2>
           </div>
           <div class="uk-container uk-container-small uk-text-center">
-            <ul class="category-nav-offcanvas" style="padding-right: 29px;">
+            <ul class="category-nav-offcanvas">
         <?php if ($pChild->have_posts()): print $HTMLlists; endif; ?>
             </ul> <!-- .secondary-navigation -->
           </div>
@@ -81,25 +84,25 @@ get_header('home');
      </header>
 
      <div id="primary-content" class="uk-container  uk-container-small">
-      <div class="uk-child-width-1-3@m uk-grid-match content-main" uk-grid>  
-<?php
-    $ContentType = get_post_meta( $selfPost->ID, 'content_type', true );
-    $args = [ 'post_type' => $ContentType, 'orderby' => 'menu_order'];
-    $ContentQuery = new WP_Query( $args );
-    if ($ContentQuery->have_posts()):
-      while ( $ContentQuery->have_posts() ) : $ContentQuery->the_post();  ?>
-        <div class="uk-card uk-card-primary">
-          <div class="uk-card-body">
-            <h3 class="uk-card-title">
-              <a href="#">
-                <?= $ContentQuery->post->post_title ?>
-              </a>
-            </h3>
-          </div>
-        </div>
+      <div class="fw-containers">  
+<?php $ContentType = get_post_meta( $selfPost->ID, 'content_type', true );
+      $args = [ 'post_type' => $ContentType, 'orderby' => 'menu_order'];
+      $ContentQuery = new WP_Query( $args );
+      if ($ContentQuery->have_posts()):
+        while ( $ContentQuery->have_posts() ) : $ContentQuery->the_post();  ?>
 
-<?php endwhile;
-    endif;    ?> 
+          <div class="fw-container uk-inline">
+            <div class="fw-background-container"  style="background-image: url(<?= $thumb[0] ?>);">
+              <div class="uk-label  uk-label-success uk-position-bottom-right ">
+                <a href="<?= get_permalink() ?>">
+                  <?= strtoupper( $ContentQuery->post->post_title ) ?>
+                </a>
+              </div>
+            </div>
+          </div>
+
+  <?php endwhile;
+      endif;    ?> 
       </div> 
     </div> 
 <?php

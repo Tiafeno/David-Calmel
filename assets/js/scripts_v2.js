@@ -82,6 +82,9 @@
         
     }
 
+    /*
+    ** Start Sticky menu 
+    */
     $( ".sticky-menu" ).sticky({ topSpacing: 0, zIndex: 999 });
     $( ".sticky-menu" )
     .on( 'sticky-update', function() { console.log( "Update" ); })

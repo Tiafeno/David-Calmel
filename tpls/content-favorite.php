@@ -52,7 +52,6 @@ foreach($Brands as $key => $brand):
 
           </div>
         </div>
-
     </div>
     
 <?php  endforeach;

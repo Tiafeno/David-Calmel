@@ -11,7 +11,7 @@
 
  <div id="primary"  class="uk-container  uk-container-large uk-padding-remove-left uk-padding-remove-right">
    <?php if ( have_posts() ) : ?>
-     <div id="primary-content" class="uk-container  uk-container-small">
+     <div id="primary-content" class="uk-container  uk-container-large">
      <?php
      while ( have_posts() ) : the_post();
      /*
