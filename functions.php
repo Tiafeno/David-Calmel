@@ -24,6 +24,8 @@
  * @since David Calmel 1.0
  */
 
+ include_once(get_template_directory().'/inc/function-class-walker.php');
+
  if (!defined('POSTTYPE')){
 	 define('POSTTYPE', serialize([
       '360deg', 'digital', 'marketing', 'advertising',

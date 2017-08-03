@@ -1,19 +1,7 @@
 <?php
 
 global $post;
-$args = [ 'post_type' => 'page', 'post_parent' => $post->post_parent, 'orderby' => 'menu_order'];
 $currentPost = $post;
-$pChild = new WP_Query( $args );
-
-$HTMLlists = '';
-if ($pChild->have_posts()):
-   while ( $pChild->have_posts() ) : $pChild->the_post();
-    if ( (int)$currentPost->ID != (int)$pChild->post->ID):
-      $HTMLlists .= '<li><a href="' . get_permalink( $pChild->post->ID ) . '">'. esc_html($pChild->post->post_title) .'</a></li>';
-    endif;
-   endwhile;
-   $HTMLlists .= '<li><a href="'. esc_url( home_url( '/' ) ) .'">FAVORITE WORKS</a></li>';
-endif;
 
 ?>
 
@@ -23,9 +11,16 @@ endif;
           <h2 class="header-offcanvas-title"><?= $currentPost->post_title ?></h2>
     </div>
     <div class="uk-container uk-container-small uk-text-center">
-      <ul class="category-nav-offcanvas">
-  <?php if ($pChild->have_posts()): print $HTMLlists; endif; ?>
-      </ul> <!-- .secondary-navigation -->
+        <?php
+          wp_nav_menu( array(
+            'menu_class' => 'category-nav-offcanvas',
+            'container_class' => '',
+            'theme_location' => 'secondary',
+            'container_class' => 'container_class_menu',
+            'post_title' => $currentPost->post_title,
+            'walker' => new Secondary_Walker()
+            ) );
+        ?><!-- .secondary-navigation -->
     </div>
   </div>
 </header>
@@ -39,9 +34,16 @@ endif;
     </div>
 
     <div class="uk-navbar-right">
-      <ul class="uk-navbar-nav uk-visible@m category-menu">
-  <?php if ($pChild->have_posts()): print $HTMLlists; endif; ?>
-      </ul> <!-- .secondary-navigation -->
+        <?php
+          wp_nav_menu( array(
+            'menu_class' => 'uk-navbar-nav category-menu',
+            'container_class' => '',
+            'theme_location' => 'secondary',
+            'container_class' => 'container_class_menu',
+            'post_title' => $currentPost->post_title,
+            'walker' => new Secondary_Walker()
+            ) );
+        ?><!-- .secondary-navigation -->
     </div>
 
   </div>
