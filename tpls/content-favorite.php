@@ -1,18 +1,18 @@
 <?php
 $FavoriteContents = [];
 $Brands = [];
-$POSTTYPE = (array)unserialize(POSTTYPE);
-$POST = (array)unserialize(POST);
+$POSTTYPE = (array)unserialize( POSTTYPE );
+$POST = (array)unserialize( POST );
 while (list(, $type) = each( $POSTTYPE )){
   $args = [
     'post_type' => $type
   ];
   $Contents = new WP_Query( $args );
-  if ( $Contents->have_posts() ){
-    $FavoriteContents[$type] = [];
+  if ($Contents->have_posts()){
+    $FavoriteContents[ $type ] = [];
     while ( $Contents->have_posts() ) : $Contents->the_post();
       if ( (int)get_post_meta($Contents->post->ID, 'favorite_works', true) === 1 ){
-        $FavoriteContents[$type][] = [
+        $FavoriteContents[ $type ][] = [
           'title' => get_the_title( $Contents->post->ID ),
           'content' => $Contents->post->post_content,
           'thumbnail_url' => get_the_post_thumbnail_url( $Contents->post->ID, 'full' ),
@@ -40,13 +40,11 @@ while (list(, $type) = each( $POSTTYPE )){
 
   <div class="fw-containers">
 <?php
-
 $url = get_template_directory_uri().'/images/cover.jpg';
-foreach($Brands as $key => $brand):
-?>
+foreach($Brands as $key => $brand): ?>
     <div class="fw-container uk-inline">
         <div class="fw-background-container"  style="background-image: url(<?= $url ?>);">
-          <div class="uk-label  uk-label-success uk-position-bottom-right ">
+          <div class="uk-label uk-label-success uk-position-bottom-right ">
             <a href="#">
               <?= strtoupper( $brand[ 'name' ] ) ?>
             </a>
@@ -54,6 +52,6 @@ foreach($Brands as $key => $brand):
           </div>
         </div>
     </div>
-    
-<?php  endforeach;
-?> </div>  
+<?php  
+endforeach; ?> 
+  </div>  

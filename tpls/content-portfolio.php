@@ -11,8 +11,6 @@ if ($Pages->have_posts()):
     if (empty($url) || $url === ''){
       $url = get_template_directory_uri().'/images/cover.jpg';
     }
-
-
 ?>
   <div class="fw-container uk-inline">
       <div class="fw-background-container"  style="background-image: url(<?= $url ?>);">
