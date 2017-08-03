@@ -66,7 +66,7 @@
       </div>
     </header>
     <header class="header-nav-down">
-      <div class="uk-container uk-container-small animated  slideInLeft HeaderSlogan">
+      <div class="uk-container uk-container-small animated  slideInDown HeaderSlogan">
         <div class="uk-text-left onStickyStartHide">
             <div class="uk-child-width-1-1@m uk-width-2-3@m uk-light" uk-grid>
               <div>
@@ -87,9 +87,9 @@
 
       </div>
     </header>
-    <header class="sticky-menu HeaderMenu">
+    <header class="sticky-menu HeaderMenu animated  slideInDown">
       <div class="uk-container uk-container-large">
-        <nav class="uk-navbar-transparent uk-navbar uk-container uk-container-small animated  slideInRight" uk-navbar>
+        <nav class="uk-navbar-transparent uk-navbar uk-container uk-container-small " uk-navbar>
           <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
                 <li class="uk-active">

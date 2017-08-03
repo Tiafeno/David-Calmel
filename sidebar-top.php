@@ -5,7 +5,7 @@ $currentPost = $post;
 
 ?>
 
-<header class="header-category-nav-offcanvas animated slideInUp uk-hidden@m">
+<header class="header-category-nav-offcanvas animated flipInX uk-hidden@m">
   <div class="uk-section uk-section-secondary section-offcanvas">
     <div class="uk-container uk-container-small">
           <h2 class="header-offcanvas-title"><?= $currentPost->post_title ?></h2>
@@ -25,7 +25,7 @@ $currentPost = $post;
   </div>
 </header>
 
-<header class="header-category-nav animated slideInUp uk-visible@m">
+<header class="header-category-nav animated slideInDown uk-visible@m">
   <div class="uk-container uk-container-small uk-navbar">
     <div class="uk-navbar-left">
       <ul class="uk-navbar-nav category-title">
