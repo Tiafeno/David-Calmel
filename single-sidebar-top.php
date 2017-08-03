@@ -43,7 +43,7 @@ if ($PortfolioPostChild->have_posts()):
     }
       
   endwhile;
-  $HTMLlists .= '<li><a href="'. esc_url( home_url( '/' ) ) .'">FAVORITE WORKS</a></li>';
+  $HTMLlists .= '<li><a href="'. esc_url( home_url( '/' ) ) .'"> FAVORITE WORKS </a></li>';
 endif;
 ?>
 

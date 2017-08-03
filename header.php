@@ -7,7 +7,8 @@
  * @subpackage David_Calmel
  * @since David Calmel 1.0
  */
-
+ 
+ $Title =  empty(get_the_title( )) ? '404' : get_the_title();
  ?>
 
 <!DOCTYPE html>
@@ -94,7 +95,7 @@
             <ul class="uk-navbar-nav">
                 <li class="uk-active">
                   <a href="#">
-                    <h1 class="navbar-title"><?= the_title() ?></h1>
+                    <h1 class="navbar-title"><?= $Title ?></h1>
                   </a>
                 </li>
             </ul>
