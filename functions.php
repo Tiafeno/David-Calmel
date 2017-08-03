@@ -106,6 +106,7 @@ function davidcalmel_scripts() {
 	//wp_enqueue_style( 'twentysixteen-fonts', fonts_url(), array(), null );
 
 	// Add Genericons, used in the main stylesheet.
+	wp_enqueue_style( 'roboto-fonts', '//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,700,900', array() );
 	wp_enqueue_style( 'uikit', get_template_directory_uri() . '/dist/css/uikit.css', array() );
 	wp_enqueue_style( 'animation', get_template_directory_uri() . '/assets/css/animate.css', array() );
 
