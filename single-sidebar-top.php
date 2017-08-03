@@ -21,7 +21,7 @@ $objTitle = (object) $Title;
 <header class="header-category-nav-offcanvas animated flipInX uk-hidden@m">
   <div class="uk-section uk-section-secondary section-offcanvas">
     <div class="uk-container uk-container-small">
-          <h2 class="header-offcanvas-title"><?= $objTitle->name ?></h2>
+          <h2 class="header-offcanvas-title"><?= strtoupper($objTitle->name) ?></h2>
     </div>
     <div class="uk-container uk-container-small uk-text-center">
       <ul class="category-nav-offcanvas">
@@ -44,7 +44,7 @@ $objTitle = (object) $Title;
   <div class="uk-container uk-container-small uk-navbar">
     <div class="uk-navbar-left">
       <ul class="uk-navbar-nav category-title">
-          <li class="uk-active"><a href="#"><h2><?= $objTitle->name ?></h2></a></li>
+          <li class="uk-active"><a href="#"><h2><?= strtoupper($objTitle->name) ?></h2></a></li>
       </ul>
     </div>
 

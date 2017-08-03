@@ -114,10 +114,10 @@
 
             <div class="uk-offcanvas-content uk-hidden@m">
                 <!-- The whole page content goes here -->
-                <div class="uk-navbar-left">
-                    <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#offcanvas-usage" uk-toggle></a>
+                <div class="uk-navbar-right">
+                    <a class="uk-navbar-toggle" uk-navbar-toggle-icon uk-toggle="target: #offcanvas-push"></a>
                 </div>
-                <div id="offcanvas-usage" uk-offcanvas>
+                <div id="offcanvas-push" uk-offcanvas>
                     <div class="uk-offcanvas-bar">
                         <button class="uk-offcanvas-close" type="button" uk-close></button>
                         <h3><?php _e( 'Menu', 'twentysixteen' ); ?></h3>
