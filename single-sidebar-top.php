@@ -24,18 +24,16 @@ $objTitle = (object) $Title;
           <h2 class="header-offcanvas-title"><?= strtoupper($objTitle->name) ?></h2>
     </div>
     <div class="uk-container uk-container-small uk-text-center">
-      <ul class="category-nav-offcanvas">
         <?php
           wp_nav_menu( array(
-            'menu_class' => 'uk-navbar-nav uk-visible@m category-menu',
+            'menu_class' => 'category-nav-offcanvas',
             'container_class' => '',
             'theme_location' => 'secondary',
             'container_class' => 'container_class_menu',
             'post_title' => trim($objTitle->name),
             'walker' => new Secondary_Walker()
             ) );
-        ?>
-      </ul> <!-- .secondary-navigation -->
+        ?><!-- .secondary-navigation -->
     </div>
   </div>
 </header>
@@ -49,18 +47,16 @@ $objTitle = (object) $Title;
     </div>
 
     <div class="uk-navbar-right">
-      <ul class="uk-navbar-nav uk-visible@m category-menu">
         <?php
           wp_nav_menu( array(
-            'menu_class' => 'uk-navbar-nav uk-visible@m category-menu',
+            'menu_class' => 'uk-navbar-nav category-menu',
             'container_class' => '',
             'theme_location' => 'secondary',
             'container_class' => 'container_class_menu',
             'post_title' => trim($objTitle->name),
             'walker' => new Secondary_Walker()
             ) );
-        ?>
-      </ul> <!-- .secondary-navigation -->
+        ?><!-- .secondary-navigation -->
     </div>
 
   </div>

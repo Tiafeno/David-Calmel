@@ -7,7 +7,6 @@ $ContentQuery = new WP_Query( $args );
 if ($ContentQuery->have_posts( )):
   while ( $ContentQuery->have_posts( ) ) : $ContentQuery->the_post( );
     $url =  get_the_post_thumbnail_url( $ContentQuery->post->ID, [300, 300] );
-    print_r($url);
     if (empty( $url ) || $url === ''){
       $url = get_template_directory_uri().'/images/cover.jpg';
     }  
