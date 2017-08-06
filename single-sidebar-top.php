@@ -9,7 +9,7 @@ function gtTitle( $posttype, $POST ){
       return [
         'name' => $postConfig['name'],
         'type' => $posttype
-        ];
+      ];
     }
   }
 }

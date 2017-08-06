@@ -15,7 +15,7 @@
 
         get_template_part( 'single', 'sidebar-top' );
      ?>
-     <div id="primary-content" class="uk-container  uk-container-large animated  slideInUp">
+     <div id="primary-content" class="uk-container  uk-container-large animated  slideInUp  fw-background-container">
      <?php
      while ( have_posts() ) : the_post();
      /*

@@ -116,5 +116,13 @@
         }
       });
     }
+
+    // Ancre anchosage
+    $( '.ancre-container' ).each(function( index ){
+      $( '.ancre-container > div')
+      .clone()
+      .prependTo('.cover-container');
+      $( this ).remove();
+    });
   });
 })(jQuery);

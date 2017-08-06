@@ -25,6 +25,7 @@
  */
 
  include_once(get_template_directory().'/inc/function-class-walker.php');
+ include_once(get_template_directory().'/inc/function-shortcode.php');
 
  if (!defined('POSTTYPE')){
 	 define('POSTTYPE', serialize([
@@ -47,23 +48,6 @@
 		]));
 	}
 
- /*
-	 * Enable support for Post Formats.
-	 *
-	 * See: https://codex.wordpress.org/Post_Formats
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside',
-		'image',
-		'video',
-		'quote',
-		'link',
-		'gallery',
-		'status',
-		'audio',
-		'chat',
-	) );
-
 	// This theme uses wp_nav_menu() in 3 locations.
  register_nav_menus( array(
    'primary' => __( 'Primary Menu', 'twentysixteen' ),
@@ -84,27 +68,12 @@ function davidcalmel_widgets_init() {
 }
 add_action( 'widgets_init', 'davidcalmel_widgets_init' );
 
-function fonts_url() {
-  $fonts_url = '';
-  $fonts = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
-  $subsets   = 'latin,latin-ext';
-  $fonts_url = add_query_arg( array(
-			'family' => urlencode( $fonts ),
-			'subset' => urlencode( $subsets ),
-		), 'https://fonts.googleapis.com/css' );
-
-  return $fonts_url;
-}
-
 /**
  * Enqueues scripts and styles.
  *
  * @since David Calmel 1.0
  */
 function davidcalmel_scripts() {
-	// Add custom fonts, used in the main stylesheet.
-	//wp_enqueue_style( 'twentysixteen-fonts', fonts_url(), array(), null );
-
 	// Add Genericons, used in the main stylesheet.
 	wp_enqueue_style( 'roboto-fonts', '//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,700,900', array() );
 	wp_enqueue_style( 'uikit', get_template_directory_uri() . '/dist/css/uikit.css', array() );
@@ -112,15 +81,13 @@ function davidcalmel_scripts() {
 
 	// Theme stylesheet.
 	wp_enqueue_style( 'davidcalmel_style', get_stylesheet_uri() );
-
-	wp_enqueue_script( 'uikit', get_template_directory_uri().'/dist/js/uikit.js', array('jquery'), false, false );
-  wp_enqueue_script( 'uikit-icons', get_template_directory_uri().'/dist/js/uikit-icons.js', array('uikit'), false, false );
+	wp_enqueue_script( 'uikit', get_template_directory_uri().'/dist/js/uikit.js', array( 'jquery' ), false, false );
+  wp_enqueue_script( 'uikit-icons', get_template_directory_uri().'/dist/js/uikit-icons.js', array( 'uikit' ), false, false );
 	wp_enqueue_script( 'davidcalmel-script', get_template_directory_uri().'/assets/js/scripts_v2.js', array( 'jquery' ), false, false );
-	wp_enqueue_script( 'sticky', get_template_directory_uri().'/dist/sticky/jquery.sticky.js', array('jquery'), false, false );
-
-	wp_localize_script( 'davidcalmel-script', 'iOt', array(
+	wp_enqueue_script( 'sticky', get_template_directory_uri().'/dist/sticky/jquery.sticky.js', array( 'jquery' ), false, false );
+	wp_localize_script( 'davidcalmel-script', 'dc', array(
 		'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
-	) );
+	));
 }
 
 add_action( 'wp_enqueue_scripts', 'davidcalmel_scripts' );

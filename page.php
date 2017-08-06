@@ -13,9 +13,9 @@
 
  get_header(); ?>
 
- <div id="primary"  class="uk-container  uk-container-large uk-padding-remove-left uk-padding-remove-right">
+ <div id="primary"  class="uk-container  uk-container-large uk-padding-remove-left uk-padding-remove-right cover-container">
    <?php if ( have_posts() ) : ?>
-     <div id="primary-content" class="uk-container  uk-container-small animated  slideInUp">
+     <div id="primary-content" class="uk-container  uk-container-small animated slideInUp">
      <?php
      while ( have_posts() ) : the_post();
        the_content();
