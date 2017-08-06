@@ -11,6 +11,14 @@
   ** When document DOM is ready
   */
   $( document ).ready(function() {
+    // anchorage
+    $( '.ancre-container' ).each(function( index ){
+      $( '.ancre-container > div')
+      .clone()
+      .prependTo('.cover-container');
+      $( this ).remove();
+    });
+
     var fw_bg_container = $( '.fw-background-container' ); 
     var firstContainer = fw_bg_container[ 0 ];
     var ConfigContainer = $( firstContainer ).data( 'container' );
@@ -23,24 +31,16 @@
     var checkLag = false;
     var $height = (_constBoxHeight === 'auto' ) ?  _constBoxWidth : parseFloat( _constBoxHeight );
 
-    // anchorage
-    $( '.ancre-container' ).each(function( index ){
-      $( '.ancre-container > div')
-      .clone()
-      .prependTo('.cover-container');
-      $( this ).remove();
-    });
-
     calcBoxsRangeWidth(function( $newWidth ) {
       $height = (_constBoxHeight === 'auto' ) ?  $newWidth : parseFloat( _constBoxHeight );
       setTimeout(function() {
         fw_bg_container.animate({
             width : $newWidth + 'px',
             height : $height + 'px'
-          }, 2000, function() {
+          },700, function() {
             //console.log(parseFloat( $( '.fw-containers' ).width() ) );
         });
-      }, 1000);
+      }, 400);
       
     });
     /*
