@@ -1,5 +1,5 @@
-<div class="fw-container uk-inline">
-  <div class="fw-background-container"  style="background-image: url(<?= $url ?>);">
+<div class="uk-container uk-inline">
+  <div class="fw-background-container" data-container='{"w":300, "h":250}'  style="background-image: url(<?= $url ?>);">
     <div class="uk-label  uk-label-success uk-position-bottom-right ">
       <a href="#<?= $_id ?>">
         <?= $Titles[ $index ] ?>
