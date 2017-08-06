@@ -7,13 +7,13 @@ $Pages = new WP_Query( $args );
 <?php
 if ($Pages->have_posts()):
   while ( $Pages->have_posts() ) : $Pages->the_post();
-    $url =  get_the_post_thumbnail_url($Pages->post->ID, '300x300');
+    $url =  get_the_post_thumbnail_url($Pages->post->ID, [300, 300]);
     if (empty($url) || $url === ''){
       $url = get_template_directory_uri().'/images/cover.jpg';
     }
 ?>
   <div class="fw-container uk-inline">
-      <div class="fw-background-container"  style="background-image: url(<?= $url ?>);">
+      <div class="fw-background-container" data-container='{"w":300, "h":"auto"}' style="background-image: url(<?= $url ?>);">
         <div class="uk-label  uk-label-success uk-position-bottom-right ">
           <a href="<?= get_permalink( $Pages->post->ID ) ?>">
             <?= strtoupper( $Pages->post->post_title ) ?>

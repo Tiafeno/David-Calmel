@@ -11,7 +11,6 @@ if ($ContentQuery->have_posts( )):
       $url = get_template_directory_uri().'/images/cover.jpg';
     }  
 ?>
-
     <div class="fw-container uk-inline">
       <div class="fw-background-container" data-container='{"w":300, "h":300}' style="background-image: url(<?= $url ?>);">
         <div class="uk-label  uk-label-success uk-position-bottom-right ">

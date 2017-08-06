@@ -6,42 +6,69 @@
  */
 
 (function($) { 
+
   /*
   ** When document DOM is ready
-  **
   */
   $( document ).ready(function() {
-    var fw_bg_container = $( '.fw-background-container' );
-    var _constBoxWidth = 300;
-    var _constBoxHeight = 300;
+    var fw_bg_container = $( '.fw-background-container' ); 
+    var firstContainer = fw_bg_container[ 0 ];
+    var ConfigContainer = $( firstContainer ).data( 'container' );
+    var _constBoxWidth = parseFloat( ConfigContainer.w );
+    var _constBoxHeight = ConfigContainer.h;
     var windowWidth = null;
     var BoxsRangeIncWidth = 0;
     var indentWidth = 0;
     var countBoxsIn= 0;
+    var checkLag = false;
+    var $height = (_constBoxHeight === 'auto' ) ?  _constBoxWidth : parseFloat( _constBoxHeight );
 
-    calcBoxsRangeWidth(function( $newWidth ) {
-      fw_bg_container.animate({
-        width : $newWidth + 'px',
-        height : $newWidth + 'px'
-      }, 620, function() {
-        console.log($newWidth);
-      });
+    // anchorage
+    $( '.ancre-container' ).each(function( index ){
+      $( '.ancre-container > div')
+      .clone()
+      .prependTo('.cover-container');
+      $( this ).remove();
     });
 
+    calcBoxsRangeWidth(function( $newWidth ) {
+      $height = (_constBoxHeight === 'auto' ) ?  $newWidth : parseFloat( _constBoxHeight );
+      setTimeout(function() {
+        fw_bg_container.animate({
+            width : $newWidth + 'px',
+            height : $height + 'px'
+          }, 2000, function() {
+            //console.log(parseFloat( $( '.fw-containers' ).width() ) );
+        });
+      }, 1000);
+      
+    });
     /*
     ** On window resize event binding
     ** @return : void
     */
     $( window ).resize(function(  ) {
       calcBoxsRangeWidth(function( $newWidth ) {
-        fw_bg_container.animate({
-          width : $newWidth + 'px',
-          height : $newWidth + 'px'
-        }, 620, function() {
-          console.log($newWidth);
-        });
+        setAnimateContainer( $newWidth );
       });
     });
+
+    /*
+    ** @Function animate box container
+    ** @return: void
+    */
+
+    function setAnimateContainer( $newWidth ){
+      $height = (_constBoxHeight === 'auto' ) ?  $newWidth : parseFloat( _constBoxHeight );
+      fw_bg_container.each(function( index ){
+        $( this ).animate({
+          width : $newWidth + 'px',
+          height : $newWidth + 'px'
+        }, 1000, function() {
+          //console.log("Animated with success w:" + $newWidth + ", h:" + $height );
+        });
+      });
+    }
 
     /*
     ** Calcule responsive content on resize window and callback 
@@ -55,8 +82,10 @@
       BoxsRangeIncWidth = 0;
       indentWidth = 0;
       countBoxsIn= 0;
-
-      windowWidth = parseFloat( $( '.fw-containers' ).width() );
+      var lag = (!checkLag) ? 15 : 0;
+      if (!checkLag) checkLag = true;
+      var $ContentWindowWidth = parseFloat( $( window ).width() );
+      windowWidth = $ContentWindowWidth - lag;
       var isUp = 0;
       while ( BoxsRangeIncWidth <  windowWidth ) {
         isUp = BoxsRangeIncWidth + _constBoxWidth;
@@ -71,15 +100,12 @@
         if (countBoxsIn == null) console.error('Variable invalide');
         indentWidth = parseFloat(rest / countBoxsIn);
       }
-      var newWidth = _constBoxWidth + indentWidth;
-      
+      var newWidth = parseFloat(_constBoxWidth + indentWidth);
+      console.log(windowWidth, BoxsRangeIncWidth, _constBoxWidth, rest,  indentWidth, newWidth, countBoxsIn);
       /*
       ** Send from callback function
       */
-      if (newWidth != Infinity){
-        callback( newWidth );
-      } else calcBoxsRangeWidth( callback );
-        
+      callback( newWidth );
     }
 
     /*
@@ -117,12 +143,6 @@
       });
     }
 
-    // Ancre anchosage
-    $( '.ancre-container' ).each(function( index ){
-      $( '.ancre-container > div')
-      .clone()
-      .prependTo('.cover-container');
-      $( this ).remove();
-    });
+    
   });
 })(jQuery);

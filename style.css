@@ -163,8 +163,9 @@ header.header-category-nav  .category-title{
 
 .fw-containers{
   display: inline-block;
-  width: 100%;
   margin-top: 4px;
+  box-sizing: content-box;
+  width: inherit;
 }
 .fw-containers .fw-container{
   display: inline-block;
@@ -172,8 +173,8 @@ header.header-category-nav  .category-title{
 }
 
 .fw-background-container{
-  width: 300px;
-  height: 300px;
+  width: inherit;
+  height: inherit;
   float: left;
   background-size: contain;
 }

@@ -13,7 +13,7 @@ $currentPost = $post;
     <div class="uk-container uk-container-small uk-text-center">
         <?php
           wp_nav_menu( array(
-            'menu_class' => '',
+            'menu_class' => 'category-nav-offcanvas',
             'container_class' => '',
             'theme_location' => 'secondary',
             'container_class' => 'container_class_menu',
