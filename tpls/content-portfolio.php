@@ -3,7 +3,7 @@ $args = [ 'post_type' => 'page', 'post_parent' => get_the_ID(), 'orderby' => 'me
 $Pages = new WP_Query( $args );
 
 ?>
-<div class="fw-containers">
+<div class="fw-containers uk-margin-remove-top">
 <?php
 if ($Pages->have_posts()):
   while ( $Pages->have_posts() ) : $Pages->the_post();
@@ -13,8 +13,8 @@ if ($Pages->have_posts()):
     }
 ?>
   <div class="fw-container uk-inline">
-      <div class="fw-background-container" data-container='{"w":300, "h":"auto"}' style="background-image: url(<?= $url ?>);">
-        <div class="uk-label  uk-label-success uk-position-bottom-right ">
+      <div class="fw-background-container" data-container='{"w":300, "h":"auto"}' style="background-image: url(<?= $url ?>); width:300px; height: 300px">
+        <div class="uk-label uk-label-success uk-position-bottom-right ">
           <a href="<?= get_permalink( $Pages->post->ID ) ?>">
             <?= strtoupper( $Pages->post->post_title ) ?>
           </a>

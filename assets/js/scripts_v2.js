@@ -56,19 +56,16 @@
       var BoxsRangeIncWidth = 0;
       var indentWidth = 0;
       var countBoxsIn= 0;
-      var checkLag = false;
       var $height = (_constBoxHeight === 'auto' ) ?  _constBoxWidth : parseFloat( _constBoxHeight );
 
       calcBoxsRangeWidth(function( $newWidth ) {
         $height = (_constBoxHeight === 'auto' ) ?  $newWidth : parseFloat( _constBoxHeight );
-        setTimeout(function() {
-          fw_bg_container.animate({
-              width : $newWidth + 'px',
-              height : $height + 'px'
-            },700, function() {
-              //console.log(parseFloat( $( '.fw-containers' ).width() ) );
-          });
-        }, 400);
+        fw_bg_container.animate({
+            width : $newWidth + 'px',
+            height : $height + 'px',
+          },700, function() {
+            
+        });
         
       });
       /*
@@ -94,7 +91,7 @@
           width : $newWidth + 'px',
           height : $height + 'px'
         }, 1000, function() {
-          //console.log("Animated with success w:" + $newWidth + ", h:" + $height );
+          
         });
       });
     }
@@ -111,10 +108,7 @@
       BoxsRangeIncWidth = 0;
       indentWidth = 0;
       countBoxsIn= 0;
-      var lag = (!checkLag) ? 15 : 0;
-      if (!checkLag) checkLag = true;
-      var $ContentWindowWidth = parseFloat( $( window ).width() );
-      windowWidth = $ContentWindowWidth - lag;
+      windowWidth = parseFloat( $( window ).innerWidth() );
       var isUp = 0;
       while ( BoxsRangeIncWidth <  windowWidth ) {
         isUp = BoxsRangeIncWidth + _constBoxWidth;

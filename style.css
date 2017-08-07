@@ -58,10 +58,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
   padding-bottom: 8px;
 }
 .header-nav-down .navbar-card-slogan span{
-  font-size: 10px;
+  font-size: 8.5px;
   letter-spacing: 3px;
   word-break: break-word;
-  line-height: 0;
+  line-height: 1.6;
+  display: block;
 }
 
 .header-nav-top .container-nav-top{
