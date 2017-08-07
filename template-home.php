@@ -13,7 +13,7 @@
    <?php if ( have_posts() ) : 
           get_template_part( 'sidebar','top');
    ?>
-     <div id="primary-content" class="animated  slideInUp">
+     <div id="primary-content" >
      <?php
      while ( have_posts() ) : the_post();
      

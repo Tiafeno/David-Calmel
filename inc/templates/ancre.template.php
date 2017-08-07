@@ -1,9 +1,9 @@
-<div class="uk-container uk-inline">
-  <div class="fw-background-container" data-container='{"w":300, "h":250}'  style="background-image: url(<?= $url ?>);">
-    <div class="uk-label  uk-label-success uk-position-center">
-      <a href="#<?= $_id ?>">
+<div class="uk-width-1-<?= $width ?>">
+  <div class="ancre-container uk-inline" style="background-image: url(<?= $url ?>);">
+    <span class="uk-label uk-position-center">
+      <span data-href="#<?= $_id ?>" class="scroll" style="color: #fff">
         <?= $Titles[ $index ] ?>
-      </a>
-    </div>
+      </span>
+    </span>
   </div>
 </div>

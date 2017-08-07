@@ -43,7 +43,7 @@ while (list(, $type) = each( $POSTTYPE )){
 $url = get_template_directory_uri().'/images/cover.jpg';
 foreach($Brands as $key => $brand): ?>
     <div class="fw-container uk-inline">
-        <div class="fw-background-container" data-container='{"w":300, "h":"auto"}' style="background-image: url(<?= $url ?>);">
+        <div class="fw-background-container" data-container='{"w":250, "h":"auto"}' style="background-image: url(<?= $url ?>);">
           <div class="uk-label uk-label-success uk-position-bottom-right ">
             <a href="#">
               <?= strtoupper( $brand[ 'name' ] ) ?>
