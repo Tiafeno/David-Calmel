@@ -63,7 +63,7 @@
         fw_bg_container.animate({
             width : $newWidth + 'px',
             height : $height + 'px',
-          },700, function() {
+          },400, function() {
             
         });
         
@@ -73,9 +73,11 @@
       ** @return : void
       */
       $( window ).resize(function(  ) {
-        calcBoxsRangeWidth(function( $newWidth ) {
-          setAnimateContainer( $newWidth );
-        });
+        setTimeout(function(){
+          calcBoxsRangeWidth(function( $newWidth ) {
+            setAnimateContainer( $newWidth );
+          });
+        }, 66);
       });
     }
     
@@ -90,7 +92,7 @@
         $( this ).animate({
           width : $newWidth + 'px',
           height : $height + 'px'
-        }, 1000, function() {
+        }, 200, function() {
           
         });
       });

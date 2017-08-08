@@ -18,7 +18,7 @@ $objTitle = (object) $Title;
 
 ?>
 
-<header class="header-category-nav-offcanvas animated flipInX uk-hidden@m">
+<header class="header-category-nav-offcanvas uk-hidden@m">
   <div class="uk-section uk-section-secondary section-offcanvas">
     <div class="uk-container uk-container-small">
           <h2 class="header-offcanvas-title"><?= strtoupper($objTitle->name) ?></h2>
