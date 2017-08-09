@@ -18,10 +18,8 @@
     $( ".sticky-menu" )
     .on( 'sticky-update', function() { console.log( "Update" ); })
     .on( 'sticky-start', function() {
-      $( 'h1.navbar-title').hide('fadeout', function() { });
     })
     .on( 'sticky-end', function() {
-      $( 'h1.navbar-title').show('fadein', function() { });
     });
 
     var isMobile = false; //initiate as false
@@ -52,10 +50,12 @@
       var ConfigContainer = $( firstContainer ).data( 'container' );
       var _constBoxWidth = parseFloat( ConfigContainer.w );
       var _constBoxHeight = ConfigContainer.h;
+      var currentWidth = 0;
       var windowWidth = null;
       var BoxsRangeIncWidth = 0;
       var indentWidth = 0;
       var countBoxsIn= 0;
+      var BoxsCount = fw_bg_container.length;
       var $height = (_constBoxHeight === 'auto' ) ?  _constBoxWidth : parseFloat( _constBoxHeight );
 
       calcBoxsRangeWidth(function( $newWidth ) {
@@ -73,11 +73,10 @@
       ** @return : void
       */
       $( window ).resize(function(  ) {
-        setTimeout(function(){
-          calcBoxsRangeWidth(function( $newWidth ) {
-            setAnimateContainer( $newWidth );
-          });
-        }, 66);
+        calcBoxsRangeWidth(function( $newWidth ) {
+          setAnimateContainer( $newWidth );
+          console.warn('Resize On');
+        });
       });
     }
     
@@ -89,11 +88,9 @@
     function setAnimateContainer( $newWidth ){
       $height = (_constBoxHeight === 'auto' ) ?  $newWidth : parseFloat( _constBoxHeight );
       fw_bg_container.each(function( index ){
-        $( this ).animate({
+        $( this ).css({
           width : $newWidth + 'px',
           height : $height + 'px'
-        }, 200, function() {
-          
         });
       });
     }
@@ -121,12 +118,19 @@
       }
 
       if (BoxsRangeIncWidth !== windowWidth && BoxsRangeIncWidth < windowWidth){
-        var rest = windowWidth - BoxsRangeIncWidth;
-        if (countBoxsIn == null) console.error('Variable invalide');
-        indentWidth = parseFloat(rest / countBoxsIn);
+        var rest = null;
+        if (countBoxsIn > BoxsCount){
+          var RangeWidth = _constBoxWidth * BoxsCount;
+          rest = windowWidth - RangeWidth;
+          indentWidth = parseFloat( rest / BoxsCount );
+        } else {
+          rest = windowWidth - BoxsRangeIncWidth;
+          indentWidth = parseFloat(rest / countBoxsIn);
+        }
       }
+
       var newWidth = parseFloat(_constBoxWidth + indentWidth);
-      console.log(windowWidth, BoxsRangeIncWidth, _constBoxWidth, rest,  indentWidth, newWidth, countBoxsIn);
+      console.log(windowWidth, BoxsRangeIncWidth, _constBoxWidth, rest,  indentWidth, newWidth, countBoxsIn, BoxsCount);
       /*
       ** Send from callback function
       */

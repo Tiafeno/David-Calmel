@@ -87,7 +87,7 @@
 
       </div>
     </header>
-    <header class="sticky-menu HeaderMenu animated  slideInUp">
+    <header class="sticky-menu HeaderMenu animated  slideInDown">
       <div class="uk-container uk-container-large">
         <nav class="uk-navbar-transparent uk-navbar uk-container uk-container-small " uk-navbar>
           <div class="uk-navbar-left">
