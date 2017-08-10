@@ -37,7 +37,7 @@ while (list(, $type) = each( $POSTTYPE )){
   var FavoriteContents = <?= json_encode($FavoriteContents, JSON_PRETTY_PRINT); ?>; 
 </script>
 
-  <div class="fw-containers">
+  <div id="fw-containers" class="fw-containers">
 <?php
 $url = get_template_directory_uri().'/images/cover.jpg';
 foreach($Brands as $key => $brand): ?>

@@ -45,16 +45,19 @@
     }
 
     var fw_bg_container = $( '.fw-background-container' );
+    var fw_containers = $( '.fw-containers' );
     if (fw_bg_container.length != 0 ) {
+      var LastContainersClass = null;
+      var CurrentContainersClass = null;
       var firstContainer = fw_bg_container[ 0 ];
       var ConfigContainer = $( firstContainer ).data( 'container' );
       var _constBoxWidth = parseFloat( ConfigContainer.w );
       var _constBoxHeight = ConfigContainer.h;
       var currentWidth = 0;
       var windowWidth = null;
-      var BoxsRangeIncWidth = 0;
+      var LimiteRangeWidth = 0;
       var indentWidth = 0;
-      var countBoxsIn= 0;
+      var countBoxsIn= 1;
       var BoxsCount = fw_bg_container.length;
       var $height = (_constBoxHeight === 'auto' ) ?  _constBoxWidth : parseFloat( _constBoxHeight );
 
@@ -104,37 +107,48 @@
       /*
       ** Initialize variable 
       */
-      BoxsRangeIncWidth = 0;
+      LimiteRangeWidth = 0;
       indentWidth = 0;
       countBoxsIn= 0;
-      windowWidth = parseFloat( $( window ).innerWidth() );
-      var isUp = 0;
-      while ( BoxsRangeIncWidth <  windowWidth ) {
-        isUp = BoxsRangeIncWidth + _constBoxWidth;
-        if (isUp < windowWidth ){
+      windowWidth = parseFloat( $( '.fw-containers' ).innerWidth() );
+      var newWidth = 0;
+      var rest = null;
+      while ( countBoxsIn <  BoxsCount ) {
+        var TestValue = LimiteRangeWidth + _constBoxWidth;
+        if (TestValue > windowWidth) break;
+        if (LimiteRangeWidth < windowWidth){
+          LimiteRangeWidth += _constBoxWidth; 
           countBoxsIn += 1;
-          BoxsRangeIncWidth += _constBoxWidth;
+          continue;
         } else break;
       }
-
-      if (BoxsRangeIncWidth !== windowWidth && BoxsRangeIncWidth < windowWidth){
-        var rest = null;
-        if (countBoxsIn > BoxsCount){
-          var RangeWidth = _constBoxWidth * BoxsCount;
-          rest = windowWidth - RangeWidth;
-          indentWidth = parseFloat( rest / BoxsCount );
-        } else {
-          rest = windowWidth - BoxsRangeIncWidth;
-          indentWidth = parseFloat(rest / countBoxsIn);
-        }
+      if (BoxsCount == 2 && LimiteRangeWidth > windowWidth){
+        rest = LimiteRangeWidth - windowWidth;
+        newWidth = _constBoxWidth - ( parseInt( rest / BoxsCount) );
       }
+      countBoxsIn = (countBoxsIn > BoxsCount) ? BoxsCount : countBoxsIn;
+      if (LimiteRangeWidth < windowWidth){
+        rest = windowWidth - LimiteRangeWidth;
+        indentWidth = parseFloat(rest / countBoxsIn);
+        newWidth = parseFloat(_constBoxWidth + parseFloat(indentWidth.toFixed(2)));
+      } 
+      var ElClass = (countBoxsIn <= 6) ? 'uk-child-width-1-' + countBoxsIn : 'uk-width-auto@m';
+      if (LastContainersClass != null){
+        if (fw_containers.hasClass( LastContainersClass )){
+          fw_containers
+            .toggleClass( LastContainersClass )
+            .addClass(ElClass);
+        }
+      } else {
+        fw_containers.addClass(ElClass);
+      }
+      LastContainersClass = ElClass;
 
-      var newWidth = parseFloat(_constBoxWidth + indentWidth);
-      console.log(windowWidth, BoxsRangeIncWidth, _constBoxWidth, rest,  indentWidth, newWidth, countBoxsIn, BoxsCount);
+      console.log(windowWidth, LimiteRangeWidth, _constBoxWidth, rest,  parseFloat(indentWidth.toFixed(2)), newWidth, countBoxsIn, BoxsCount);
       /*
       ** Send from callback function
       */
-      callback( newWidth );
+      callback( parseFloat(newWidth.toFixed(2)) );
     }
     
   });

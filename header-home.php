@@ -15,7 +15,7 @@
 
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=450, initial-scale=0.9, maximum-scale=0.9">
   <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
   <?php endif; ?>
@@ -92,9 +92,16 @@
         <nav class="uk-navbar-transparent uk-navbar uk-container uk-container-small " uk-navbar>
           <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
-                <li class="uk-active">
+                <!-- On the desktop -->
+                <li class="uk-active uk-visible@m">
                   <a href="#">
                     <h1 class="navbar-title">PORTFOLIO </h1>
+                  </a>
+                </li>
+                <!-- On mobile -->
+                <li class="uk-active uk-inline uk-hidden@m">
+                  <a href="#" class="uk-inline">
+                    <h1 class="navbar-title" style="margin: 0; padding: 0">PORTFOLIO </h1>
                   </a>
                 </li>
             </ul>
