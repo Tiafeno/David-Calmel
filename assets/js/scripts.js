@@ -46,6 +46,11 @@
 
     var fw_bg_container = $( '.fw-background-container' );
     var fw_containers = $( '.fw-containers' );
+    var NavBar = $( '.uk-navbar-left > ul.uk-navbar-nav' );
+    var Title = $( '.uk-navbar-left > ul.uk-navbar-nav .img-navbar-title' );
+    var TitleContainerNavbarHeight = NavBar.height();
+    var DefaultTitleHeight = Title.height();
+
     if (fw_bg_container.length != 0 ) {
       var LastContainersClass = null;
       var CurrentContainersClass = null;
@@ -60,11 +65,6 @@
       var countBoxsIn= 1;
       var BoxsCount = fw_bg_container.length;
       var $height = (_constBoxHeight === 'auto' ) ?  _constBoxWidth : parseFloat( _constBoxHeight );
-
-      var NavBar = $( '.uk-navbar-left > ul.uk-navbar-nav' );
-      var Title = $( '.uk-navbar-left > ul.uk-navbar-nav .img-navbar-title' );
-      var TitleContainerNavbarHeight = NavBar.height();
-      var DefaultTitleHeight = Title.height();
 
       calcBoxsRangeWidth(function( $newWidth ) {
         setPositionTitle();
@@ -87,6 +87,16 @@
           setAnimateContainer( $newWidth );
           console.warn('Resize On');
         });
+      });
+    } else {
+      setPositionTitle();
+      $( window ).resize(function() {
+        /*
+        ** Initialize variable title height
+        */
+        TitleContainerNavbarHeight = NavBar.height();
+        DefaultTitleHeight = Title.height();
+        setPositionTitle();
       });
     }
     
