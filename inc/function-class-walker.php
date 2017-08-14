@@ -17,7 +17,7 @@ class Secondary_Walker extends Walker_Nav_Menu{
       $byID = $id ? ($id != $item->object_id) : false;
 
       if ($name) $regex = '/'.$args->post_title.'/i';
-      $byNAME = $name ? !preg_match($regex, $item->title) : false;
+      $byNAME = $name ? !preg_match($regex, utf8_encode($item->title)) : false;
 
       if ($byID || $byNAME){
         $output .= sprintf( "\n<li><a href='%s'%s>%s</a></li>\n",
