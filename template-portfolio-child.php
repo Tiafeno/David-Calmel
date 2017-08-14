@@ -41,7 +41,7 @@ get_header('home');
        get_template_part( 'sidebar','top');
     ?>
      <div id="primary-content">
-      <div class="fw-containers">  
+      <div id="fw-containers" class="fw-containers">  
         <?php 
           while ( have_posts() ) : the_post();
             get_template_part('tpls/content', 'portfolio-child'); 

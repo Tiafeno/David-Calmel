@@ -45,6 +45,9 @@ function render_client( $attrs, $content){
     'taxonomy' => 'activity'
   ], $attrs);
   $at = (object) $at;
+
+  /** @return void when term_slug is null **/
+  if (is_null( $at->term_slug )) return; 
   $args = [
     'post_type' => $at->post_type,
     'tax_query' => [
@@ -53,7 +56,6 @@ function render_client( $attrs, $content){
       'terms' => $at->term_slug
     ]
   ];
-
   $Clients = new WP_Query( $args );
   if ($Clients->have_posts()):
     echo '<ul>';
