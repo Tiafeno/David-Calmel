@@ -16,7 +16,7 @@ class Secondary_Walker extends Walker_Nav_Menu{
       $name = (isset( $args->post_title )) ? trim( $args->post_title ) : false; 
       $byID = $id ? ($id != $item->object_id) : false;
 
-      if ($name) $regex = '/'.$args->post_title.'/i';
+      $regex = $name ? '/'.$args->post_title.'/i' : null;
       $byNAME = $name ? !preg_match($regex, utf8_encode($item->title)) : false;
 
       if ($byID || $byNAME){
