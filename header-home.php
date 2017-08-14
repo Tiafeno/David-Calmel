@@ -92,18 +92,23 @@
         <nav class="uk-navbar-transparent uk-navbar uk-container uk-container-small " uk-navbar>
           <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
-                <!-- On the desktop -->
-                <li class="uk-active uk-visible@m">
+                <!-- On the desktop  uk-visible@m -->
+                <li class="uk-active">
                   <a href="#">
-                    <h1 class="navbar-title">PORTFOLIO </h1>
+                    <div class="uk-cover-container img-navbar-title" style="position: absolute; top: 0; left: 0;">
+                        <canvas width="328" height="45"></canvas>
+                       <img src="<?= get_template_directory_uri().'/assets/img/portfolio.png' ?>" uk-cover/>
+                    </div>
+                  
+                    <!-- <h1 class="navbar-title">PORTFOLIO </h1> -->
                   </a>
                 </li>
                 <!-- On mobile -->
-                <li class="uk-active uk-inline uk-hidden@m">
+                <!-- <li class="uk-active uk-inline uk-hidden@m">
                   <a href="#" class="uk-inline">
                     <h1 class="navbar-title" style="margin: 0; padding: 0">PORTFOLIO </h1>
                   </a>
-                </li>
+                </li> -->
             </ul>
           </div>
 

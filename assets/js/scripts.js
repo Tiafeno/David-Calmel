@@ -61,7 +61,13 @@
       var BoxsCount = fw_bg_container.length;
       var $height = (_constBoxHeight === 'auto' ) ?  _constBoxWidth : parseFloat( _constBoxHeight );
 
+      var NavBar = $( '.uk-navbar-left > ul.uk-navbar-nav' );
+      var Title = $( '.uk-navbar-left > ul.uk-navbar-nav .img-navbar-title' );
+      var TitleContainerNavbarHeight = NavBar.height();
+      var DefaultTitleHeight = Title.height();
+
       calcBoxsRangeWidth(function( $newWidth ) {
+        setPositionTitle();
         $height = (_constBoxHeight === 'auto' ) ?  $newWidth : parseFloat( _constBoxHeight );
         fw_bg_container.animate({
             width : $newWidth + 'px',
@@ -77,6 +83,7 @@
       */
       $( window ).resize(function(  ) {
         calcBoxsRangeWidth(function( $newWidth ) {
+          setPositionTitle();
           setAnimateContainer( $newWidth );
           console.warn('Resize On');
         });
@@ -95,6 +102,7 @@
           width : $newWidth + 'px',
           height : $height + 'px'
         });
+
       });
     }
 
@@ -110,7 +118,9 @@
       LimiteRangeWidth = 0;
       indentWidth = 0;
       countBoxsIn= 0;
-      windowWidth = parseFloat( $( '.fw-containers' ).innerWidth() );
+      var ElemContainers = document.getElementById( "fw-containers" );
+      var theWidthCSSprop = window.getComputedStyle(ElemContainers, null).getPropertyValue( "width" );
+      windowWidth = parseFloat( theWidthCSSprop ); //parseFloat( $( '.fw-containers' ).innerWidth() );
       var newWidth = 0;
       var rest = null;
       while ( countBoxsIn <  BoxsCount ) {
@@ -145,10 +155,27 @@
       LastContainersClass = ElClass;
 
       console.log(windowWidth, LimiteRangeWidth, _constBoxWidth, rest,  parseFloat(indentWidth.toFixed(2)), newWidth, countBoxsIn, BoxsCount);
+      
+      /*
+      ** Initialize variable title height
+      */
+      TitleContainerNavbarHeight = NavBar.height();
+      DefaultTitleHeight = Title.height();
+
       /*
       ** Send from callback function
       */
       callback( parseFloat(newWidth.toFixed(2)) );
+    }
+
+    function setPositionTitle(){
+      Title.css({
+        "margin-left": "2%",
+        top : function() {
+          var TitlePositionY = TitleContainerNavbarHeight - DefaultTitleHeight;
+          return TitlePositionY + 1;
+        }
+      });
     }
     
   });

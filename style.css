@@ -19,7 +19,7 @@ body{
 @media(max-width: 640px){
   .navbar-title{
     font-size: 40px !important;
-    top: 40px;
+    top: 0; /* 40px */
     left: 0;
     bottom: 0;
     right: 0;
@@ -30,7 +30,7 @@ body{
 @media(min-width: 640px){
   .navbar-title{
     font-size: 60px !important;
-    top: 20px;
+    top: 0;
     left: 0;
     bottom: 0;
     right: 0;
@@ -81,10 +81,14 @@ body{
 .HeaderMenu h1.navbar-title{
   font-weight: bolder;
   color: white;
-  position: absolute;
+  line-height: 1;
   text-transform: uppercase;
   display: inline-table;
   margin: 0;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0;
+  z-index: 20;
 }
 
 header nav .uk-navbar-right ul li{
@@ -166,6 +170,7 @@ header.header-category-nav  .category-title{
 /* Content */
 #main-content{
   padding-top: 3px;
+  z-index: 40;
 }
 
 #primary-content .content-main{
