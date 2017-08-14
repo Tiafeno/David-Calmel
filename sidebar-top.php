@@ -17,7 +17,7 @@ $currentPost = $post;
             'container_class' => '',
             'theme_location' => 'secondary',
             'container_class' => 'container_class_menu',
-            'post_title' => $currentPost->post_title,
+            'post_id' => $currentPost->ID,
             'walker' => new Secondary_Walker()
             ) );
         ?><!-- .secondary-navigation -->
@@ -40,7 +40,7 @@ $currentPost = $post;
             'container_class' => '',
             'theme_location' => 'secondary',
             'container_class' => 'container_class_menu',
-            'post_title' => $currentPost->post_title,
+            'post_id' => $currentPost->ID,
             'walker' => new Secondary_Walker()
             ) );
         ?><!-- .secondary-navigation -->

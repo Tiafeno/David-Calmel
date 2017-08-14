@@ -12,8 +12,14 @@ class Secondary_Walker extends Walker_Nav_Menu{
      * Note: Menu objects include url and title properties, so we will use those.
      */
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-      $regex = '/'.$args->post_title.'/i'; 
-      if (!preg_match($regex, $item->title)){
+      $id = (isset( $args->post_id )) ? (int)$args->post_id : false;
+      $name = (isset( $args->post_title )) ? trim( $args->post_title ) : false; 
+      $byID = $id ? ($id != $item->object_id) : false;
+
+      if ($name) $regex = '/'.$args->post_title.'/i';
+      $byNAME = $name ? !preg_match($regex, $item->title) : false;
+
+      if ($byID || $byNAME){
         $output .= sprintf( "\n<li><a href='%s'%s>%s</a></li>\n",
             $item->url,
             ( $item->object_id === get_the_ID() ) ? ' class="current"' : '',
