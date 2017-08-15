@@ -47,7 +47,7 @@
     var fw_bg_container = $( '.fw-background-container' );
     var fw_containers = $( '.fw-containers' );
     var NavBar = $( '.uk-navbar-left > ul.uk-navbar-nav' );
-    var Title = $( '.uk-navbar-left > ul.uk-navbar-nav .img-navbar-title' );
+    var Title = $( '.uk-navbar-left > ul.uk-navbar-nav .navbar-title' );
     var TitleContainerNavbarHeight = NavBar.height();
     var DefaultTitleHeight = Title.height();
 
@@ -66,28 +66,22 @@
       var BoxsCount = fw_bg_container.length;
       var $height = (_constBoxHeight === 'auto' ) ?  _constBoxWidth : parseFloat( _constBoxHeight );
 
-      calcBoxsRangeWidth(function( $newWidth ) {
+      calcBoxsRangeWidth(function( $newWidth, $inbox ) {
         setPositionTitle();
-        $height = (_constBoxHeight === 'auto' ) ?  $newWidth : parseFloat( _constBoxHeight );
-        fw_bg_container.animate({
-            width : $newWidth + 'px',
-            height : $height + 'px',
-          },400, function() {
-            
-        });
-        
+        animateContainer( $newWidth, $inbox );
       });
       /*
       ** On window resize event binding
       ** @return : void
       */
       $( window ).resize(function(  ) {
-        calcBoxsRangeWidth(function( $newWidth ) {
+        calcBoxsRangeWidth(function( $newWidth, $inbox ) {
           setPositionTitle();
-          setAnimateContainer( $newWidth );
+          animateContainer( $newWidth, $inbox );
           console.warn('Resize On');
         });
       });
+
     } else {
       setPositionTitle();
       $( window ).resize(function() {
@@ -99,20 +93,40 @@
         setPositionTitle();
       });
     }
-    
+
     /*
     ** @Function animate box container
     ** @return: void
     */
 
-    function setAnimateContainer( $newWidth ){
+    function animateContainer( $newWidth, $inbox ){
+      var currentWidth = 0;
+      var translateX = 0;
+      var translateY = 0;
+      var translateZ = 0;
+      var nbrline = 1;
+      var width = ($newWidth * $inbox) + 0.1;
       $height = (_constBoxHeight === 'auto' ) ?  $newWidth : parseFloat( _constBoxHeight );
-      fw_bg_container.each(function( index ){
+      fw_bg_container.css('visibility', 'hidden');
+      fw_bg_container.each(function( $index ){
+        if (currentWidth < windowWidth && parseInt(currentWidth + 0.1) != parseInt( width )){
+          translateX = currentWidth;
+        } else {
+          translateX = currentWidth = 0;
+          translateY = $newWidth * nbrline;
+          nbrline += 1;
+        }
+        currentWidth +=$newWidth;
         $( this ).css({
+          visibility : 'visible',
           width : $newWidth + 'px',
-          height : $height + 'px'
+          height : $height + 'px',
+          position : 'absolute',
+          transition : 'transform 1s',
+          transform : "translate3d( " + translateX + "px, " + translateY + "px, " + translateZ + "px"
+        }).on('transitionend', function(){
+          
         });
-
       });
     }
 
@@ -152,20 +166,19 @@
         indentWidth = parseFloat(rest / countBoxsIn);
         newWidth = parseFloat(_constBoxWidth + parseFloat(indentWidth.toFixed(2)));
       } 
-      var ElClass = (countBoxsIn <= 6) ? 'uk-child-width-1-' + countBoxsIn : 'uk-width-auto@m';
-      if (LastContainersClass != null){
-        if (fw_containers.hasClass( LastContainersClass )){
-          fw_containers
-            .toggleClass( LastContainersClass )
-            .addClass(ElClass);
-        }
-      } else {
-        fw_containers.addClass(ElClass);
-      }
-      LastContainersClass = ElClass;
-
+      // var ElClass = (countBoxsIn <= 6) ? 'uk-child-width-1-' + countBoxsIn : 'uk-width-auto@m';
+      // if (LastContainersClass != null){
+      //   if (fw_containers.hasClass( LastContainersClass )){
+      //     fw_containers
+      //       .toggleClass( LastContainersClass )
+      //       .addClass(ElClass);
+      //   }
+      // } else {
+      //   fw_containers.addClass(ElClass);
+      // }
+      // LastContainersClass = ElClass;
+      if (rest == null) { newWidth = _constBoxWidth; }
       console.log(windowWidth, LimiteRangeWidth, _constBoxWidth, rest,  parseFloat(indentWidth.toFixed(2)), newWidth, countBoxsIn, BoxsCount);
-      
       /*
       ** Initialize variable title height
       */
@@ -175,12 +188,11 @@
       /*
       ** Send from callback function
       */
-      callback( parseFloat(newWidth.toFixed(2)) );
+      callback( parseFloat(newWidth.toFixed(2)), countBoxsIn );
     }
 
     function setPositionTitle(){
       Title.css({
-        "margin-left": "2%",
         top : function() {
           var TitlePositionY = TitleContainerNavbarHeight - DefaultTitleHeight;
           return TitlePositionY + 1;

@@ -37,12 +37,11 @@ while (list(, $type) = each( $POSTTYPE )){
   var FavoriteContents = <?= json_encode($FavoriteContents, JSON_PRETTY_PRINT); ?>; 
 </script>
 
-  <div id="fw-containers" class="fw-containers">
+  <div id="fw-containers" class="fw-containers uk-container uk-container-large uk-padding-remove-right uk-padding-remove-left">
 <?php
 $url = get_template_directory_uri().'/images/cover.jpg';
 foreach($Brands as $key => $brand): ?>
-    <div class="fw-container uk-inline">
-        <div class="fw-background-container" id="<?= $brand[ 'type' ] ?>" data-post="<?= $brand[ 'type' ] ?>" data-container='{"w":260, "h":"auto"}' style="background-image: url(<?= $url ?>); width:300px; height: 300px">
+        <div class="fw-background-container" id="<?= $brand[ 'type' ] ?>" data-post="<?= $brand[ 'type' ] ?>" data-container='{"w":260, "h":"auto"}' style="background-image: url(<?= $url ?>); width:260px; height: 260px">
           <div class="uk-label uk-label-success uk-position-bottom-right ">
             <a href="#" id="name_<?= $brand[ 'type' ] ?>">
               <?= strtoupper( $brand[ 'name' ] ) ?>
@@ -50,7 +49,6 @@ foreach($Brands as $key => $brand): ?>
 
           </div>
         </div>
-    </div>
 <?php  
 endforeach; ?> 
   </div>  

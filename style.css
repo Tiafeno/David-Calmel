@@ -182,7 +182,7 @@ header.header-category-nav  .category-title{
 }
 
 .fw-containers{
-  display: inline-block;
+  /* display: inline-block; */
   margin-top: 4px;
   box-sizing: content-box;
   width: 100%;
