@@ -183,7 +183,7 @@ header.header-category-nav  .category-title{
 
 .fw-containers{
   /* display: inline-block; */
-  margin-top: 4px;
+  margin-top: 3px;
   box-sizing: content-box;
   width: 100%;
 }

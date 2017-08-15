@@ -22,7 +22,20 @@
         var contents = FavoriteWorks[ ley[ i ] ]; //Array
         if (contents.length <= 0) continue;
         var select = contents[Math.floor(Math.random() * contents.length)];
-        if (select.thumbnail_url) $(element).css("background-image", "url(" + select.thumbnail_url + ")");
+        if (select.thumbnail_url) 
+          $( element ).css({
+            visibility : 'hidden',
+            "background-image" : "url(" + select.thumbnail_url + ")"
+          });
+          // jQuery
+          $( element ).imagesLoaded(
+            { 
+              background: true 
+            }, function( imgload ) {
+              $ ( this ).css('visibility', 'visible');
+              console.log(imgload);
+          });
+
         $('#name_' + ley[i]).text(select.title).attr('href', select.link);
       }
     }

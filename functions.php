@@ -82,6 +82,7 @@ function davidcalmel_scripts() {
 	// Theme stylesheet.
 	wp_enqueue_style( 'davidcalmel_style', get_stylesheet_uri() );
 	wp_enqueue_script( 'uikit', get_template_directory_uri().'/dist/js/uikit.js', array( 'jquery' ), false, false );
+  wp_enqueue_script( 'imagesloaded', get_template_directory_uri().'/dist/js/imagesloaded.pkgd.js', array( 'jquery' ), false, false );
   wp_enqueue_script( 'uikit-icons', get_template_directory_uri().'/dist/js/uikit-icons.js', array( 'uikit' ), false, false );
 	wp_enqueue_script( 'davidcalmel-script', get_template_directory_uri().'/assets/js/scripts.js', array( 'jquery' ), false, false );
 	wp_enqueue_script( 'sticky', get_template_directory_uri().'/dist/sticky/jquery.sticky.js', array( 'jquery' ), false, false );
