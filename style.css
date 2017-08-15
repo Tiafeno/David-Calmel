@@ -38,10 +38,10 @@ body{
 }
 
 .blogingo a{
-  color: aliceblue;
+  color: white;
   font-size: 12px;
-  font-weight: 100;
-  letter-spacing: 2px;
+  font-weight: bold;
+  letter-spacing: 2.5px;
   line-height: 1.4;
   display: block;
 }
@@ -65,7 +65,7 @@ body{
   box-shadow: none;
   padding-left: 21px;
   padding-top: 8px;
-  padding-bottom: 8px;
+  padding-bottom: 4px;
 }
 .header-nav-down .navbar-card-slogan span{
   font-size: 8.5px;
@@ -92,7 +92,7 @@ body{
 }
 
 header nav .uk-navbar-right ul li{
-  width: 110px;
+  width: 114px;
   float: left;
 }
 .uk-navbar-right .uk-navbar-nav > li > a{
@@ -116,11 +116,11 @@ header nav .uk-navbar-right ul li{
 
 .uk-navbar-right ul.uk-navbar-nav{
   display: block;
-  width: 341px;
+  width: 390px;
 }
 
 .uk-navbar-right .container_class_menu{
-  padding-top: 22px;
+  padding-top: 0px;
 }
 
 .uk-offcanvas-bar .uk-card-secondary{
@@ -136,8 +136,8 @@ header.header-category-nav{
   background: red;
     width: 100%;
     position: relative;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 header.header-category-nav h2{
   color: white;
@@ -149,7 +149,7 @@ header.header-category-nav h2{
 
 header.header-category-nav ul.category-menu li{
   float: left;
-  width: 145px;
+  width: 114px;
 }
 /* header.header-category-nav ul.uk-navbar-nav{
   width: 450px;
@@ -198,7 +198,7 @@ header.header-category-nav  .category-title{
   height: inherit;
   float: left;
   box-sizing: content-box;
-  background-size: contain;
+  background-size: cover;
 }
 .fw-background-container .fw-container {
   display: inline-block;

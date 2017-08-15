@@ -93,11 +93,11 @@
                   <!-- On the desktop  uk-visible@m -->
                   <li class="uk-active">
                     <a href="#">
-                      <div class="uk-cover-container img-navbar-title" style="position: absolute; top: 0; left: 0;">
+                      <!-- <div class="uk-cover-container img-navbar-title" style="position: absolute; top: 0; left: 0;">
                           <canvas width="328" height="45"></canvas>
                         <img src="<?= get_template_directory_uri().'/assets/img/portfolio.png' ?>" uk-cover/>
-                      </div>
-                      <h1 class="navbar-title uk-hidden">PORTFOLIO </h1>
+                      </div> -->
+                      <h1 class="navbar-title">PORTFOLIO </h1>
                     </a>
                   </li>
               </ul>

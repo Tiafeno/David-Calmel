@@ -13,7 +13,7 @@ if ($Pages->have_posts()):
     }
 ?>
     <div class="fw-container uk-inline">
-        <div class="fw-background-container" data-container='{"w":300, "h":"auto"}' style="background-image: url(<?= $url ?>); width:300px; height: 300px">
+        <div class="fw-background-container" data-container='{"w":280, "h":"auto"}' style="background-image: url(<?= $url ?>); width:300px; height: 300px">
           <div class="uk-label uk-label-success uk-position-bottom-right ">
             <a href="<?= get_permalink( $Pages->post->ID ) ?>">
               <?= strtoupper( $Pages->post->post_title ) ?>
