@@ -47,8 +47,8 @@ get_template_part('head');
         </div>
       </header>
       <header class="sticky-menu HeaderMenu animated  slideInDown">
-        <div class="uk-container uk-container-large">
-          <nav class="uk-navbar-transparent uk-navbar uk-container uk-container-small " uk-navbar>
+        <div class="uk-container uk-container-small">
+          <nav class="uk-navbar-transparent uk-navbar" uk-navbar>
             <div class="uk-navbar-left">
               <ul class="uk-navbar-nav">
                   <!-- On the desktop  uk-visible@m -->

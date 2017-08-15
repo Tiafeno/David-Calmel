@@ -6,11 +6,8 @@ $currentPost = $post;
 ?>
 
 <header class="header-category-nav-offcanvas uk-hidden@m">
-  <div class="uk-section uk-section-secondary section-offcanvas">
-    <div class="uk-container uk-container-small">
-          <h2 class="header-offcanvas-title"><?= strtoupper($currentPost->post_title) ?></h2>
-    </div>
-    <div class="uk-container uk-container-small uk-text-center">
+  <div class="uk-container uk-container-small uk-section-secondary section-offcanvas " style="background-color: red">
+    <div class="uk-container uk-padding-remove" style="margin-top: 10px">
         <?php
           wp_nav_menu( array(
             'menu_class' => 'category-nav-offcanvas',
@@ -21,6 +18,9 @@ $currentPost = $post;
             'walker' => new Secondary_Walker()
             ) );
         ?><!-- .secondary-navigation -->
+    </div>
+    <div class="uk-container" style="margin-bottom: 10px; padding-left: 17px">
+          <h2 class="header-offcanvas-title uk-padding-remove"><?= strtoupper($currentPost->post_title) ?></h2>
     </div>
   </div>
 </header>

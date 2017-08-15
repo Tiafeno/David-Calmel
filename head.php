@@ -35,6 +35,9 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
   <style type="text/css">
     ul.category-nav-offcanvas {
       padding-right: 29px;
+      display: inline-block;
+      padding-left: 4px;
+      margin: 0;
     }
     ul.category-nav-offcanvas > li {
       float: left;
@@ -50,6 +53,9 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
     }
     .header-offcanvas-title {
       padding-left: 43px;
+    }
+    .section-offcanvas h2.header-offcanvas-title{
+      font-weight: bold;
     }
     .header-category-nav-offcanvas .section-offcanvas{
       -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
