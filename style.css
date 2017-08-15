@@ -187,11 +187,6 @@ header.header-category-nav  .category-title{
   box-sizing: content-box;
   width: 100%;
 }
-.fw-containers .fw-container{
-  display: inline-block;
-  float: left;
-  box-sizing: content-box;
-}
 
 .fw-background-container{
   width: inherit;
@@ -200,12 +195,8 @@ header.header-category-nav  .category-title{
   box-sizing: content-box;
   background-size: cover;
 }
-.fw-background-container .fw-container {
-  display: inline-block;
-  float: left;
-}
 
-.fw-container .fw-background-container a{
+.fw-background-container a{
   color : #fff;
   font-weight: bold;
 }

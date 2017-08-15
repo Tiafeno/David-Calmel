@@ -7,47 +7,8 @@
  * @subpackage David_Calmel
  * @since David Calmel 1.0
  */
-
+get_template_part('head');
  ?>
-
-<!DOCTYPE html>
-<html <?php language_attributes(); ?> dir="ltr">
-
-<head>
-  <meta charset="<?php bloginfo( 'charset' ); ?>">
-  <meta name="viewport" content="width=450, initial-scale=0.9, maximum-scale=0.9">
-  <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-  <?php endif; ?>
-  <?php wp_head(); ?>
-
-  <style type="text/css">
-    ul.category-nav-offcanvas {
-      padding-right: 29px;
-    }
-    ul.category-nav-offcanvas > li {
-      float: left;
-      list-style: none;
-      padding-left: 14px;
-    }
-    ul.category-nav-offcanvas > li > a{
-      height: inherit;
-      justify-content: space-between;
-      color: #00A6DE;
-      font-weight: 500;
-      font-size: 0.685rem !important;
-    }
-    .header-offcanvas-title {
-      padding-left: 43px;
-    }
-    .header-category-nav-offcanvas .section-offcanvas{
-      -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
-      transition: transform 2s;
-    }
-  </style>
-
-</head>
-
 <body <?php body_class(); ?>>
   <header class="header-nav-top">
     <header class="container-nav-top">

@@ -107,8 +107,10 @@
       var nbrline = 1;
       var width = ($newWidth * $inbox) + 0.1;
       $height = (_constBoxHeight === 'auto' ) ?  $newWidth : parseFloat( _constBoxHeight );
-      fw_bg_container.css('visibility', 'hidden');
-      fw_bg_container.each(function( $index ){
+
+      fw_bg_container
+      .css('visibility', 'hidden')
+      .each(function( $index ){
         if (currentWidth < windowWidth && parseInt(currentWidth + 0.1) != parseInt( width )){
           translateX = currentWidth;
         } else {
@@ -166,17 +168,6 @@
         indentWidth = parseFloat(rest / countBoxsIn);
         newWidth = parseFloat(_constBoxWidth + parseFloat(indentWidth.toFixed(2)));
       } 
-      // var ElClass = (countBoxsIn <= 6) ? 'uk-child-width-1-' + countBoxsIn : 'uk-width-auto@m';
-      // if (LastContainersClass != null){
-      //   if (fw_containers.hasClass( LastContainersClass )){
-      //     fw_containers
-      //       .toggleClass( LastContainersClass )
-      //       .addClass(ElClass);
-      //   }
-      // } else {
-      //   fw_containers.addClass(ElClass);
-      // }
-      // LastContainersClass = ElClass;
       if (rest == null) { newWidth = _constBoxWidth; }
       console.log(windowWidth, LimiteRangeWidth, _constBoxWidth, rest,  parseFloat(indentWidth.toFixed(2)), newWidth, countBoxsIn, BoxsCount);
       /*

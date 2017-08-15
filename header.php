@@ -9,48 +9,8 @@
  */
  
  $Title =  empty(get_the_title( )) ? '404' : get_the_title();
+ get_template_part('head');
  ?>
-
-<!DOCTYPE html>
-<html <?php language_attributes(); ?> dir="ltr">
-
-<head>
-  <meta charset="<?php bloginfo( 'charset' ); ?>">
-  <meta name="viewport" content="width=device-width, initial-scale=0.5">
-  <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-  <?php endif; ?>
-  <script type="text/javascript">
-    var PAGE = "Home";
-  </script>
-  <?php wp_head(); ?>
-
-  <style type="text/css">
-    ul.category-nav-offcanvas {
-      padding-right: 29px;
-    }
-    ul.category-nav-offcanvas > li {
-      float: left;
-      list-style: none;
-      padding-left: 14px;
-    }
-    ul.category-nav-offcanvas > li > a{
-      height: inherit;
-      justify-content: space-between;
-      color: #00A6DE;
-      font-weight: 500;
-      font-size: 0.685rem !important;
-    }
-    .header-offcanvas-title {
-      padding-left: 43px;
-    }
-    .header-category-nav-offcanvas .section-offcanvas{
-      -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
-      transition: transform 2s;
-    }
-  </style>
-
-</head>
 
 <body <?php body_class(); ?>>
   <header class="header-nav-top">
