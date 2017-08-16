@@ -11,12 +11,15 @@ while (list(, $type) = each( $POSTTYPE )){
   if ($Contents->have_posts()){
     while ( $Contents->have_posts() ) : $Contents->the_post();
       if ( (int)get_post_meta($Contents->post->ID, 'favorite_works', true) === 1 ){
+        $thumbnail = get_the_post_thumbnail_url( $Contents->post->ID, 'full' );
+        $gifurl = get_post_meta($Contents->post->ID, 'gifs', true);
+        $url = ($gifurl || !empty( $gifurl )) ? $gifurl : $thumbnail;
         $FavoriteContents[] = [
           'title' => get_the_title( $Contents->post->ID ),
           'name' => $Contents->post->post_name,
           'type' => $Contents->post->post_type,
           //'content' => $Contents->post->post_content,
-          'thumbnail_url' => get_the_post_thumbnail_url( $Contents->post->ID, 'full' ),
+          'thumbnail_url' => $url,
           'link' => get_permalink( $Contents->post->ID )
         ];
       }

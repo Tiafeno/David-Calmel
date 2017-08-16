@@ -38,7 +38,7 @@
     var navbarTitleValue = navbarTitle.text().trim();
     if (/^portfolio/.test( navbarTitleValue.toLowerCase() )){
       $( '#menu-primary-menu li' ).each(function( index ){
-        if ($.trim($(this).text()).toUpperCase() == 'PORTFOLIO'){
+        if ($.trim( $( this ).text() ).toUpperCase() == 'PORTFOLIO'){
           $(this).addClass('uk-active');
         }
       });

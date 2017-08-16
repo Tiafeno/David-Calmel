@@ -32,7 +32,7 @@
           ShowAnimation();
         }, 2000);
       });
-    }, 8000);
+    }, 20000);
   };
 
   var LoadingStatus = function(){
