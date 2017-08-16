@@ -61,6 +61,19 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
       transition: transform 2s;
     }
+    .fw-background-container .loading{
+      display: block;
+      width: 133px;
+      height: 124px;
+      position: absolute;
+      visibility: hidden;
+      top: 36%;
+      left: 29%;
+      background: url(https://media.giphy.com/media/k0RechlPcfQeA/giphy.gif);
+      visibility: initial;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   </style>
 
 </head>

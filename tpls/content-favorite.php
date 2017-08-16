@@ -9,12 +9,13 @@ while (list(, $type) = each( $POSTTYPE )){
   ];
   $Contents = new WP_Query( $args );
   if ($Contents->have_posts()){
-    $FavoriteContents[ $type ] = [];
     while ( $Contents->have_posts() ) : $Contents->the_post();
       if ( (int)get_post_meta($Contents->post->ID, 'favorite_works', true) === 1 ){
-        $FavoriteContents[ $type ][] = [
+        $FavoriteContents[] = [
           'title' => get_the_title( $Contents->post->ID ),
-          'content' => $Contents->post->post_content,
+          'name' => $Contents->post->post_name,
+          'type' => $Contents->post->post_type,
+          //'content' => $Contents->post->post_content,
           'thumbnail_url' => get_the_post_thumbnail_url( $Contents->post->ID, 'full' ),
           'link' => get_permalink( $Contents->post->ID )
         ];
@@ -35,15 +36,16 @@ while (list(, $type) = each( $POSTTYPE )){
 <script> 
   var PostType = <?= json_encode($POSTTYPE, JSON_PRETTY_PRINT); ?>;
   var FavoriteContents = <?= json_encode($FavoriteContents, JSON_PRETTY_PRINT); ?>; 
+  var DefaultCover = "<?= get_template_directory_uri().'/images/cover.jpg'; ?>";
 </script>
 
   <div id="fw-containers" class="fw-containers uk-container uk-container-large uk-padding-remove-right uk-padding-remove-left">
 <?php
-$url = get_template_directory_uri().'/images/cover.jpg';
 foreach($Brands as $key => $brand): ?>
-        <div class="fw-background-container" id="<?= $brand[ 'type' ] ?>" data-post="<?= $brand[ 'type' ] ?>" data-container='{"w":260, "h":"auto"}' style="background-image: url(<?= $url ?>); width:260px; height: 260px">
+        <div class="fw-background-container" id="brand_<?= $key ?>" data-post="<?= $key ?>" data-container='{"w":260, "h":"auto"}' style=" width:260px; height: 260px">
+          <div class="loading"></div>
           <div class="uk-label uk-label-success uk-position-bottom-right ">
-            <a href="#" id="name_<?= $brand[ 'type' ] ?>">
+            <a href="#" id="name_<?= $key ?>">
               <?= strtoupper( $brand[ 'name' ] ) ?>
             </a>
 
