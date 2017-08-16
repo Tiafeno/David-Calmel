@@ -44,8 +44,9 @@ while (list(, $type) = each( $POSTTYPE )){
 foreach($Brands as $key => $brand): ?>
         <div class="fw-background-container" id="brand_<?= $key ?>" data-post="<?= $key ?>" data-container='{"w":260, "h":"auto"}' style=" width:260px; height: 260px">
           <div class="loading"></div>
-          <div class="uk-label uk-label-success uk-position-bottom-right ">
-            <a href="#" id="name_<?= $key ?>">
+          <div class="fw-background"></div>
+          <div class="uk-label uk-label-success uk-position-bottom-right " id="name_<?= $key ?>">
+            <a href="#" >
               <?= strtoupper( $brand[ 'name' ] ) ?>
             </a>
 

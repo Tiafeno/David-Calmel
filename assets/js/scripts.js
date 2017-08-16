@@ -118,7 +118,7 @@
           translateY = $newWidth * nbrline;
           nbrline += 1;
         }
-        currentWidth +=$newWidth;
+        currentWidth +=  $newWidth;
         $( this ).css({
           visibility : 'visible',
           width : $newWidth + 'px',

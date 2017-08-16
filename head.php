@@ -74,6 +74,16 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       background-size: contain;
       background-repeat: no-repeat;
     }
+    .fw-background-container > .fw-background{
+      display: block;
+      width: inherit;
+      height: inherit;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    html, body{
+      overflow-x : hidden;
+    }
   </style>
 
 </head>
