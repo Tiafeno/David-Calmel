@@ -38,7 +38,7 @@ $objTitle = (object) $Title;
   </div>
 </header>
 
-<header class="header-category-nav animated slideInDown uk-visible@m">
+<header class="header-category-nav uk-visible@m">
   <div class="uk-container uk-container-small uk-navbar">
     <div class="uk-navbar-left">
       <ul class="uk-navbar-nav category-title">

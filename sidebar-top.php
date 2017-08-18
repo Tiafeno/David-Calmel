@@ -25,8 +25,8 @@ $currentPost = $post;
   </div>
 </header>
 
-<header class="header-category-nav animated slideInDown uk-visible@m">
-  <div class="uk-container uk-container-small uk-navbar">
+<header class="header-category-nav uk-visible@m">
+  <div class="uk-container uk-container-small uk-navbar" >
     <div class="uk-navbar-left">
       <ul class="uk-navbar-nav category-title">
           <li class="uk-active"><a href="#"><h2><?= strtoupper($currentPost->post_title) ?></h2></a></li>

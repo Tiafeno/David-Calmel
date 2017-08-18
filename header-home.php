@@ -46,7 +46,7 @@ get_template_part('head');
 
         </div>
       </header>
-      <header class="sticky-menu HeaderMenu animated  slideInDown">
+      <header class="HeaderMenu animated  slideInDown">
         <div class="uk-container uk-container-small">
           <nav class="uk-navbar-transparent uk-navbar" uk-navbar>
             <div class="uk-navbar-left">

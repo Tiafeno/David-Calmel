@@ -48,7 +48,7 @@
 
       </div>
     </header>
-    <header class="sticky-menu HeaderMenu">
+    <header class="HeaderMenu">
       <div class="uk-container uk-container-large">
         <nav class="uk-navbar-transparent uk-navbar uk-container uk-container-small animated  slideInRight" uk-navbar>
           <div class="uk-navbar-left">
