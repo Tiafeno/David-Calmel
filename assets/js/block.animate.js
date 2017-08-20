@@ -116,6 +116,20 @@
     _.remove(currentSelected, function( el ){
       return el.name == HoverSelectedContentNAME;
     });
+
+    _.forEach(DOMElements, function( el ){
+      var V = parseInt($( el ).data( 'validate' ));
+      var Name = $( el ).data( 'name' );
+      if (V == 0) {
+        _.remove(currentSelected, function( element ){
+          console.log(Name + ' - ' + element.name);
+          return element.name == Name;
+        });
+        return;
+      }
+    });
+
+    console.log(currentSelected);
     
     _.forEach(DOMElements, function( $element, $key ){
       var thisElement = $( $element );
@@ -123,23 +137,23 @@
       var thisElementID = thisElement.attr( 'id' );
       var currentPostName = thisElement.data( 'name' );
       var keys = step;
-      
-      if (HoverSelectedContentID != null && currentPostName == HoverSelectedContentNAME) {
-        return;
-      } 
-        
-      var post = currentSelected[ keys ];
       var fw_background = thisElement.find( '.fw-background' );
       var validation = parseInt(thisElement.data( 'validate' ));
+      if (validation == 0) {
+        step += 1;
+        return;
+      }
+      if ((HoverSelectedContentID != null && currentPostName == HoverSelectedContentNAME) || 
+        thisElementID == HoverSelectedContentID) {
+        return;
+      } 
+      var post = currentSelected[ keys ];
       if (typeof post == "undefined") return;
       if (post.thumbnail_url != false) {
-        if (validation == 0 || thisElementID == HoverSelectedContentID) return;
         thisElement.data('validate', 0);
-
         xhjq( $key, post, thisElement, fw_background, function( post ){
           
         });
-        
       } else {
         thisElement
         .find( '.fw-background' )
