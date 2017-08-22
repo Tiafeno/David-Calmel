@@ -34,7 +34,6 @@ global $post;
     <div class="uk-navbar-right">
     
         <?php
-          echo $post->ID;
           wp_nav_menu( array(
             'menu_class' => 'uk-navbar-nav category-menu',
             'container_class' => '',
