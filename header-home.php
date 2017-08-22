@@ -22,7 +22,7 @@ get_template_part('head');
     <header class="container-nav-top">
       <div class="uk-container uk-container-small animated  slideInDown">
         <div class="uk-text-left" uk-grid>
-            <div class="uk-width-1-5">
+            <div class="uk-width-2-5">
                 <div class="uk-card uk-card-default uk-card-body navbar-card-slogan">
                   <!--<p>DAVID ALEXANDRE CALMEL</p> -->
                   <p class="blogingo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">DAVID ALEXANDRE CALMEL <?php //bloginfo( 'name' ); ?></a></p>

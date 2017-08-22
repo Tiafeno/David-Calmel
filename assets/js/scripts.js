@@ -11,6 +11,7 @@
   ** When document DOM is ready
   */
   $( document ).ready(function() {
+
     var header_nav_top = $('.header-nav-top').height();
     var header_category_offcanvas = $('.header-category-nav-offcanvas').height();
     var header_category = $('.header-category-nav').height();
@@ -62,8 +63,7 @@
     var navbarTitle = $( 'h1.navbar-title' );
     var currentTitlePosTop = navbarTitle.css( 'top' );
     if (isMobile){
-      var newPosTop = parseFloat( currentTitlePosTop ) + 3;
-      $( 'h1.navbar-title').css('top', newPosTop + 'px');
+      
     }
  
     var navbarTitleValue = navbarTitle.text().trim();
@@ -81,6 +81,7 @@
     var Title = $( '.uk-navbar-left > ul.uk-navbar-nav .navbar-title' );
     var TitleContainerNavbarHeight = NavBar.height();
     var DefaultTitleHeight = Title.height();
+    var ScrollExist = false;
 
     if (fw_bg_container.length != 0 ) {
       var LastContainersClass = null;
@@ -99,7 +100,18 @@
 
       calcBoxsRangeWidth(function( $newWidth, $inbox ) {
         setPositionTitle();
-        animateContainer( $newWidth, $inbox );
+        animateContainer( $newWidth, $inbox, function(){
+          var ElemContainers = document.getElementById( "fw-containers" );
+          var theWidthCSSprop = window.getComputedStyle(ElemContainers, null).getPropertyValue( "width" );
+          var currenWindowWidth = parseFloat(theWidthCSSprop);
+          if (windowWidth > currenWindowWidth){
+            calcBoxsRangeWidth(function( width, inbox){
+              animateContainer(width, inbox, function(){
+
+              });
+            });
+          }
+        });
       });
       /*
       ** On window resize event binding
@@ -108,8 +120,9 @@
       $( window ).resize(function(  ) {
         calcBoxsRangeWidth(function( $newWidth, $inbox ) {
           setPositionTitle();
-          animateContainer( $newWidth, $inbox );
-          console.warn('Resize On');
+          animateContainer( $newWidth, $inbox, function(){
+
+          });
         });
       });
 
@@ -125,12 +138,13 @@
       });
     }
 
+
     /*
     ** @Function animate box container
     ** @return: void
     */
 
-    function animateContainer( $newWidth, $inbox ){
+    function animateContainer( $newWidth, $inbox, callback ){
       var currentWidth = 0;
       var translateX = 0;
       var translateY = 0;
@@ -158,9 +172,12 @@
           transition : 'transform 1s',
           transform : "translate3d( " + translateX + "px, " + translateY + "px, " + translateZ + "px"
         }).on('transitionend', function(){
-          
+
         });
       });
+      window.setTimeout(function(){
+        callback();
+      }, 400);
     }
 
     /*
@@ -180,7 +197,7 @@
       windowWidth = parseFloat( theWidthCSSprop ); //parseFloat( $( '.fw-containers' ).innerWidth() );
       var newWidth = 0;
       var rest = null;
-      while ( countBoxsIn <  BoxsCount ) {
+      while ( countBoxsIn < BoxsCount ) {
         var TestValue = LimiteRangeWidth + _constBoxWidth;
         if (TestValue > windowWidth) break;
         if (LimiteRangeWidth < windowWidth){
@@ -198,7 +215,13 @@
         rest = windowWidth - LimiteRangeWidth;
         indentWidth = parseFloat(rest / countBoxsIn);
         newWidth = parseFloat(_constBoxWidth + parseFloat(indentWidth.toFixed(2)));
+      }
+      
+      if ((BoxsCount <= 2 && LimiteRangeWidth <= windowWidth) && windowWidth > 560){
+        rest = null;
+        indentWidth = 0;
       } 
+
       if (rest == null) { newWidth = _constBoxWidth; }
       console.log(windowWidth, LimiteRangeWidth, _constBoxWidth, rest,  parseFloat(indentWidth.toFixed(2)), newWidth, countBoxsIn, BoxsCount);
       /*

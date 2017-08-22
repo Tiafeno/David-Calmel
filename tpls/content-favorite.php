@@ -45,7 +45,7 @@ while (list(, $type) = each( $POSTTYPE )){
   <div id="fw-containers" class="fw-containers uk-container uk-container-large uk-padding-remove-right uk-padding-remove-left">
 <?php
 foreach($Brands as $key => $brand): ?>
-        <div class="fw-background-container" id="brand_<?= $key ?>" data-name="" data-validate="1" data-post="<?= $key ?>" data-container='{"w":260, "h":"auto"}' style=" width:260px; height: 260px">
+        <div class="fw-background-container" id="brand_<?= $key ?>" data-name="" data-validate="1" data-post="" data-container='{"w":260, "h":"auto"}' style=" width:260px; height: 260px">
           <div class="loading"></div>
           <div class="fw-background"></div>
           <div class="uk-label uk-label-success uk-position-bottom-right " id="name_<?= $key ?>">

@@ -1,8 +1,6 @@
 <?php
 
 global $post;
-$currentPost = $post;
-
 ?>
 
 <header class="header-category-nav-offcanvas uk-hidden@m">
@@ -14,13 +12,13 @@ $currentPost = $post;
             'container_class' => '',
             'theme_location' => 'secondary',
             'container_class' => 'container_class_menu',
-            'post_id' => $currentPost->ID,
+            'post_title' => $post->post_title,
             'walker' => new Secondary_Walker()
             ) );
         ?><!-- .secondary-navigation -->
     </div>
     <div class="uk-container" style="margin-bottom: 10px; padding-left: 17px">
-          <h2 class="header-offcanvas-title uk-padding-remove"><?= strtoupper($currentPost->post_title) ?></h2>
+          <h2 class="header-offcanvas-title uk-padding-remove"><?= strtoupper($post->post_title) ?></h2>
     </div>
   </div>
 </header>
@@ -29,18 +27,20 @@ $currentPost = $post;
   <div class="uk-container uk-container-small uk-navbar" >
     <div class="uk-navbar-left">
       <ul class="uk-navbar-nav category-title">
-          <li class="uk-active"><a href="#"><h2><?= strtoupper($currentPost->post_title) ?></h2></a></li>
+          <li class="uk-active"><a href="#"><h2><?= strtoupper($post->post_title) ?></h2></a></li>
       </ul>
     </div>
 
     <div class="uk-navbar-right">
+    
         <?php
+          echo $post->ID;
           wp_nav_menu( array(
             'menu_class' => 'uk-navbar-nav category-menu',
             'container_class' => '',
             'theme_location' => 'secondary',
             'container_class' => 'container_class_menu',
-            'post_id' => $currentPost->ID,
+            'post_title' => $post->post_title,
             'walker' => new Secondary_Walker()
             ) );
         ?><!-- .secondary-navigation -->

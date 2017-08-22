@@ -82,7 +82,7 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       background-repeat: no-repeat;
     }
     html, body{
-      overflow-x : hidden;
+      /* overflow-x : hidden; */
     }
   </style>
 
