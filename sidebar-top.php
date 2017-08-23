@@ -12,7 +12,7 @@ global $post;
             'container_class' => '',
             'theme_location' => 'secondary',
             'container_class' => 'container_class_menu',
-            'post_title' => $post->post_title,
+            'post_id' => $post->ID,
             'walker' => new Secondary_Walker()
             ) );
         ?><!-- .secondary-navigation -->
@@ -39,7 +39,7 @@ global $post;
             'container_class' => '',
             'theme_location' => 'secondary',
             'container_class' => 'container_class_menu',
-            'post_title' => $post->post_title,
+            'post_id' => $post->ID,
             'walker' => new Secondary_Walker()
             ) );
         ?><!-- .secondary-navigation -->

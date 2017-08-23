@@ -15,12 +15,8 @@ class Secondary_Walker extends Walker_Nav_Menu{
       $search = ['Â°'];
       $replace = ['°'];
       $id = (isset( $args->post_id )) ? (int)$args->post_id : false;
-      $name = (isset( $args->post_title )) ? trim( $args->post_title ) : false; 
       $byID = $id ? ($id != $item->object_id) : false;
-      $regex = $name ? '/'.$args->post_title.'/i' : null;
-      $match = str_replace($search, $replace, utf8_encode($item->title));
-      $byNAME = $name ? !preg_match($regex, $match) : false;
-      if ($byID || $byNAME ){
+      if ( $byID ){
         $output .= sprintf( "\n<li><a href='%s'%s>%s</a></li>\n",
             $item->url,
             ( $item->object_id === get_the_ID() ) ? ' class="current"' : '',

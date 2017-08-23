@@ -1,6 +1,6 @@
 <?php
 
-global $post;
+global $post, $MODEL;
 $POST = (array)unserialize( POST );
 
 function gtTitle( $posttype, $POST ){
@@ -16,6 +16,7 @@ function gtTitle( $posttype, $POST ){
 $Title = gtTitle( $post->post_type , $POST );
 $objTitle = (object) $Title;
 
+$post_id = $MODEL->getSettings('page_id', ['post_type', $post->post_type])
 ?>
 
 <header class="header-category-nav-offcanvas uk-hidden@m">
@@ -30,7 +31,7 @@ $objTitle = (object) $Title;
             'container_class' => '',
             'theme_location' => 'secondary',
             'container_class' => 'container_class_menu',
-            'post_title' => trim($objTitle->name),
+            'post_id' => $post_id,
             'walker' => new Secondary_Walker()
             ) );
         ?><!-- .secondary-navigation -->
@@ -53,7 +54,7 @@ $objTitle = (object) $Title;
             'container_class' => '',
             'theme_location' => 'secondary',
             'container_class' => 'container_class_menu',
-            'post_title' => trim($objTitle->name),
+            'post_id' => $post_id,
             'walker' => new Secondary_Walker()
             ) );
         ?><!-- .secondary-navigation -->

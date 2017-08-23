@@ -1,7 +1,6 @@
 <?php
-global $post;
-$currentID = $post->ID;
-$ContentType = get_post_meta( $post->ID, 'content_type', true );
+global $post, $MODEL;
+$ContentType = $MODEL->getSettings('post_type', ['page_id', $post->ID]);
 $args = [ 'post_type' => $ContentType, 'orderby' => 'menu_order'];
 $ContentQuery = new WP_Query( $args );
 if ($ContentQuery->have_posts( )):
@@ -14,7 +13,7 @@ if ($ContentQuery->have_posts( )):
 ?>
     <div class="fw-background-container" id="brand_<?= $index ?>" data-name="" data-validate="1" data-post="" data-container='{"w":280, "h":"auto"}' style="background-image: url(<?= $url ?>); width:280px; height: 280px">
       <div class="uk-label uk-label-success uk-position-bottom-right" id="name_<?= $index ?>">
-        <a href="<?= get_permalink( ) ?>?_idchild=<?= $currentID ?>">
+        <a href="<?= get_permalink( ) ?>">
           <?= strtoupper( $ContentQuery->post->post_title ) ?>
         </a>
       </div>
