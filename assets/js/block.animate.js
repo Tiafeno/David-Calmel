@@ -122,14 +122,11 @@
       var Name = $( el ).data( 'name' );
       if (V == 0) {
         _.remove(currentSelected, function( element ){
-          console.log(Name + ' - ' + element.name);
           return element.name == Name;
         });
         return;
       }
     });
-
-    console.log(currentSelected);
     
     _.forEach(DOMElements, function( $element, $key ){
       var thisElement = $( $element );
@@ -165,7 +162,6 @@
         .find( '.loading' )
           .css('visibility', 'hidden');
       }
-
       step += 1;
     });
   };

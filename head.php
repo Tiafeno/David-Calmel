@@ -33,6 +33,22 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
   <?php wp_head(); ?>
 
   <style type="text/css">
+    @media(max-width: 960px){
+      .HeaderMenu .uk-navbar-right:before,
+      .uk-navbar-right:before{
+        border-left: none;
+      }
+    }
+
+    @media(min-width: 960px){
+      .HeaderMenu .uk-navbar-right:before{
+        border-left:2px solid dimgrey;
+      }
+      .uk-navbar-right:before{
+        border-left:2px solid #ffffff;
+      }
+    }
+
     h1, .uk-h1, h2, .uk-h2, h3, .uk-h3, h4, .uk-h4, h5, .uk-h5, h6, .uk-h6{
       font-family: 'Playfair Display', serif;
     }
@@ -45,10 +61,6 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       height: 40px;
       display: block;
       width: 1px;
-      border-left:2px solid #ffffff;
-    }
-    .HeaderMenu .uk-navbar-right:before{
-      border-left:2px solid dimgrey;
     }
 
     header.header-category-nav, .uk-container.section-offcanvas{
