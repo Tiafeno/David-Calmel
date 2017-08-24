@@ -31,7 +31,8 @@ include_once( get_template_directory() . '/inc/function-shortcode.php' );
  * Define Model Object
  * @param: MODEL
  */
-$MODEL = new DCModel();
+if (class_exists('DCModel'))
+	$MODEL = new DCModel();
 
 if ( ! defined( 'POSTTYPE' ) ) {
 	define( 'POSTTYPE', serialize( [
