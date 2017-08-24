@@ -22,7 +22,7 @@ get_template_part('head');
     <header class="container-nav-top">
       <div class="uk-container uk-container-small animated  slideInDown">
         <div class="uk-text-left" uk-grid>
-            <div class="uk-width-2-5">
+            <div class="uk-width-3-5">
                 <div class="uk-card uk-card-default uk-card-body navbar-card-slogan">
                   <!--<p>DAVID ALEXANDRE CALMEL</p> -->
                   <p class="blogingo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">DAVID ALEXANDRE CALMEL <?php //bloginfo( 'name' ); ?></a></p>
@@ -31,8 +31,8 @@ get_template_part('head');
         </div>
       </div>
     </header>
-    <header style="background-color: #2D2E83">
-      <header class="header-nav-down animated slideInDown">
+    <header  >
+      <header class="header-nav-down animated slideInRight">
         <div class="uk-container uk-container-small HeaderSlogan">
           <div class="uk-text-left onStickyStartHide">
               <div class="uk-child-width-1-1@m uk-width-2-3@m uk-light" uk-grid>
@@ -54,10 +54,10 @@ get_template_part('head');
 
         </div>
       </header>
-      <header class="HeaderMenu animated  slideInDown">
+      <header class="HeaderMenu">
         <div class="uk-container uk-container-small">
           <nav class="uk-navbar-transparent uk-navbar" uk-navbar>
-            <div class="uk-navbar-left">
+            <div class="uk-navbar-left animated slideInLeft">
               <ul class="uk-navbar-nav">
                   <!-- On the desktop  uk-visible@m -->
                   <li class="uk-active">
@@ -72,7 +72,7 @@ get_template_part('head');
               </ul>
             </div>
 
-            <div class="uk-navbar-right">
+            <div class="uk-navbar-right animated slideInRight">
               <?php if ( has_nav_menu( 'primary' ) ) : ?>
                   <?php
                     wp_nav_menu( array(
@@ -122,3 +122,4 @@ get_template_part('head');
   </header>
 
   <div id="main-content" class="uk-section uk-section-default"> <!-- uk-padding-remove-top -->
+ <!-- </body> -->

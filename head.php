@@ -33,6 +33,27 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
   <?php wp_head(); ?>
 
   <style type="text/css">
+    h1, .uk-h1, h2, .uk-h2, h3, .uk-h3, h4, .uk-h4, h5, .uk-h5, h6, .uk-h6{
+      font-family: 'Playfair Display', serif;
+    }
+    .uk-navbar-right .uk-navbar-nav > li > a{
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .uk-navbar-right:before{
+      content:' ';
+      height: 40px;
+      display: block;
+      width: 1px;
+      border-left:2px solid #ffffff;
+    }
+    .HeaderMenu .uk-navbar-right:before{
+      border-left:2px solid dimgrey;
+    }
+
+    header.header-category-nav, .uk-container.section-offcanvas{
+      background: url(<?= get_template_directory_uri() . '/images/bg-sub-menu.png'?>) repeat top left;
+    }
     ul.category-nav-offcanvas {
       padding-right: 29px;
       display: inline-block;

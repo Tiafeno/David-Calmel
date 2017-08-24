@@ -88,8 +88,13 @@ add_action( 'widgets_init', 'davidcalmel_widgets_init' );
  * @since David Calmel 1.0
  */
 function davidcalmel_scripts() {
-	// Add Genericons, used in the main stylesheet.
+	/*
+	 * font-family: 'Roboto', sans-serif;
+	 */
 	wp_enqueue_style( 'roboto-fonts', '//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,700,900', array() );
+
+	//font-family: 'Playfair Display', serif;
+	wp_enqueue_style( 'playfair-fonts', '//fonts.googleapis.com/css?family=Playfair+Display:400,700', array() );
 	wp_enqueue_style( 'uikit', get_template_directory_uri() . '/dist/css/uikit.css', array() );
 	wp_enqueue_style( 'animation', get_template_directory_uri() . '/assets/css/animate.css', array() );
 
