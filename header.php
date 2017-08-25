@@ -24,7 +24,7 @@
   <header class="container-nav-top">
     <div class="uk-container uk-container-small animated slideInDown">
       <div class="uk-text-left" uk-grid>
-        <div class="uk-width-3-5">
+        <div class="uk-width-4-5">
           <div class="uk-card uk-card-default uk-card-body navbar-card-slogan">
             <p class="blogingo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">DAVID ALEXANDRE CALMEL <?php //bloginfo( 'name' ); ?></a></p>
           </div>
