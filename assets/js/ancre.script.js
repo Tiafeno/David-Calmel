@@ -16,7 +16,7 @@
     .click(function() {
       var Hook = $( this ).data('href');
       $('html, body').stop().animate({
-        scrollTop: $( Hook ).offset().top - 80
+        scrollTop: $( Hook ).offset().top 
       }, 1000);
     });
 
