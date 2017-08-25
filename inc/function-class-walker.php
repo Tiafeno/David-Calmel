@@ -20,7 +20,7 @@ class Secondary_Walker extends Walker_Nav_Menu{
         $output .= sprintf( "\n<li><a href='%s'%s>%s</a></li>\n",
             $item->url,
             ( $item->object_id === get_the_ID() ) ? ' class="current"' : '',
-            $item->title
+            strtoupper($item->title)
         );
       }
         

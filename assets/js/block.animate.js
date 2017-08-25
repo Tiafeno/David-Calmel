@@ -108,10 +108,10 @@
           .css('display', 'block');
 
           //LoadingStatus(element, "hidden");
-          var x = Effectsplay[ Math.floor(Math.random() * Effectsplay.length) ];
+          var animationEffect = Effectsplay[ Math.floor(Math.random() * Effectsplay.length) ];
           $( '#name_' + key )
             .removeClass(Effectsplay.join(' ') + ' ' + Effectreverse)
-            .addClass(x)
+            .addClass(animationEffect)
             .css('display', 'block')
             .find( 'a' )
               .text( post.title )

@@ -62,7 +62,7 @@
             <ul class="uk-navbar-nav">
               <!-- On the desktop  uk-visible@m -->
               <li class="uk-active">
-                <a href="#">
+                <a href="#" class="uk-padding-remove-left">
                   <!-- <div class="uk-cover-container img-navbar-title" style="position: absolute; top: 0; left: 0;">
                           <canvas width="328" height="45"></canvas>
                         <img src="<?= get_template_directory_uri().'/assets/img/portfolio.png' ?>" uk-cover/>

@@ -75,7 +75,7 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
     ul.category-nav-offcanvas > li {
       float: left;
       list-style: none;
-      padding-left: 14px;
+      padding-right: 14px;
     }
     ul.category-nav-offcanvas > li > a{
       height: inherit;
@@ -116,6 +116,12 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
     }
     html, body{
       /* overflow-x : hidden; */
+    }
+    .vc_row{
+      display: inline-block;
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
     }
   </style>
 
