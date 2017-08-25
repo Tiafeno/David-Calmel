@@ -1,7 +1,7 @@
 <?php
 global $post, $MODEL;
 $ContentType = $MODEL->getSettings('post_type', ['page_id', $post->ID]);
-$args = [ 'post_type' => $ContentType, 'orderby' => 'menu_order'];
+$args = [ 'post_type' => $ContentType, 'orderby' => 'menu_order', 'posts_per_page' => -1];
 $ContentQuery = new WP_Query( $args );
 if ($ContentQuery->have_posts( )):
   $index = 0;
