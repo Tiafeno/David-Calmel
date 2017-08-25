@@ -14,11 +14,6 @@ get_header('home');
   ul.category-nav-offcanvas {
     padding-right: 29px;
   }
-  ul.category-nav-offcanvas > li {
-    float: left;
-    list-style: none;
-    padding-left: 14px;
-  }
   ul.category-nav-offcanvas > li > a{
     height: inherit;
     justify-content: space-between;
@@ -56,6 +51,9 @@ get_header('home');
    ?>
   </div>
 </div>
- <?php wp_footer(); ?>
+<?php 
+  get_footer();
+  wp_footer(); 
+ ?>
 </body>
 </html>

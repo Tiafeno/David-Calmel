@@ -38,7 +38,8 @@ body{
 }
 
 .blogingo a{
-  color: white;
+  color: #110f5f;
+  font-weight: bold;;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 2.5px;
@@ -53,7 +54,7 @@ body{
   font-weight: bold;
 }
 .header-nav-down, .HeaderMenu{
-  background: #2D2E83;
+  /* background: #2D2E83; */
 }
 
 .header-nav-down{
@@ -63,24 +64,26 @@ body{
 .uk-container .uk-card-default{
   background: none;
   box-shadow: none;
-  padding-left: 21px;
+  padding-left: 0px;
   padding-top: 8px;
   padding-bottom: 4px;
 }
 .header-nav-down .navbar-card-slogan span{
   font-size: 8.5px;
   letter-spacing: 3px;
-  word-break: break-word;
+  word-break: normal;
   line-height: 1.8;
   display: block;
+  color: #4b8ac4;
+  font-weight: bold;
 }
 
 .header-nav-top .container-nav-top{
-  background: #00A6DE;
+  background: #9DD1DF;
 }
 .HeaderMenu h1.navbar-title{
   font-weight: bolder;
-  color: white;
+  color: dimgrey;
   line-height: 1;
   text-transform: uppercase;
   display: inline-table;
@@ -98,7 +101,7 @@ header nav .uk-navbar-right ul li{
 .uk-navbar-right .uk-navbar-nav > li > a{
   height: inherit;
   justify-content: space-between;
-  color: #00A6DE;
+  color: #696969;
   font-weight: 500;
 }
 
@@ -133,7 +136,6 @@ header nav .uk-navbar-right ul li{
 
 /*  Category */
 header.header-category-nav{
-  background: red;
     width: 100%;
     position: relative;
     padding-top: 0px;
@@ -160,7 +162,7 @@ header.header-category-nav ul li > a{
 }
 
 header.header-category-nav  .category-title{
-  width: 500px;
+  /* width: 500px; */
 }
 
 @media(max-width: 640px){

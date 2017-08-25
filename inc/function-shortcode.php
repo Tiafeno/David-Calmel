@@ -6,7 +6,7 @@
 ** @params $attrs array, $content string
 ** @return void
 */
-function render_ancre( $attrs, $content ){
+function render_ancre( $attrs, $content="" ){
   $at = shortcode_atts([
       'idhook' => null,
       'idimg' => null,
@@ -30,39 +30,62 @@ function render_ancre( $attrs, $content ){
     echo '</div>';
   }
 }
-add_shortcode( 'ancre', 'render_ancre' );
+
 
 /*
 ** @function render_client 
 ** @desc Shortcode get client by activities
 ** @params $attrs array, $content string
 ** @return void
+** @code e.g [dc_client term_slug="food"]
 */
-function render_client( $attrs, $content){
+function render_client( $attrs, $content = ""){
   $at = shortcode_atts([
+    /*
+    ** term_slug, is slug variable for activity taxonomie
+    */
     'term_slug' => null,
+    'term_id' => null,
     'post_type' => 'clients',
-    'taxonomy' => 'activity'
+    'taxonomy' => 'activity',
+    'class' => ''
   ], $attrs);
   $at = (object) $at;
 
   /** @return void when term_slug is null **/
-  if (is_null( $at->term_slug )) return; 
+  $term = is_null( $at->term_slug ) ? (!is_null( $at->term_id ) ? (int)$at->term_id : null) : $at->term_slug;
+  if (is_null( $term )) return;
+  $field = is_int( $term ) ? 'term_id' : 'slug';
   $args = [
     'post_type' => $at->post_type,
+    'posts_per_page' => -1,
     'tax_query' => [
-      'taxonomy' => $at->taxonomy,
-      'field' => 'slug',
-      'terms' => $at->term_slug
+      [
+        'taxonomy' => $at->taxonomy,
+        'field' => $field,
+        'terms' => $term
+      ]
     ]
   ];
   $Clients = new WP_Query( $args );
   if ($Clients->have_posts()):
-    echo '<ul>';
+    $return = '';
+    $clienturl = get_post_meta( $Clients->post->ID, 'clienturl', true);
+    $clienturl = ($clienturl != '' || !empty( $clienturl )) ? esc_url( $clienturl ) : false;
+    $return .= "<ul class='{$at->class}'>";
     while ($Clients->have_posts()) : $Clients->the_post();
-      echo "<li> {$Clients->post->post_title} </li>";
+      $return .= "<li>";
+      $return .= $clienturl ? "<a href='{$clienturl}' target='_blank'> {$Clients->post->post_title} </a>" : $Clients->post->post_title;
+      $return .= "</li>";
     endwhile;
-    echo '</ul>';
+    $return .= '</ul>';
+    unset($Clients);
+    return $return;
   endif;
+  return null;
 }
-add_shortcode( 'dc_client', 'render_client' );
+
+add_action( 'init', function(){
+  add_shortcode( 'dc_client', 'render_client' );
+  add_shortcode( 'ancre', 'render_ancre' );
+});

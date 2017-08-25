@@ -176,6 +176,11 @@
         });
       });
       window.setTimeout(function(){
+        if (nbrline >= 1){
+          fw_containers.css({
+            height : $newWidth * nbrline
+          });
+        }
         callback();
       }, 400);
     }

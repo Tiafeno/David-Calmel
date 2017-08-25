@@ -24,36 +24,50 @@
  * @since David Calmel 1.0
  */
 
- include_once(get_template_directory().'/inc/function-class-walker.php');
- include_once(get_template_directory().'/inc/function-shortcode.php');
+include_once( get_template_directory() . '/inc/function-class-walker.php' );
+include_once( get_template_directory() . '/inc/function-shortcode.php' );
 
- if (!defined('POSTTYPE')){
-	 define('POSTTYPE', serialize([
-      '360deg', 'digital', 'marketing', 'advertising',
-      'edition', 'packaging', 'branding', 'event', 'store_booth'
-	 ]));
- }
+/*
+ * Define Model Object
+ * @param: MODEL
+ */
+if (class_exists('DCModel'))
+	$MODEL = new DCModel();
 
-	if (!defined('POST')){
-		define('POST', serialize([
-      [ 'type' => '360deg', 'name' => '360°'],
-      [ 'type' => 'digital', 'name' => 'Digital'],
-      [ 'type' => 'marketing', 'name' => 'Marketing'],
-      [ 'type' => 'advertising', 'name' => 'Advertising'],
-      [ 'type' => 'edition', 'name' => 'Edition'],
-      [ 'type' => 'packaging', 'name' => 'Packaging'],
-      [ 'type' => 'branding', 'name' => 'Branding'],
-      [ 'type' => 'event', 'name' => 'Event'],
-      [ 'type' => 'store_booth', 'name' => 'Store & Booth']
-		]));
-	}
+if ( ! defined( 'POSTTYPE' ) ) {
+	define( 'POSTTYPE', serialize( [
+		'360deg',
+		'digital',
+		'marketing',
+		'advertising',
+		'edition',
+		'packaging',
+		'branding',
+		'event',
+		'store_booth'
+	] ) );
+}
 
-	// This theme uses wp_nav_menu() in 3 locations.
- register_nav_menus( array(
-   'primary' => __( 'Primary Menu', 'twentysixteen' ),
-	 'secondary' => 'Secondary Menu',
-   'social'  => __( 'Social Links Menu', 'twentysixteen' ),
- ) );
+if ( ! defined( 'POST' ) ) {
+	define( 'POST', serialize( [
+		[ 'type' => '360deg', 'name' => '360°' ],
+		[ 'type' => 'digital', 'name' => 'Digital' ],
+		[ 'type' => 'marketing', 'name' => 'Marketing' ],
+		[ 'type' => 'advertising', 'name' => 'Advertising' ],
+		[ 'type' => 'edition', 'name' => 'Edition' ],
+		[ 'type' => 'packaging', 'name' => 'Packaging' ],
+		[ 'type' => 'branding', 'name' => 'Branding' ],
+		[ 'type' => 'event', 'name' => 'Event' ],
+		[ 'type' => 'store_booth', 'name' => 'Store & Booth' ]
+	] ) );
+}
+
+// This theme uses wp_nav_menu() in 3 locations.
+register_nav_menus( array(
+	'primary'   => __( 'Primary Menu', 'twentysixteen' ),
+	'secondary' => 'Secondary Menu',
+	'social'    => __( 'Social Links Menu', 'twentysixteen' ),
+) );
 
 function davidcalmel_widgets_init() {
 	register_sidebar( array(
@@ -66,6 +80,7 @@ function davidcalmel_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 }
+
 add_action( 'widgets_init', 'davidcalmel_widgets_init' );
 
 /**
@@ -74,28 +89,36 @@ add_action( 'widgets_init', 'davidcalmel_widgets_init' );
  * @since David Calmel 1.0
  */
 function davidcalmel_scripts() {
-	// Add Genericons, used in the main stylesheet.
+	/*
+	 * font-family: 'Roboto', sans-serif;
+	 */
 	wp_enqueue_style( 'roboto-fonts', '//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,700,900', array() );
+
+	//font-family: 'Playfair Display', serif;
+	wp_enqueue_style( 'playfair-fonts', '//fonts.googleapis.com/css?family=Playfair+Display:400,700', array() );
 	wp_enqueue_style( 'uikit', get_template_directory_uri() . '/dist/css/uikit.css', array() );
 	wp_enqueue_style( 'animation', get_template_directory_uri() . '/assets/css/animate.css', array() );
 
 	// Theme stylesheet.
-  wp_enqueue_style( 'davidcalmel_style', get_stylesheet_uri() );
-  wp_enqueue_script( 'lodash', get_template_directory_uri().'/dist/js/lodash.min.js', array(), true );
-  wp_enqueue_script( 'uikit', get_template_directory_uri().'/dist/js/uikit.js', array( 'jquery' ), false);
-  wp_enqueue_script( 'morphext', get_template_directory_uri().'/dist/js/morphext.min.js', array( 'jquery' ), false);
-  wp_enqueue_script( 'imagesloaded', get_template_directory_uri().'/dist/js/imagesloaded.pkgd.js', array( 'jquery' ), true );
-  wp_enqueue_script( 'uikit-icons', get_template_directory_uri().'/dist/js/uikit-icons.js', array( 'uikit' ), false );
-  wp_enqueue_script( 'sticky', get_template_directory_uri().'/dist/sticky/jquery.sticky.js', array( 'jquery' ), false, false );
-	wp_enqueue_script( 'davidcalmel-script', get_template_directory_uri().'/assets/js/scripts.js', array( 'jquery', 'sticky' ), true );
+	wp_enqueue_style( 'davidcalmel_style', get_stylesheet_uri() );
+	wp_enqueue_script( 'lodash', get_template_directory_uri() . '/dist/js/lodash.min.js', array(), true );
+	wp_enqueue_script( 'uikit', get_template_directory_uri() . '/dist/js/uikit.js', array( 'jquery' ), false );
+	wp_enqueue_script( 'morphext', get_template_directory_uri() . '/dist/js/morphext.min.js', array( 'jquery' ), false );
+	wp_enqueue_script( 'imagesloaded', get_template_directory_uri() . '/dist/js/imagesloaded.pkgd.js', array( 'jquery' ), true );
+	wp_enqueue_script( 'uikit-icons', get_template_directory_uri() . '/dist/js/uikit-icons.js', array( 'uikit' ), false );
+	wp_enqueue_script( 'sticky', get_template_directory_uri() . '/dist/sticky/jquery.sticky.js', array( 'jquery' ), false, false );
+	wp_enqueue_script( 'davidcalmel-script', get_template_directory_uri() . '/assets/js/scripts.js', array(
+		'jquery',
+		'sticky'
+	), true );
 	wp_localize_script( 'davidcalmel-script', 'dc', array(
-		'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
-	));
+		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+	) );
 }
 
 add_action( 'wp_enqueue_scripts', 'davidcalmel_scripts' );
 
-function davidcalmel_scripts_home(){
+function davidcalmel_scripts_home() {
 	return;
 }
 
@@ -105,31 +128,38 @@ function davidcalmel_scripts_home(){
  *
  * @since David Calmel 1.0
  */
-function uk_active_nav_class ($classes, $item) {
-    if (in_array('current-menu-item', $classes) ){
-        $classes[] = 'uk-active ';
-    }
-    return $classes;
-}
-add_filter('nav_menu_css_class' , 'uk_active_nav_class' , 10 , 2);
+function uk_active_nav_class( $classes, $item ) {
+	if ( in_array( 'current-menu-item', $classes ) ) {
+		$classes[] = 'uk-active ';
+	}
 
-function get_Title(){
-  $parent_terms = get_the_category();
-  if (is_category( get_cat_ID( single_term_title("", false) )) ){
-    $child = get_category( get_cat_ID( single_term_title("", false) ) );
-    $parent = $child->parent;
-    if ($parent > 0):
-      $pname = get_category( $parent );
-      return $pname->name;
-    endif;
-  }
-  if (is_array( $parent_terms ) && empty( $parent_terms )) 
+	return $classes;
+}
+
+add_filter( 'nav_menu_css_class', 'uk_active_nav_class', 10, 2 );
+
+function get_Title() {
+	$parent_terms = get_the_category();
+	if ( is_category( get_cat_ID( single_term_title( "", false ) ) ) ) {
+		$child  = get_category( get_cat_ID( single_term_title( "", false ) ) );
+		$parent = $child->parent;
+		if ( $parent > 0 ):
+			$pname = get_category( $parent );
+
+			return $pname->name;
+		endif;
+	}
+	if ( is_array( $parent_terms ) && empty( $parent_terms ) ) {
 		return get_the_title();
-  foreach ( $parent_terms as $pterm ) {
-    //Get the Child terms
-    if ($pterm->parent != 0 || $pterm->term_id === 1) continue;
-    return $pterm->name;
-  }
+	}
+	foreach ( $parent_terms as $pterm ) {
+		//Get the Child terms
+		if ( $pterm->parent != 0 || $pterm->term_id === 1 ) {
+			continue;
+		}
+
+		return $pterm->name;
+	}
 
 }
 

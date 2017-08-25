@@ -15,7 +15,7 @@
 
  <div id="primary"  class="uk-container  uk-container-large uk-padding-remove-left uk-padding-remove-right cover-container">
    <?php if ( have_posts() ) : ?>
-     <div id="primary-content" class="uk-container  uk-container-small animated slideInUp" style="padding-top:60px">
+     <div id="primary-content" class="uk-container  uk-container-small animated slideInUp" style="padding-top:60px;">
      <?php
      while ( have_posts() ) : the_post();
        the_content();
@@ -27,6 +27,8 @@
    ?>
     </div>
  </div>
- <?php wp_footer(); ?>
+ <?php 
+ get_footer();
+ wp_footer(); ?>
  </body>
  </html>

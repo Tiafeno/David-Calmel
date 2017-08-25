@@ -18,7 +18,6 @@
         * If you want to override this in a child theme, then include a file
         * called content-___.php (where ___ is the Post Format name) and that will be used instead.
         */
-        print_r(get_the_category());
        the_content();
    endwhile;
    else :
@@ -28,6 +27,9 @@
 
  </div>
  </div>
- <?php wp_footer(); ?>
+ <?php 
+  get_footer();
+  wp_footer(); 
+ ?>
  </body>
  </html>

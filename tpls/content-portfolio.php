@@ -1,5 +1,5 @@
 <?php
-$args = [ 'post_type' => 'page', 'post_parent' => get_the_ID(), 'orderby' => 'menu_order'];
+$args = [ 'post_type' => 'page', 'post_parent' => get_the_ID(), 'orderby' => 'menu_order', 'posts_per_page' => -1];
 $Pages = new WP_Query( $args );
 
 ?>
