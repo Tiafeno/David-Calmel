@@ -29,7 +29,7 @@ body{
 
 @media(min-width: 640px){
   .navbar-title{
-    font-size: 60px !important;
+    font-size: 40px !important;
     top: 0;
     left: 0;
     bottom: 0;
@@ -37,14 +37,15 @@ body{
   }
 }
 
-.blogingo a{
-  color: #110f5f;
+.bloginfo a{
+  color: #000000;
   font-weight: bold;;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: bold;
   letter-spacing: 2.5px;
   line-height: 1.4;
-  display: block;
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
 }
 
 .navbar-card-slogan {
@@ -76,13 +77,14 @@ body{
   display: block;
   color: #4b8ac4;
   font-weight: bold;
+  font-family: 'Playfair Display', serif;
 }
 
 .header-nav-top .container-nav-top{
-  background: #9DD1DF;
+  background: #ABD6E6;
 }
 .HeaderMenu h1.navbar-title{
-  font-weight: bolder;
+  font-weight: lighter;
   color: dimgrey;
   line-height: 1;
   text-transform: uppercase;
@@ -143,8 +145,8 @@ header.header-category-nav{
 }
 header.header-category-nav h2{
   color: white;
-  font-weight: bold;
-  font-size: 36px;
+  font-weight: lighter;
+  font-size: 40px;
   padding-top: 10px;
   margin-bottom: 10px;
   text-transform: uppercase;

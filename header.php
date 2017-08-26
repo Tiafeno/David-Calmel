@@ -24,15 +24,17 @@
   <header class="container-nav-top">
     <div class="uk-container uk-container-small animated slideInDown">
       <div class="uk-text-left" uk-grid>
-        <div class="uk-width-4-5">
+        <div class="uk-width-1-1">
           <div class="uk-card uk-card-default uk-card-body navbar-card-slogan">
-            <p class="blogingo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">DAVID ALEXANDRE CALMEL <?php //bloginfo( 'name' ); ?></a></p>
-          </div>
+            <p class="bloginfo">
+            <span class="uk-icon uk-icon-image" style="background-image: url(<?= get_template_directory_uri().'/images/logo.png' ?>);"></span>
+              <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">DAVID ALEXANDRE CALMEL <?php //bloginfo( 'name' ); ?></a>
+          </p></div>
         </div>
       </div>
     </div>
   </header>
-  <header  >
+  <header class="header-middle-top">
     <header class="header-nav-down animated slideInRight">
       <div class="uk-container uk-container-small HeaderSlogan">
         <div class="uk-text-left onStickyStartHide">
