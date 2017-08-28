@@ -39,7 +39,7 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
         border-left: none;
       }
     }
-
+    
     @media(min-width: 960px){
       .HeaderMenu .uk-navbar-right:before{
         border-left:2px solid dimgrey;
@@ -49,12 +49,29 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       }
     }
 
+    @media(max-width: 640px){
+      .flag{
+        display: inline-flex;
+        margin: 0 auto;
+      }
+    }
+
+    .flag span{
+      display: block;
+      margin-right: 0;
+      margin-left: auto;
+      padding-right: 10px;
+      width: 25px;
+      height: 25px;
+    }
+
     .bloginfo > .uk-icon-image{
       height: 30px;
       width: 30px;
       opacity: 0.5;
       position: relative;
-      top: -2px;
+      top: 2px;
+      float: right;
     }
 
     h1, .uk-h1, h2, .uk-h2, h3, .uk-h3, h4, .uk-h4, h5, .uk-h5, h6, .uk-h6{

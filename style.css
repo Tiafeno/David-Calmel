@@ -18,7 +18,7 @@ body{
 
 @media(max-width: 640px){
   .navbar-title{
-    font-size: 40px !important;
+    font-size: 37px !important;
     top: 0; /* 40px */
     left: 0;
     bottom: 0;
@@ -29,7 +29,7 @@ body{
 
 @media(min-width: 640px){
   .navbar-title{
-    font-size: 40px !important;
+    font-size: 37px !important;
     top: 0;
     left: 0;
     bottom: 0;
@@ -70,13 +70,13 @@ body{
   padding-bottom: 4px;
 }
 .header-nav-down .navbar-card-slogan span{
-  font-size: 8.5px;
+  font-size: 10.5px;
   letter-spacing: 3px;
   word-break: normal;
-  line-height: 1.8;
+  line-height: 1.6;
   display: block;
   color: #4b8ac4;
-  font-weight: bold;
+  font-weight: 700;
   font-family: 'Playfair Display', serif;
 }
 
@@ -146,7 +146,7 @@ header.header-category-nav{
 header.header-category-nav h2{
   color: white;
   font-weight: lighter;
-  font-size: 40px;
+  font-size: 37px;
   padding-top: 10px;
   margin-bottom: 10px;
   text-transform: uppercase;
