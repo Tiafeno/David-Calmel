@@ -39,7 +39,7 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
         border-left: none;
       }
     }
-
+    
     @media(min-width: 960px){
       .HeaderMenu .uk-navbar-right:before{
         border-left:2px solid dimgrey;
@@ -47,6 +47,31 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       .uk-navbar-right:before{
         border-left:2px solid #ffffff;
       }
+    }
+
+    @media(max-width: 640px){
+      .flag{
+        display: inline-flex;
+        margin: 0 auto;
+      }
+    }
+
+    .flag span{
+      display: block;
+      margin-right: 0;
+      margin-left: auto;
+      padding-right: 10px;
+      width: 25px;
+      height: 25px;
+    }
+
+    .bloginfo > .uk-icon-image{
+      height: 30px;
+      width: 30px;
+      opacity: 0.5;
+      position: relative;
+      top: 2px;
+      float: right;
     }
 
     h1, .uk-h1, h2, .uk-h2, h3, .uk-h3, h4, .uk-h4, h5, .uk-h5, h6, .uk-h6{
@@ -61,10 +86,15 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       height: 40px;
       display: block;
       width: 1px;
+      margin-right: 50px;
     }
 
     header.header-category-nav, .uk-container.section-offcanvas{
       background: url(<?= get_template_directory_uri() . '/images/bg-sub-menu.png'?>) repeat top left;
+    }
+    header.header-middle-top{
+      background: url(<?= get_template_directory_uri() . '/images/bg-header-menu.png'?>) repeat top left;
+      background-size: 86px;
     }
     ul.category-nav-offcanvas {
       padding-right: 29px;
@@ -88,7 +118,8 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       padding-left: 43px;
     }
     .section-offcanvas h2.header-offcanvas-title{
-      font-weight: bold;
+      font-weight: lighter;
+      font-size: 40px;
     }
     .header-category-nav-offcanvas .section-offcanvas{
       -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;

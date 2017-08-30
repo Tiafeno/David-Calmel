@@ -219,7 +219,10 @@
       var type = $( this ).data( 'post' );
       Elements = Elements.concat( this );
     });
-
+    if (typeof FavoriteContents === "undefined") {
+      console.warn('variable: undefined variable Favorite Contents in this document');
+      return;
+    }
     Initialize(Elements, FavoriteContents);
   });
 })(jQuery);
