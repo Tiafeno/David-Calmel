@@ -38,7 +38,7 @@ if ( ! defined( 'POSTTYPE' ) ) {
 	define( 'POSTTYPE', serialize( [
 		'360deg',
 		'digital',
-		'marketing',
+		// 'marketing',
 		'advertising',
 		'edition',
 		'packaging',
@@ -52,7 +52,7 @@ if ( ! defined( 'POST' ) ) {
 	define( 'POST', serialize( [
 		[ 'type' => '360deg', 'name' => '360°' ],
 		[ 'type' => 'digital', 'name' => 'Digital' ],
-		[ 'type' => 'marketing', 'name' => 'Marketing' ],
+		// [ 'type' => 'marketing', 'name' => 'Marketing' ],
 		[ 'type' => 'advertising', 'name' => 'Advertising' ],
 		[ 'type' => 'edition', 'name' => 'Edition' ],
 		[ 'type' => 'packaging', 'name' => 'Packaging' ],
