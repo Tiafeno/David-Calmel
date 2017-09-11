@@ -93,19 +93,19 @@ function davidcalmel_scripts() {
 	 * font-family: 'Roboto', sans-serif;
 	 */
 	wp_enqueue_style( 'roboto-fonts', '//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,700,900', array() );
-
+	
 	//font-family: 'Playfair Display', serif;
 	wp_enqueue_style( 'playfair-fonts', '//fonts.googleapis.com/css?family=Playfair+Display:400,700', array() );
-	wp_enqueue_style( 'uikit', get_template_directory_uri() . '/dist/css/uikit.css', array() );
+
+	wp_enqueue_style( 'uikit', get_template_directory_uri() . '/dist/css/uikit.min.css', array() );
 	wp_enqueue_style( 'animation', get_template_directory_uri() . '/assets/css/animate.css', array() );
 
 	// Theme stylesheet.
 	wp_enqueue_style( 'davidcalmel_style', get_stylesheet_uri() );
 	wp_enqueue_script( 'lodash', get_template_directory_uri() . '/dist/js/lodash.min.js', array(), true );
-	wp_enqueue_script( 'uikit', get_template_directory_uri() . '/dist/js/uikit.js', array( 'jquery' ), false );
+	wp_enqueue_script( 'uikit', get_template_directory_uri() . '/dist/js/uikit.min.js', array( 'jquery' ), false );
 	wp_enqueue_script( 'morphext', get_template_directory_uri() . '/dist/js/morphext.min.js', array( 'jquery' ), false );
-	wp_enqueue_script( 'imagesloaded', get_template_directory_uri() . '/dist/js/imagesloaded.pkgd.js', array( 'jquery' ), true );
-	wp_enqueue_script( 'uikit-icons', get_template_directory_uri() . '/dist/js/uikit-icons.js', array( 'uikit' ), false );
+	wp_enqueue_script( 'uikit-icons', get_template_directory_uri() . '/dist/js/uikit-icons.min.js', array( 'uikit' ), false );
 	wp_enqueue_script( 'sticky', get_template_directory_uri() . '/dist/sticky/jquery.sticky.js', array( 'jquery' ), false, false );
 	wp_enqueue_script( 'davidcalmel-script', get_template_directory_uri() . '/assets/js/scripts.js', array(
 		'jquery',

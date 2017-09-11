@@ -47,11 +47,13 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       .uk-navbar-right:before{
         border-left:2px solid #ffffff;
       }
+      .vc_column_container > .vc_column-inner {
+        padding-left: 0;
+      }
     }
 
     @media(max-width: 640px){
       .flag{
-        display: inline-flex;
         margin: 0 auto;
       }
     }
@@ -61,8 +63,8 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       margin-right: 0;
       margin-left: auto;
       padding-right: 10px;
-      width: 25px;
-      height: 25px;
+      width: 17.7px;
+      height: 17.7px;
     }
 
     .bloginfo > .uk-icon-image{
@@ -96,6 +98,9 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       background: url(<?= get_template_directory_uri() . '/images/bg-header-menu.png'?>) repeat top left;
       background-size: 86px;
     }
+    header nav.uk-navbar {
+      min-height: 44px;
+    }
     ul.category-nav-offcanvas {
       padding-right: 29px;
       display: inline-block;
@@ -113,6 +118,13 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       color: #00A6DE;
       font-weight: 500;
       font-size: 0.685rem !important;
+    }
+    ul.category-nav-offcanvas span.scroll {
+      color: white;
+      font-size: 0.685rem;
+      font-weight: 500;
+      font-family: 'Roboto', sans-serif;
+      padding-right: 20px;
     }
     .header-offcanvas-title {
       padding-left: 43px;
@@ -154,6 +166,10 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       margin-left: 0;
       margin-right: 0;
     }
+    .vc_column_container>.vc_column-inner {
+      padding-left: initial;
+    }
+    
   </style>
 
 </head>

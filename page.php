@@ -13,7 +13,7 @@
 
  get_header(); ?>
 
- <div id="primary"  class="uk-container  uk-container-large uk-padding-remove-left uk-padding-remove-right cover-container">
+ <div id="primary"  class="uk-section uk-section-large uk-padding-remove-left uk-padding-remove-top uk-padding-remove-right cover-container">
    <?php if ( have_posts() ) : ?>
      <div id="primary-content" class="uk-container  uk-container-small animated slideInUp" style="padding-top:60px;">
      <?php

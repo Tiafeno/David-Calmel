@@ -150,13 +150,13 @@
       var translateY = 0;
       var translateZ = 0;
       var nbrline = 1;
-      var width = ($newWidth * $inbox) + 0.1;
+      var width = ($newWidth * $inbox) + 0.01;
       $height = (_constBoxHeight === 'auto' ) ?  $newWidth : parseFloat( _constBoxHeight );
 
       fw_bg_container
       .css('visibility', 'hidden')
       .each(function( $index ){
-        if (currentWidth < windowWidth && parseInt(currentWidth + 0.1) != parseInt( width )){
+        if (currentWidth < windowWidth && parseInt(currentWidth + 0.01) != parseInt( width )){
           translateX = currentWidth;
         } else {
           translateX = currentWidth = 0;
