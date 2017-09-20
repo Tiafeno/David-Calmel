@@ -9,6 +9,33 @@
  wp_enqueue_script( 'ancre', get_template_directory_uri().'/assets/js/ancre.script.js', array('jquery'), false );
  get_header();
  ?>
+ <script type="text/javascript">
+  (function($){
+    $( document ).ready(function() {
+      $( '.skills-content' ).fadeToggle('fast');
+      var chevron = $( '.title-inline span.fa');
+
+      $('h2.skills')
+      .css('cursor', 'pointer')
+      .click(function() {
+        if (chevron.hasClass( 'fa-chevron-right' )) {
+          chevron
+            .removeClass('fa-chevron-right')
+            .addClass('fa-chevron-down');
+        } else {
+          chevron
+            .removeClass('fa-chevron-down')
+            .addClass('fa-chevron-right');
+        }
+        $( '.skills-content' ).each(function( index ) {
+          $( this ).fadeToggle("slow", function() {
+
+          })
+        })
+      })
+    });
+  })(jQuery);
+ </script>
 
 <div id="primary"  class="uk-section uk-section-large uk-padding-remove-left uk-padding-remove-top uk-padding-remove-right cover-container">
    <?php if ( have_posts() ) : 
