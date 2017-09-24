@@ -133,7 +133,7 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       font-size: 0.685rem;
       font-weight: 500;
       font-family: 'Roboto', sans-serif;
-      padding-right: 20px;
+      padding-right: 3px;
     }
     .header-offcanvas-title {
       padding-left: 43px;
