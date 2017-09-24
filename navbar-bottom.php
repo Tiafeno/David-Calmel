@@ -25,7 +25,14 @@
       <div class="uk-offcanvas-content uk-hidden@m">
           <!-- The whole page content goes here -->
           <div class="uk-navbar-right">
-              <a class="uk-navbar-toggle" uk-navbar-toggle-icon uk-toggle="target: #offcanvas-push"></a>
+              <a class="uk-navbar-toggle" style="padding-right: 5px" uk-navbar-toggle-icon uk-toggle="target: #offcanvas-push"></a>
+              
+              <a href="#en" class="flag dc-translate uk-hidden@s" data-lang="en" title="United Kingdom">
+                <span class="uk-icon uk-icon-image" style="background-image: url(<?= get_template_directory_uri().'/images/GB.png' ?>);"></span>
+              </a>
+              <a href="#fr" class="flag dc-translate uk-hidden@s" data-lang="fr" title="French">
+                <span class="uk-icon uk-icon-image" style="background-image: url(<?= get_template_directory_uri().'/images/FR.png' ?>);"></span>
+              </a>
           </div>
           <div id="offcanvas-push" uk-offcanvas>
               <div class="uk-offcanvas-bar">

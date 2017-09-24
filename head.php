@@ -56,6 +56,17 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       .flag{
         margin: 0 auto;
       }
+      .flag span{
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    @media(min-width: 640px){
+      .flag span{
+        width: 17.7px;
+        height: 17.7px;
+      }
     }
 
     .flag span{
@@ -63,8 +74,6 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       margin-right: 0;
       margin-left: auto;
       padding-right: 10px;
-      width: 17.7px;
-      height: 17.7px;
     }
 
     .bloginfo > .uk-icon-image{

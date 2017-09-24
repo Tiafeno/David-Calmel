@@ -79,8 +79,6 @@
     var fw_containers = $( '.fw-containers' );
     var NavBar = $( '.uk-navbar-left > ul.uk-navbar-nav' );
     var Title = $( '.uk-navbar-left > ul.uk-navbar-nav .navbar-title' );
-    var TitleContainerNavbarHeight = NavBar.height();
-    var DefaultTitleHeight = Title.height();
     var ScrollExist = false;
 
     if (fw_bg_container.length != 0 ) {
@@ -99,7 +97,6 @@
       var $height = (_constBoxHeight === 'auto' ) ?  _constBoxWidth : parseFloat( _constBoxHeight );
 
       calcBoxsRangeWidth(function( $newWidth, $inbox ) {
-        setPositionTitle();
         animateContainer( $newWidth, $inbox, function(){
           var ElemContainers = document.getElementById( "fw-containers" );
           var theWidthCSSprop = window.getComputedStyle(ElemContainers, null).getPropertyValue( "width" );
@@ -119,7 +116,6 @@
       */
       $( window ).resize(function(  ) {
         calcBoxsRangeWidth(function( $newWidth, $inbox ) {
-          setPositionTitle();
           animateContainer( $newWidth, $inbox, function(){
 
           });
@@ -127,14 +123,8 @@
       });
 
     } else {
-      setPositionTitle();
       $( window ).resize(function() {
-        /*
-        ** Initialize variable title height
-        */
-        TitleContainerNavbarHeight = NavBar.height();
-        DefaultTitleHeight = Title.height();
-        setPositionTitle();
+        
       });
     }
 
@@ -229,25 +219,11 @@
 
       if (rest == null) { newWidth = _constBoxWidth; }
       console.log(windowWidth, LimiteRangeWidth, _constBoxWidth, rest,  parseFloat(indentWidth.toFixed(2)), newWidth, countBoxsIn, BoxsCount);
-      /*
-      ** Initialize variable title height
-      */
-      TitleContainerNavbarHeight = NavBar.height();
-      DefaultTitleHeight = Title.height();
 
       /*
       ** Send from callback function
       */
       callback( parseFloat(newWidth.toFixed(2)), countBoxsIn );
-    }
-
-    function setPositionTitle(){
-      Title.css({
-        top : function() {
-          var TitlePositionY = TitleContainerNavbarHeight - DefaultTitleHeight;
-          return TitlePositionY + 1;
-        }
-      });
     }
     
   });
