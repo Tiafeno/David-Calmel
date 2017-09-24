@@ -12,27 +12,7 @@
  <script type="text/javascript">
   (function($){
     $( document ).ready(function() {
-      $( '.skills-content' ).fadeToggle('fast');
-      var chevron = $( '.title-inline span.fa');
-
-      $('h2.skills')
-      .css('cursor', 'pointer')
-      .click(function() {
-        if (chevron.hasClass( 'fa-chevron-right' )) {
-          chevron
-            .removeClass('fa-chevron-right')
-            .addClass('fa-chevron-down');
-        } else {
-          chevron
-            .removeClass('fa-chevron-down')
-            .addClass('fa-chevron-right');
-        }
-        $( '.skills-content' ).each(function( index ) {
-          $( this ).fadeToggle("slow", function() {
-
-          })
-        })
-      })
+      
     });
   })(jQuery);
  </script>

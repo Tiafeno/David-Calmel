@@ -10,23 +10,6 @@ $contentDOM->loadHTML( $the_content_utf8 );
 libxml_clear_errors();
 $Elementh2 = $contentDOM->getElementsByTagName('h2');
 ?>
-<script type="text/javascript">
-  (function($){
-    $(document).ready(function() {
-      var ul_category = $( '.header-category-nav ul.category-nav-offcanvas' );
-      var ul_category_offcanvas = $( '.header-category-nav-offcanvas ul.category-nav-offcanvas' );
-
-      var skills = ul_category.find('.skills');
-      var skills_offcanvas = ul_category_offcanvas.find('.skills');
-
-      var detach = skills.detach();
-      var detach_offcanvas = skills_offcanvas.detach();
-
-      ul_category.prepend( detach );
-      ul_category_offcanvas.prepend( detach_offcanvas );
-    });
-  })(jQuery);
-</script>
 <header class="header-category-nav-offcanvas uk-hidden@m">
   <div class="uk-container uk-container-small uk-section-secondary section-offcanvas " >
     <nav class="uk-navbar" uk-navbar>
