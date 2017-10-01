@@ -37,6 +37,7 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       .HeaderMenu .uk-navbar-right:before,
       .uk-navbar-right:before{
         border-left: none;
+        display: none;
       }
     }
     
@@ -46,6 +47,7 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       }
       .uk-navbar-right:before{
         border-left:2px solid #ffffff;
+        display: inherit;
       }
       .vc_column_container > .vc_column-inner {
         padding-left: 0;
