@@ -107,7 +107,6 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
     }
     header.header-middle-top{
       background: url(<?= get_template_directory_uri() . '/images/bg-header-menu.png'?>) repeat top left;
-      background-size: 86px;
     }
     header nav.uk-navbar {
       /* min-height: 44px; */
@@ -149,6 +148,9 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
     .header-category-nav-offcanvas .section-offcanvas{
       -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
       transition: transform 2s;
+    }
+    .header-nav-down {
+      padding-bottom: 5px;
     }
     .fw-background-container a {
       font-size: 40px;
