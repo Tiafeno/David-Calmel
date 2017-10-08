@@ -2,7 +2,8 @@
 $args = [ 
   'post_type' => 'page', 
   'post_parent' => get_the_ID(), 
-  'orderby' => 'menu_order', 
+  'orderby' => 'date', 
+  'order' => 'ASC',
   'posts_per_page' => -1
 ];
 $Pages = new WP_Query( $args );
