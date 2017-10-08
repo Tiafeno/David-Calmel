@@ -9,7 +9,7 @@
 
  get_header('home'); ?>
 
- <div id="primary"  class="uk-container  uk-container-large uk-padding-remove-left uk-padding-remove-right">
+ <div id="primary"  class="uk-container-large uk-padding-remove-right">
    <?php if ( have_posts() ) : ?>
      <?php
 

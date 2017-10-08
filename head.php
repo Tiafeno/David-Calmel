@@ -7,7 +7,7 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
 
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>">
-  <meta name="viewport" content="width=450, initial-scale=0.9, maximum-scale=0.9">
+  <meta name="viewport" content="width=450, initial-scale=0.9">
   <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
   <?php endif; ?>
 
@@ -110,18 +110,19 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       background-size: 86px;
     }
     header nav.uk-navbar {
-      min-height: 44px;
+      /* min-height: 44px; */
     }
     ul.category-nav-offcanvas {
       padding-right: 29px;
       display: inline-block;
-      padding-left: 4px;
-      margin: 0;
+      padding-left: 0px;
+      margin: 10px 0 10px 0;
     }
     ul.category-nav-offcanvas > li {
       float: left;
       list-style: none;
       padding-right: 14px;
+      line-height: 0.91 !important;
     }
     ul.category-nav-offcanvas > li > a{
       height: inherit;
@@ -131,9 +132,10 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       font-size: 0.685rem !important;
     }
     ul.category-nav-offcanvas span.scroll {
+      display: block;
       color: white;
       font-size: 0.685rem;
-      font-weight: 500;
+      font-weight: 400;
       font-family: 'Roboto', sans-serif;
       padding-right: 3px;
     }
@@ -147,6 +149,10 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
     .header-category-nav-offcanvas .section-offcanvas{
       -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
       transition: transform 2s;
+    }
+    .fw-background-container a {
+      font-size: 40px;
+      line-height: 1;
     }
     .fw-background-container .loading{
       display: block;
@@ -167,9 +173,12 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       height: inherit;
       background-size: cover;
       background-repeat: no-repeat;
+      background-position: center;
     }
-    html, body{
-      /* overflow-x : hidden; */
+    .fw-box-title {
+      background: none;
+      white-space: normal !important;
+      margin-left: 6%;
     }
     .vc_row{
       display: inline-block;
@@ -180,7 +189,14 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
     .vc_column_container>.vc_column-inner {
       padding-left: initial;
     }
-    
+
+    .model p {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #19afe7;
+      padding-bottom: 0px;
+    }
   </style>
 
 </head>

@@ -198,7 +198,8 @@ header.header-category-nav  .category-title{
   height: inherit;
   float: left;
   box-sizing: content-box;
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
 }
 
 .fw-background-container a{

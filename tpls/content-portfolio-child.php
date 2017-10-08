@@ -12,8 +12,8 @@ if ($ContentQuery->have_posts( )):
     }  
 ?>
     <div class="fw-background-container" id="brand_<?= $index ?>" data-name="" data-validate="1" data-post="" data-container='{"w":280, "h":"auto"}' style="background-image: url(<?= $url ?>); width:280px; height: 280px">
-      <div class="uk-label uk-label-success uk-position-bottom-right" id="name_<?= $index ?>">
-        <a href="<?= get_permalink( ) ?>">
+      <div class="uk-label uk-position-bottom-left fw-box-title " id="name_<?= $index ?>">
+        <a href="<?= get_permalink( $ContentQuery->post->ID ) ?>">
           <?= strtoupper( $ContentQuery->post->post_title ) ?>
         </a>
       </div>

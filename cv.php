@@ -21,7 +21,7 @@
    <?php if ( have_posts() ) : 
             get_template_part( 'sidebar','anchorage');
     ?>
-     <div id="primary-content" class="uk-container  uk-container-small animated slideInUp" style="padding-top:60px;">
+     <div id="primary-content" class="uk-container  uk-container-small uk-padding-remove-top animated slideInUp" style="padding-top:60px;">
      <?php
       while ( have_posts() ) : the_post();
         $content = apply_filters( 'the_content', get_the_content() );
