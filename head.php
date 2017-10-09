@@ -199,6 +199,10 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       color: #19afe7;
       padding-bottom: 0px;
     }
+    .flag > a {
+      display: block;
+      float: right;
+    }
   </style>
 
 </head>
