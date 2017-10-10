@@ -12,6 +12,13 @@
   */
   $( document ).ready(function() {
 
+    var validateUrl = new RegExp('^(https?:\\/\\/)?'+ // protocol
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
+      '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+      '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+      '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+
     var header_nav_top = $('.header-nav-top').height();
     var header_category_offcanvas = $('.header-category-nav-offcanvas').height();
     var header_category = $('.header-category-nav').height();
@@ -95,6 +102,17 @@
       var countBoxsIn= 1;
       var BoxsCount = fw_bg_container.length;
       var $height = (_constBoxHeight === 'auto' ) ?  _constBoxWidth : parseFloat( _constBoxHeight );
+
+      /* link box */
+      $( '.fw-background-container' )
+      .css( 'cursor', 'pointer')
+      .on( 'click', function() {
+        var Self = this;
+        var elementLink = $( Self ).find( 'a' );
+        var Link = elementLink.attr( 'href' );
+        if (validateUrl.test( Link ))
+          window.location.href = Link;
+      });
 
       calcBoxsRangeWidth(function( $newWidth, $inbox ) {
         animateContainer( $newWidth, $inbox, function(){

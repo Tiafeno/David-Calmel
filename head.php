@@ -53,6 +53,16 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
         padding-left: 0;
       }
     }
+    @media screen and (max-width: 853px) {
+      .header-nav-down {
+        padding-bottom: 36px;
+      }
+    }
+    @media screen and (min-width: 853px) {
+      .header-nav-down {
+        padding-bottom: 5px;
+      }
+    }
 
     @media(max-width: 640px){
       .flag{
@@ -69,13 +79,6 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
         width: 17.7px;
         height: 17.7px;
       }
-    }
-
-    .flag span{
-      display: block;
-      margin-right: 0;
-      margin-left: auto;
-      padding-right: 10px;
     }
 
     .bloginfo > .uk-icon-image{
@@ -149,9 +152,6 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
       transition: transform 2s;
     }
-    .header-nav-down {
-      padding-bottom: 5px;
-    }
     .fw-background-container a {
       font-size: 40px;
       line-height: 1;
@@ -199,9 +199,20 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       color: #19afe7;
       padding-bottom: 0px;
     }
-    .flag > a {
+
+    .flag span{
       display: block;
-      float: right;
+      margin-right: 0;
+      padding-right: 10px;
+    }
+    a.dc-translate {
+      display: block;
+    }
+    .flag > .container-flag {
+      display: block;
+      width: 30px;
+      margin-right: 0;
+      margin-left: auto;
     }
   </style>
 

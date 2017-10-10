@@ -37,7 +37,7 @@
           <div id="offcanvas-push" uk-offcanvas>
               <div class="uk-offcanvas-bar">
                   <button class="uk-offcanvas-close" type="button" uk-close></button>
-                  <h3><?php _e( 'Menu', 'twentysixteen' ); ?></h3>
+                  <!-- <h3><?php _e( 'Menu', 'twentysixteen' ); ?></h3> -->
                   <div class="uk-card uk-card-secondary">
 
                     <?php if ( has_nav_menu( 'primary' ) ) : ?>

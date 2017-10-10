@@ -11,7 +11,7 @@ if (function_exists( 'pll_get_post' )){
 ?>
 
 <div class="uk-grid-match" uk-grid>
-  <div class="uk-width-1-1 uk-width-2-3@s">
+  <div class="uk-width-1-1 uk-width-3-4@s">
     <div>
       <div class="uk-card uk-card-default uk-card-body navbar-card-slogan uk-animation-slide-top-small">
         <?php
@@ -23,14 +23,19 @@ if (function_exists( 'pll_get_post' )){
       </div>
     </div>
   </div>
-  <div class="uk-width-1-3@s uk-visible@s" style="margin-top: 7px;">
+  <div class="uk-width-1-4@s uk-visible@s" style="margin-top: 7px;">
     <div class="flag">
-      <a href="#en" class="dc-translate" data-lang="en" title="United Kingdom">
-        <span class="uk-icon uk-icon-image" style="background-image: url(<?= get_template_directory_uri().'/images/GB.png' ?>);"></span>
-      </a>
-      <a href="#fr" class="dc-translate" data-lang="fr" title="French">
-        <span class="uk-icon uk-icon-image" style="background-image: url(<?= get_template_directory_uri().'/images/FR.png' ?>);"></span>
-      </a>
+      <div class="container-flag">
+        <a href="#en" class="dc-translate" data-lang="en" title="United Kingdom">
+          <span class="uk-icon uk-icon-image" style="background-image: url(<?= get_template_directory_uri().'/images/GB.png' ?>);"></span>
+        </a>
+      </div>
+
+      <div class="container-flag">
+        <a href="#fr" class="dc-translate" data-lang="fr" title="French">
+          <span class="uk-icon uk-icon-image" style="background-image: url(<?= get_template_directory_uri().'/images/FR.png' ?>);"></span>
+        </a>
+      </div>
     </div>
     <script type="text/javascript">
       // <![CDATA[
