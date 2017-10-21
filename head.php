@@ -55,13 +55,17 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
     }
     @media screen and (max-width: 853px) {
       .header-nav-down {
-        padding-bottom: 36px;
+        /* padding-bottom: 36px; */
       }
     }
     @media screen and (min-width: 853px) {
       .header-nav-down {
-        padding-bottom: 5px;
+        /* padding-bottom: 5px; */
       }
+    }
+    .header-middle-top .navbar-card-slogan {
+      height: 50px;
+      max-height: 50px;
     }
 
     @media(max-width: 640px){
@@ -86,7 +90,7 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       width: 30px;
       opacity: 0.5;
       position: relative;
-      top: 2px;
+      top: 0px;
       float: right;
     }
 
@@ -124,7 +128,6 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       float: left;
       list-style: none;
       padding-right: 14px;
-      line-height: 0.91 !important;
     }
     ul.category-nav-offcanvas > li > a{
       height: inherit;

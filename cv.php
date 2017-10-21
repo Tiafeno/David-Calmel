@@ -34,7 +34,8 @@
 
         $h2 = $contentDOM->getElementsByTagName('h2');
         foreach ($h2 as $iteration => $element) {
-          $newElement = $contentDOM->createElement('h2', $element->nodeValue);
+          $newElement = $contentDOM->createElement('h2');
+          $newElement->appendChild( $contentDOM->createTextNode( $element->textContent ) );
 
           $newElement->setAttribute('style', $element->getAttribute( 'style' ));
           $newElement->setAttribute('class', $element->getAttribute( 'class' ));

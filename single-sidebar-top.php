@@ -27,7 +27,7 @@ $post_id = $MODEL->getSettings('page_id', ['post_type', $post->post_type])
             'menu_class' => 'category-nav-offcanvas uk-padding-remove-left',
             'container_class' => '',
             'theme_location' => 'secondary',
-            'container_class' => 'container_class_menu',
+            'container_class' => 'container_class_menu sidebar-top',
             'post_id' => $post_id,
             'walker' => new Secondary_Walker()
             ) );

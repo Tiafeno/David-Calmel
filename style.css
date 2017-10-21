@@ -66,8 +66,8 @@ body{
   background: none;
   box-shadow: none;
   padding-left: 0px;
-  padding-top: 8px;
-  padding-bottom: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 .header-nav-down .navbar-card-slogan span{
   font-size: 10.5px;
@@ -100,6 +100,7 @@ header nav .uk-navbar-right ul li{
   width: 120px;
   float: left;
 }
+
 .uk-navbar-right .uk-navbar-nav > li > a{
   height: inherit;
   justify-content: space-between;

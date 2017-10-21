@@ -11,7 +11,7 @@ global $post;
             'menu_class' => 'category-nav-offcanvas uk-padding-remove-left',
             'container_class' => '',
             'theme_location' => 'secondary',
-            'container_class' => 'container_class_menu',
+            'container_class' => 'container_class_menu sidebar-top',
             'post_id' => $post->ID,
             'walker' => new Secondary_Walker()
             ) );
