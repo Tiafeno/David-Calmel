@@ -51,11 +51,11 @@
 
     /*
     ** Animate the DOM element content to infinie
-    ** after 20 000 ms  
+    ** after 10 000 ms  
     */
     AnimationInterval = window.setInterval(function () {
       ShowAnimation();
-    }, 20000);
+    }, 10000);
   };
 
   var LoadingStatus = function(){
