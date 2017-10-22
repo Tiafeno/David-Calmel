@@ -15,7 +15,7 @@
 
  <div id="primary"  class="uk-section uk-section-large uk-padding-remove-left uk-padding-remove-top uk-padding-remove-right cover-container">
    <?php if ( have_posts() ) : ?>
-     <div id="primary-content" class="uk-container  uk-container-small animated slideInUp" style="padding-top:60px;">
+     <div id="primary-content" class="uk-container  uk-container-small animated slideInUp" style="padding-top:40px;">
      <?php
      while ( have_posts() ) : the_post();
        the_content();
