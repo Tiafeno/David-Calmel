@@ -23,7 +23,7 @@
     var header_category_offcanvas = $('.header-category-nav-offcanvas').height();
     var header_category = $('.header-category-nav').height();
     var ScrollStatus = false;
-    $( 'span.goup')
+    $( 'span.goup' )
       .hide()
       .on('click', function(){
         $('html, body').stop().animate({
