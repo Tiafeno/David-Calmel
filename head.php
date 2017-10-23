@@ -156,7 +156,7 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       transition: transform 2s;
     }
     .fw-background-container a {
-      font-size: 40px;
+      font-size: 29px;
       line-height: 1;
     }
     .fw-background-container .loading{
