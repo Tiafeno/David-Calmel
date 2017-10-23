@@ -155,6 +155,14 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
       transition: transform 2s;
     }
+    div.fw-background-container:hover:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(127, 130, 251, 0.36);
+    }
+
     .fw-background-container a {
       font-size: 29px;
       line-height: 1;
