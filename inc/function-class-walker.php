@@ -27,3 +27,9 @@ class Secondary_Walker extends Walker_Nav_Menu{
         
     }
 }
+
+class CV_Walker extends Walker_Nav_Menu {
+  function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+    
+  }
+}

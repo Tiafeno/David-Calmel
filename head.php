@@ -175,7 +175,7 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       visibility: hidden;
       top: 36%;
       left: 29%;
-      background: url(https://media.giphy.com/media/k0RechlPcfQeA/giphy.gif);
+      /* background: url(https://media.giphy.com/media/k0RechlPcfQeA/giphy.gif); */
       visibility: initial;
       background-size: contain;
       background-repeat: no-repeat;
