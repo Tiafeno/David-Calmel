@@ -9,6 +9,15 @@ libxml_use_internal_errors(true);
 $contentDOM->loadHTML( $the_content_utf8 );
 libxml_clear_errors();
 $Elementh2 = $contentDOM->getElementsByTagName('h2');
+$rubrics = [];
+foreach ($Elementh2 as $iteration => $element) {
+  $valueNode = &$element->nodeValue;
+  $expContent = explode(' ', $valueNode);
+  $value = (!empty($expContent) && count($expContent) >= 1) ? $expContent[ 0 ] : $valueNode;
+  $rubrics[] = [ $element->nodeValue, $iteration, strtoupper($value) ];
+  
+}
+
 ?>
 <header class="header-category-nav-offcanvas uk-hidden@m">
   <div class="uk-container uk-container-small uk-section-secondary section-offcanvas " >
@@ -16,10 +25,10 @@ $Elementh2 = $contentDOM->getElementsByTagName('h2');
       <div class="uk-navbar-left">
         <ul class="category-nav-offcanvas">
           <?php
-            foreach ($Elementh2 as $iteration => $element) {
-              printf('<li class="%s"><span class="scroll" data-href="#id_%d"> %s </span></li>', 
-              $element->nodeValue, $iteration, strtoupper($element->nodeValue));
+            while (list(, $rubric) = each($rubrics)) {
+              printf('<li class="%s"><span class="scroll" data-href="#id_%d"> %s </span></li>', $rubric[0], $rubric[1], $rubric[2]);
             }
+            unset($rubric);
           ?>
         </ul>
       </div>
@@ -34,9 +43,8 @@ $Elementh2 = $contentDOM->getElementsByTagName('h2');
       <div class="uk-navbar-left">
         <ul class="category-nav-offcanvas uk-padding-remove-left">
           <?php
-            foreach ($Elementh2 as $iteration => $element) {
-              printf('<li class="%s"><span class="scroll" data-href="#id_%d"> %s </span></li>', 
-              $element->nodeValue, $iteration, strtoupper($element->nodeValue));
+            foreach ($rubrics as $rub) {
+              printf('<li class="%s"><span class="scroll" data-href="#id_%d"> %s </span></li>', $rub[0], $rub[1], $rub[2]);
             }
           ?>
         </ul>

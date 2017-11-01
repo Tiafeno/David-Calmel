@@ -88,31 +88,23 @@
     })
     .done(function(){
       window.setTimeout(function(){
-        selectedEffect = Effectsplay[ Math.floor(Math.random() * Effectsplay.length) ];
         $( fw_background )
-          .removeClass(Effectsplay.join(' '))
-          .addClass(selectedEffect + ' ' + Effectreverse);
+          .fadeOut( 'fast' );
 
         $( '#name_' + key)
-          .removeClass(Effectsplay.join(' '))
-          .addClass(selectedEffect + ' ' + Effectreverse);
+          .fadeOut( 'fast' );
 
         window.setTimeout(function() {
-          selectedEffect = Effectsplay[ Math.floor( Math.random() * Effectsplay.length ) ];
           $( fw_background )
           .css({
             'background-image' : "url(" + post.thumbnail_url + ")"
           })
-          .removeClass(Effectsplay.join(' ') + ' ' + Effectreverse)
-          .addClass( selectedEffect )
-          .css('display', 'block');
+          .fadeIn( 'fast' );
 
-          //LoadingStatus(element, "hidden");
-          var animationEffect = Effectsplay[ Math.floor(Math.random() * Effectsplay.length) ];
+          LoadingStatus(element, "hidden");
+
           $( '#name_' + key )
-            .removeClass(Effectsplay.join(' ') + ' ' + Effectreverse)
-            .addClass(animationEffect)
-            .css('display', 'block')
+            .fadeIn( 'slow' )
             .find( 'a' )
               .text( post.title )
               .attr('href', post.link);

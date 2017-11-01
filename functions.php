@@ -107,7 +107,7 @@ function davidcalmel_scripts() {
 	wp_enqueue_script( 'morphext', get_template_directory_uri() . '/dist/js/morphext.min.js', array( 'jquery' ), false );
 	wp_enqueue_script( 'uikit-icons', get_template_directory_uri() . '/dist/js/uikit-icons.min.js', array( 'uikit' ), false );
 	wp_enqueue_script( 'sticky', get_template_directory_uri() . '/dist/sticky/jquery.sticky.js', array( 'jquery' ), false, false );
-	wp_enqueue_script( 'davidcalmel-script', get_template_directory_uri() . '/assets/js/scripts.js', array(
+	wp_enqueue_script( 'davidcalmel-script', get_template_directory_uri() . '/assets/js/scripts.min.js', array(
 		'jquery',
 		'sticky'
 	), true );
