@@ -160,7 +160,7 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       position: absolute;
       width: 100%;
       height: 100%;
-      background: rgba(127, 130, 251, 0.36);
+      background: url(<?= get_template_directory_uri() . '/assets/img/striped.png'?>) ;
     }
 
     .fw-background-container a {
