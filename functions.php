@@ -66,6 +66,7 @@ if ( ! defined( 'POST' ) ) {
 register_nav_menus( array(
 	'primary'   => __( 'Primary Menu', 'twentysixteen' ),
 	'secondary' => 'Secondary Menu',
+	'cv' => 'CV Menu',
 	'social'    => __( 'Social Links Menu', 'twentysixteen' ),
 ) );
 

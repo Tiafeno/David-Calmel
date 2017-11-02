@@ -41,7 +41,7 @@
           $newElement->setAttribute('class', $element->getAttribute( 'class' ));
 
           $attribut_id = $contentDOM->createAttribute('id');
-          $attribut_id->value = 'id_'.$iteration;
+          $attribut_id->value = sanitize_title( $element->textContent );
           $newElement->appendChild( $attribut_id );
 
           $element->parentNode->replaceChild( $newElement, $element );

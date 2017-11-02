@@ -124,6 +124,9 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
       padding-left: 0px;
       margin: 10px 0 10px 0;
     }
+    ul.cv-offcanvas {
+      display: inline-flex;
+    }
     ul.category-nav-offcanvas > li {
       float: left;
       list-style: none;

@@ -29,7 +29,12 @@ class Secondary_Walker extends Walker_Nav_Menu{
 }
 
 class CV_Walker extends Walker_Nav_Menu {
+  var $db_fields = array(
+    'parent' => 'menu_item_parent', 
+    'id'     => 'db_id' 
+  );
+
   function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-    
+    $output .= sprintf( "\n<li> <span class='scroll' data-href='%s'> %s </span> </li>\n", $item->url, strtoupper($item->title));
   }
 }
