@@ -34,7 +34,9 @@ $post_id = $MODEL->getSettings('page_id', ['post_type', $post->post_type])
         ?><!-- .secondary-navigation -->
     </div>
     <div class="uk-container" style="margin-bottom: 10px;">
-          <h2 class="header-offcanvas-title uk-padding-remove"><?= strtoupper($Title->name) ?></h2>
+      <h2 class="header-offcanvas-title uk-padding-remove">
+        <a href="<?= get_permalink( $post_id ) ?>" style="color: white"><?= strtoupper($Title->name) ?></a>
+      </h2>
     </div>
   </div>
 </header>
@@ -44,7 +46,9 @@ $post_id = $MODEL->getSettings('page_id', ['post_type', $post->post_type])
     <nav class="uk-navbar-transparent uk-navbar" uk-navbar>
       <div class="uk-navbar-left">
         <ul class="uk-navbar-nav category-title">
-            <li class="uk-active"><a href="#" class="uk-padding-remove-left"><h2><?= strtoupper($Title->name) ?></h2></a></li>
+            <li class="uk-active">
+              <h2><a href="<?= get_permalink( $post_id ) ?>" style="color: white"><?= strtoupper($Title->name) ?></a></h2>
+            </li>
         </ul>
       </div>
 
