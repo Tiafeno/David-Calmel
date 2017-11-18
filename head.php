@@ -7,6 +7,20 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
 
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>">
+<!--
+                                                          
+                                                      
+`7MM"""YMM `7MMF'`7MN.   `7MF'`7MM"""YMM  `7MMF'      
+  MM    `7   MM    MMN.    M    MM    `7    MM        
+  MM   d     MM    M YMb   M    MM   d      MM        
+  MM""MM     MM    M  `MN. M    MMmmMM      MM        
+  MM   Y     MM    M   `MM.M    MM   Y  ,   MM      , 
+  MM         MM    M     YMM    MM     ,M   MM     ,M 
+.JMML.     .JMML..JML.    YM  .JMMmmmmMMM .JMMmmmmMMM 
+                                                      
+Hi there, nice to meet you!
+Visit https://www.falicrea.com to know our current or former work.
+-->
   <meta name="viewport" content="width=450, initial-scale=0.9">
   <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
   <?php endif; ?>
