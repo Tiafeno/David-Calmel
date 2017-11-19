@@ -35,12 +35,12 @@
     var ElementsHTML = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var FavoriteContents = arguments[1];
 
-    _.forEach(FavoriteContents, function( value ) {
+    _.forEach(FavoriteContents, function( contentPost ) {
       /**
      * Ajouter le contenue dans le tableau `FavoriteWorks` quand le chargement
      * de l'image est terminer.
      */
-      getThumbnail( value ).then(function successCallback( result ) {
+      getThumbnail( contentPost ).then(function successCallback( result ) {
         FavoriteWorks.push( result );
         if (items < FavoriteContents.length)
           ShowAnimation();
