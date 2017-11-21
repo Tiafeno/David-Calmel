@@ -128,7 +128,8 @@
       } 
       var post = currentSelected[ $key ];
       /**
-       * On ajoute un contenue avec la clé injectable, si la souris est sur une des boxs
+       * On ajoute un contenue avec la clé injectable, 
+       * si la souris est sur une des boxs
        */
       if (typeof post == "undefined") { post = currentSelected[ keyInjectable ]; }
       if (typeof post == "undefined") return;
