@@ -152,7 +152,7 @@
       Elements = Elements.concat( this );
     });
     if (typeof FavoriteContents === "undefined") {
-      console.warn('variable: undefined variable Favorite Contents in this document');
+      console.warn('Info: Variable Favorite Contents is missing');
       return;
     }
     /**
