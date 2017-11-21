@@ -36,6 +36,7 @@ get_header('home');
        get_template_part( 'sidebar','top');
     ?>
      <div id="primary-content">
+     <div hidden> <?= the_content() ?> </div>
       <div id="fw-containers" class="fw-containers uk-container uk-container-large uk-padding-remove-right uk-padding-remove-left">  
         <?php 
           while ( have_posts() ) : the_post();

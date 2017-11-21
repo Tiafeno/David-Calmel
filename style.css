@@ -113,7 +113,7 @@ header nav .uk-navbar-right ul li{
 }
 
 .uk-navbar-right .uk-navbar-nav > li > a:hover, .uk-active{
-  color: #1963ad;
+  color: #56d1c4 !important;
 }
 
 .uk-navbar-nav > li.uk-active > a{

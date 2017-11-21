@@ -10,23 +10,24 @@
 
   var items = DOMElements.length;
 
-  var getThumbnail = function( post ) {
-    var _post = post;
+  var toDataURL = function( post ) {
     return new Promise(function(resolve, reject) {
-      if (_post.thumbnail_url == false) {
-        _post.thumbnail_url = DefaultCover;
-        resolve( _post );
-      }
-
-      $.ajax({
-        url : _post.thumbnail_url,
-        method : 'GET'
-      })
-      .done(function(){
-        resolve( _post );
-      });
-    })
+      if (false == post.thumbnail_url) post.thumbnail_url = window.DefaultCover;
+      var xhr = new XMLHttpRequest();
+      xhr.onload = function() {
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          post.blob = reader.result;
+          resolve( post );
+        }
+        reader.readAsDataURL(xhr.response);
+      };
+      xhr.open('GET', post.thumbnail_url);
+      xhr.responseType = 'blob';
+      xhr.send();
+    });
   }
+  
   /*
   ** Initialize animation 
   ** first call to animate block
@@ -34,16 +35,21 @@
   var Initialize = function Initialize() {
     var ElementsHTML = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var FavoriteContents = arguments[1];
+    var itemsCount = 0;
 
     _.forEach(FavoriteContents, function( contentPost ) {
       /**
      * Ajouter le contenue dans le tableau `FavoriteWorks` quand le chargement
      * de l'image est terminer.
      */
-      getThumbnail( contentPost ).then(function successCallback( result ) {
+      toDataURL( contentPost ).then(function successCallback( result ) {
         FavoriteWorks.push( result );
-        if (items < FavoriteContents.length)
+        if (items > FavoriteWorks.length) {
+          itemsCount = FavoriteWorks.length;
           ShowAnimation();
+        } else {
+          if (itemsCount < items) ShowAnimation();
+        }
       });
     });
     DOMElements = ElementsHTML;
@@ -124,13 +130,11 @@
       /**
        * On ajoute un contenue avec la clé injectable, si la souris est sur une des boxs
        */
-      if (typeof post == "undefined") {
-        post = currentSelected[ keyInjectable ];
-      }
-
+      if (typeof post == "undefined") { post = currentSelected[ keyInjectable ]; }
+      if (typeof post == "undefined") return;
       fw_background
         .css({
-          'background-image' : "url(" + post.thumbnail_url + ")"
+          'background-image' : "url(" + post.blob + ")"
         });
 
       thisElement

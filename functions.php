@@ -104,14 +104,17 @@ function davidcalmel_scripts() {
 	// Theme stylesheet.
 	wp_enqueue_style( 'davidcalmel_style', get_stylesheet_uri() );
 	wp_enqueue_script( 'lodash', get_template_directory_uri() . '/dist/js/lodash.min.js', array(), true );
+	wp_enqueue_script( 'bleubird', get_template_directory_uri() . '/dist/js/bluebird.js', array(), false );
 	wp_enqueue_script( 'uikit', get_template_directory_uri() . '/dist/js/uikit.min.js', array( 'jquery' ), false );
 	wp_enqueue_script( 'morphext', get_template_directory_uri() . '/dist/js/morphext.min.js', array( 'jquery' ), false );
 	wp_enqueue_script( 'uikit-icons', get_template_directory_uri() . '/dist/js/uikit-icons.min.js', array( 'uikit' ), false );
 	wp_enqueue_script( 'sticky', get_template_directory_uri() . '/dist/sticky/jquery.sticky.js', array( 'jquery' ), false, false );
-	wp_enqueue_script( 'davidcalmel-script', get_template_directory_uri() . '/assets/js/scripts.min.js', array(
+	wp_enqueue_script( 'block-animate', get_template_directory_uri().'/assets/js/anim.v2-1.js', ['jquery', 'bleubird']);
+	wp_enqueue_script( 'davidcalmel-script', get_template_directory_uri() . '/assets/js/scripts.v1-5.js', array(
 		'jquery',
+		'bleubird',
 		'sticky'
-	), true );
+	) );
 	wp_localize_script( 'davidcalmel-script', 'dc', array(
 		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
 	) );

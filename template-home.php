@@ -6,7 +6,6 @@
  * @subpackage David-Calmel
  * @since David Calmel 1.0
  */
- wp_enqueue_script( 'block-animate', get_template_directory_uri().'/assets/js/anim.es5.js', ['jquery'], true );
  get_header('home'); ?>
 
  <div id="primary"  class="uk-padding-remove-left uk-padding-remove-right">

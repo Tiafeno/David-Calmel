@@ -43,7 +43,9 @@ Visit https://www.falicrea.com to know our current or former work.
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="<?= $favicon_url ?>ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
-  
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
   <?php wp_head(); ?>
 
   <style type="text/css">
@@ -177,11 +179,12 @@ Visit https://www.falicrea.com to know our current or former work.
       position: absolute;
       width: 100%;
       height: 100%;
-      background: url(<?= get_template_directory_uri() . '/assets/img/striped.png'?>) ;
+      background: url(<?= get_template_directory_uri() . '/assets/img/striped.png'?>);
+      background-size: cover;
     }
 
     .fw-background-container a {
-      font-size: 29px;
+      font-size: 170%;
       line-height: 1;
     }
     .fw-background-container .loading{
@@ -208,7 +211,7 @@ Visit https://www.falicrea.com to know our current or former work.
     .fw-box-title {
       background: none;
       white-space: normal !important;
-      margin-left: 6%;
+      margin-left: 2%;
     }
     .vc_row{
       display: inline-block;
@@ -216,7 +219,7 @@ Visit https://www.falicrea.com to know our current or former work.
       margin-left: 0;
       margin-right: 0;
     }
-    .vc_column_container>.vc_column-inner {
+    .vc_column_container >.vc_column-inner {
       padding-left: initial;
     }
 
