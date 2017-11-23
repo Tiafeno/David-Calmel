@@ -168,9 +168,12 @@
       function coloredBox() {
         var color = [ '#E5007D', '#008EBC', '#4D3761', '#AF7C00', '#005428', '#D25015',
                       '#951B81', '#A39800', '313289'];
+        var step = 0;
         fw_bg_container
           .each(function( index ) {
-            $( this ).css({ 'background-color': color[ index ]});
+            step = (typeof color[ step ] == undefined) ? 0 : step;
+            $( this ).css({ 'background-color': color[ step ]});
+            step++;
           });
       }
 

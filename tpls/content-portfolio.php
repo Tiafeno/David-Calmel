@@ -9,7 +9,7 @@ $args = [
 $Pages = new WP_Query( $args );
 
 ?>
-<div id="fw-containers" class="fw-containers uk-container uk-container-large uk-margin-remove uk-padding-remove-right uk-padding-remove-left" >
+<div id="fw-containers" class="fw-containers uk-container uk-container-large uk-padding-remove-right uk-padding-remove-left" >
 <?php
 if ($Pages->have_posts()):
   $index = 0;
