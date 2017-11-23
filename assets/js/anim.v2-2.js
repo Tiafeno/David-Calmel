@@ -7,8 +7,8 @@
   var HoverSelectedContentNAME = null;
   var HoverSelectedContentPOST = null;
   var AnimationInterval = null;
-
-  var items = DOMElements.length;
+  var loadingInterval = null;
+  var items = 0;
 
   var toDataURL = function( post ) {
     return new Promise(function(resolve, reject) {
@@ -27,15 +27,16 @@
       xhr.send();
     });
   }
-  
   /*
   ** Initialize animation 
   ** first call to animate block
   */
-  var Initialize = function Initialize() {
+  var Initialize = function() {
     var ElementsHTML = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var FavoriteContents = arguments[1];
     var itemsCount = 0;
+    DOMElements = ElementsHTML;
+    items = DOMElements.length
 
     _.forEach(FavoriteContents, function( contentPost ) {
       /**
@@ -44,32 +45,25 @@
      */
       toDataURL( contentPost ).then(function successCallback( result ) {
         FavoriteWorks.push( result );
-        if (items > FavoriteWorks.length) {
-          itemsCount = FavoriteWorks.length;
-          ShowAnimation();
-        } else {
-          if (itemsCount < items) ShowAnimation();
-        }
       });
     });
-    DOMElements = ElementsHTML;
-    /*
-    ** Animate the DOM element content 
-    ** after time out 400 ms  
-    */
-    window.setTimeout(function(){
+    
+    loadingInterval = window.setInterval(function() {
       ShowAnimation();
+      if (FavoriteWorks.length >= items) clearInterval( loadingInterval );
+    }, 200);
 
-      $( '.fw-background-container' )
-        .css('cursor', 'pointer')
-        .mouseenter(function(){
-          HoverSelectedContentID = $( this ).attr( 'id' );
-          HoverSelectedContentNAME = $( this ).data( 'name' );
-        })
-        .mouseleave(function(){
-          HoverSelectedContentID = HoverSelectedContentNAME =  null;
-        })
-    }, 400);
+    $( '.fw-background-container' )
+      .css('cursor', 'pointer')
+      .mouseenter(function(){
+        var dataName = $( this ).data( 'name' );
+        if ( ! dataName) return;
+        HoverSelectedContentID = $( this ).attr( 'id' );
+        HoverSelectedContentNAME = $( this ).data( 'name' );
+      })
+      .mouseleave(function(){
+        HoverSelectedContentID = HoverSelectedContentNAME =  null;
+      })
 
     /*
     ** Animate the DOM element content to infinie
@@ -86,7 +80,7 @@
   ** @params void
   ** @return void
   */
-  var ShowAnimation = function Animation() {
+  var ShowAnimation = function() {
     var currentSelected = [];
     var pull = _.concat( FavoriteWorks );
     var selected = null;
