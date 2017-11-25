@@ -128,12 +128,7 @@
           })
         });
   
-      } else {
-        /** La page ne contiene pas d'element ou les boxs */
-        $( window ).resize(function() {
-          
-        });
-      }
+      } 
 
       /**
        * Initialiser la position des elements
