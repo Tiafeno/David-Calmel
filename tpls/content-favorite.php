@@ -38,7 +38,7 @@ while (list(, $type) = each( $POSTTYPE )){
 }
 ?> 
 <script> 
-  var PostType = <?= json_encode($POSTTYPE, JSON_PRETTY_PRINT); ?>;
+  var PostType = <?= json_encode($POST, JSON_PRETTY_PRINT); ?>;
   var FavoriteContents = <?= json_encode($FavoriteContents, JSON_PRETTY_PRINT); ?>; 
   var DefaultCover = "<?= get_template_directory_uri().'/images/cover.jpg'; ?>";
 </script>
@@ -50,7 +50,8 @@ foreach($Brands as $key => $brand): ?>
           <div class="loading"></div>
           <div class="fw-background"></div>
           <div class="uk-label uk-position-bottom-left fw-box-title " id="name_<?= $key ?>">
-            <a href="#"></a>
+            <div><a class="dc-title" href="#"></a></div>
+            <div><p class="dc-post_type" style="font-size: 11px"></p></div>
           </div>
         </div>
 <?php  

@@ -134,9 +134,13 @@
 
       thisElement
         .data('name', post.name)
-        .find( 'a' )
+        .find( 'a.dc-title' )
           .text( post.title )
           .attr('href', post.link);
+
+      var posttype = _.find(window.PostType, {type: post.type});
+      thisElement.find( 'p.dc-post_type' )
+        .text( posttype.name );
     });
 
   };
