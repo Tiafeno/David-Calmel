@@ -27,9 +27,9 @@
       xhr.send();
     });
   }
-  /*
-  ** Initialize animation 
-  ** first call to animate block
+  /**
+  * Initialize animation 
+  * first call to animate block
   */
   var Initialize = function() {
     var ElementsHTML = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -38,11 +38,11 @@
     DOMElements = ElementsHTML;
     items = DOMElements.length
 
+    /**
+    * Ajouter le contenue dans le tableau `FavoriteWorks` quand le chargement
+    * de l'image est terminer.
+    */
     _.forEach(FavoriteContents, function( contentPost ) {
-      /**
-     * Ajouter le contenue dans le tableau `FavoriteWorks` quand le chargement
-     * de l'image est terminer.
-     */
       toDataURL( contentPost ).then(function successCallback( result ) {
         FavoriteWorks.push( result );
       });
@@ -65,20 +65,20 @@
         HoverSelectedContentID = HoverSelectedContentNAME =  null;
       })
 
-    /*
-    ** Animate the DOM element content to infinie
-    ** after 10 000 ms  
+    /** 
+    * Animate the DOM element content to infinie
+    * after 10 000 ms  
     */
     window.setInterval(function () {
       ShowAnimation();
     }, 10000);
   };
 
-  /*
-  ** Animate content in block 
-  ** @function ShowAnimation
-  ** @params void
-  ** @return void
+  /** 
+  * Animate content in block 
+  * @function ShowAnimation
+  * @param void
+  * @return void
   */
   var ShowAnimation = function() {
     var currentSelected = [];
@@ -96,8 +96,8 @@
       currentSelected = currentSelected.concat( selected );
     });
 
-    /*
-    ** Remove post content if a hover DOM element 
+    /** 
+    * Remove post content if a hover DOM element 
     */
     _.remove(currentSelected, function( el ){
       return el.name == HoverSelectedContentNAME;
@@ -132,12 +132,14 @@
           'background-image' : "url(" + post.blob + ")"
         });
 
+      /** Ajoute une titre et un lien dans le carré */
       thisElement
         .data('name', post.name)
         .find( 'a.dc-title' )
           .text( post.title )
           .attr('href', post.link);
 
+      /** Ajoute le nom de la type de page dans le carré */
       var posttype = _.find(window.PostType, {type: post.type});
       thisElement.find( 'p.dc-post_type' )
         .text( posttype.name );
@@ -150,6 +152,10 @@
     $( '.fw-background-container' ).each(function () {
       Elements = Elements.concat( this );
     });
+    /**
+     * On verifie qu'on est réellement dans la page 
+     * Favorite Works.
+     */
     if (typeof FavoriteContents === "undefined") {
       console.warn('Info: Variable Favorite Contents is missing');
       return;
