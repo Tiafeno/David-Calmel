@@ -135,7 +135,7 @@ Visit https://www.falicrea.com to know our current or former work.
       /* min-height: 44px; */
     }
     ul.category-nav-offcanvas {
-      padding-right: 29px;
+      padding-right: 0px;
       display: inline-block;
       padding-left: 0px;
       margin: 10px 0 10px 0;

@@ -84,6 +84,7 @@
     var currentSelected = [];
     var pull = _.concat( FavoriteWorks );
     var selected = null;
+    var restricted = ["branding"];
 
     var keyInjectable = null;
     
@@ -132,17 +133,26 @@
           'background-image' : "url(" + post.blob + ")"
         });
 
+      /** filtrer le contenue */
+      var isRestricted =  _.find(restricted, function( postType ) { return postType == post.type; });
+      isRestricted = _.isUndefined(isRestricted) ? false : true;
       /** Ajoute une titre et un lien dans le carré */
-      thisElement
-        .data('name', post.name)
-        .find( 'a.dc-title' )
-          .text( post.title )
-          .attr('href', post.link);
+        thisElement
+          .data('name', post.name)
+          .find( 'a.dc-title' )
+            .text( post.title )
+            .attr('href', post.link);
+      
+      if (isRestricted)
+        thisElement
+          .find( 'a.dc-title' )
+            .text('')
 
       /** Ajoute le nom de la type de page dans le carré */
       var posttype = _.find(window.PostType, {type: post.type});
       thisElement.find( 'p.dc-post_type' )
-        .text( posttype.name );
+        .text( posttype.name )
+        .css({color: "#dbdce0"});
     });
 
   };

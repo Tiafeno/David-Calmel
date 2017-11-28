@@ -11,9 +11,6 @@ get_header('home');
 ?>
 
 <style type="text/css">
-  ul.category-nav-offcanvas {
-    padding-right: 29px;
-  }
   ul.category-nav-offcanvas > li > a{
     height: inherit;
     justify-content: space-between;

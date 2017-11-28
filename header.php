@@ -27,7 +27,7 @@ uk-icon="icon: chevron-up; ratio: 2" style="padding: 0px 5px 0px 5px; z-index: 9
     </div>
   </header>
   <header class="header-middle-top">
-    <header class="header-nav-down animated slideInRight">
+    <header class="header-nav-down animated slideInDown">
       <div class="uk-container uk-container-small HeaderSlogan">
         <?php get_template_part('navbar', 'middle'); ?>
       </div>
