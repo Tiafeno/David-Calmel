@@ -7,9 +7,9 @@
  * @subpackage David_Calmel
  * @since David Calmel 1.0
  */
- 
- set_query_var( 'title', empty(get_the_title( )) ? '404' : get_the_title() );
- get_template_part('head');
+
+set_query_var( 'title', empty(get_the_title( )) ? '404' : get_the_title() );
+get_template_part('head');
  ?>
 <body <?php body_class(); ?>>
 <style type="text/css">

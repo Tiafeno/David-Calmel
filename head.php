@@ -245,6 +245,9 @@ Visit https://www.falicrea.com to know our current or former work.
       margin-right: 0;
       margin-left: auto;
     }
+    .resize-single-img {
+      width: 50% !important;
+    }
   </style>
 
 </head>

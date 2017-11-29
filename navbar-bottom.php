@@ -26,13 +26,25 @@
           <!-- The whole page content goes here -->
           <div class="uk-navbar-right">
               <a class="uk-navbar-toggle" style="padding-right: 5px" uk-navbar-toggle-icon uk-toggle="target: #offcanvas-push"></a>
-              
-              <a href="#en" class="flag dc-translate uk-hidden@s" data-lang="en" title="United Kingdom">
-                <span class="uk-icon uk-icon-image" style="background-image: url(<?= get_template_directory_uri().'/images/GB.png' ?>);"></span>
-              </a>
-              <a href="#fr" class="flag dc-translate uk-hidden@s" data-lang="fr" title="French">
-                <span class="uk-icon uk-icon-image" style="background-image: url(<?= get_template_directory_uri().'/images/FR.png' ?>);"></span>
-              </a>
+              <?php
+                $translationIds = PLL()->model->post->get_translations(get_the_ID());
+                $currentLang = pll_get_post(get_the_ID(), pll_current_language());
+                $langC = '';
+                foreach ($translationIds as $key=>$translationID){
+                    if($translationID != $currentLang){
+                        $availableLang = PLL()->model->get_languages_list();
+                        foreach( $availableLang as $lang){
+                            if($key == $lang->slug){
+                                $langC.= '<a class="flag dc-translate uk-hidden@s" href="' . get_permalink($translationID) . '">';
+                                $langC.= "<span class='uk-icon uk-icon-image' style='background-image: url(" . $lang->flag_url . ");'></span>";
+                                $langC.= '</a>';
+                            }
+                        }
+                    }
+                }
+
+                echo $langC;
+              ?>
           </div>
           <div id="offcanvas-push" uk-offcanvas>
               <div class="uk-offcanvas-bar">

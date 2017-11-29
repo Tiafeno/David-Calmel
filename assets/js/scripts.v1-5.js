@@ -77,7 +77,23 @@
       if (isMobile){
         
       }
-      
+
+      /**
+       * Diminuer la taille de l'image ( si #primary-content < 750px), 
+       * in single page       
+       * */
+      function resizeImage() {
+        var primaryContent = $('#primary-content').width();
+        var primaryContentWidth = parseFloat( primaryContent );
+        var imgElement = $('img.vc_single_image-img');
+        if (primaryContentWidth < 750) {
+          imgElement.first().removeClass( "resize-single-img" ).addClass( "resize-single-img" );
+        } else imgElement.first().removeClass( "resize-single-img" );
+      }
+      resizeImage();
+      $( window ).resize(function(  ) {
+        resizeImage();
+      });
       /**
        * Ajouter une class 'uk-active' pour le lien 'PORTFOLIO'.
        */

@@ -1,14 +1,3 @@
-<?php
-global $post;
-$toEN = null;
-$toFR = null;
-if (function_exists( 'pll_get_post' )){
-  $toEN = get_permalink(pll_get_post($post->ID, 'fr'));
-  $toFR = get_permalink(pll_get_post($post->ID, 'en'));
-} else {
-  throw new WP_Error( 'broke', "Plugins polylang is not define" );
-}
-?>
 
 <div class="uk-grid-match" uk-grid>
   <div class="uk-width-1-1 uk-width-3-4@s">
@@ -25,34 +14,31 @@ if (function_exists( 'pll_get_post' )){
   </div>
   <div class="uk-width-1-4@s uk-visible@s" style="margin-top: 7px;">
     <div class="flag">
-      <div class="container-flag">
-        <a href="#en" class="dc-translate" data-lang="en" title="United Kingdom">
-          <span class="uk-icon uk-icon-image" style="background-image: url(<?= get_template_directory_uri().'/images/GB.png' ?>);"></span>
-        </a>
-      </div>
-
-      <div class="container-flag">
-        <a href="#fr" class="dc-translate" data-lang="fr" title="French">
-          <span class="uk-icon uk-icon-image" style="background-image: url(<?= get_template_directory_uri().'/images/FR.png' ?>);"></span>
-        </a>
-      </div>
+      <?php 
+        $translationIds = PLL()->model->post->get_translations(get_the_ID());
+        $currentLang = pll_get_post(get_the_ID(), pll_current_language());
+        $langContent = '';
+        foreach ($translationIds as $key=>$translationID){
+            if($translationID != $currentLang){
+                $availableLang = PLL()->model->get_languages_list();
+                foreach( $availableLang as $lang){
+                    if($key == $lang->slug){
+                        $langContent.= '<div class="container-flag">';
+                        $langContent.= '<a class="dc-translate" href="' . get_permalink($translationID) . '">';
+                        //$url = get_template_directory_uri() . '/images/' .$lang->slug. '.png';
+                        $langContent.= "<span class='uk-icon uk-icon-image' style='background-image: url(" . $lang->flag_url . ");'></span>";
+                        $langContent.= '</a>';
+                        $langContent .= '</div>';
+                    }
+                }
+            }
+        }
+        echo $langContent;
+       ?>
     </div>
     <script type="text/javascript">
       // <![CDATA[
-        (function( $ ){
-          $( document ).ready(function(){
-            var urls = {"en":"<?= $toFR ?>","fr":"<?= $toEN ?>"};
-            $( 'a.dc-translate' )
-              .click(function(){
-                var currentAddr = window.location.origin +  window.location.pathname;
-                var translate = $( this ).data( 'lang' );
 
-                var url = urls[ translate ];
-                if (currentAddr === url) return;
-                window.location.href = url;
-              });
-          });
-        })( jQuery )
 					
 			// ]]>
     </script>
