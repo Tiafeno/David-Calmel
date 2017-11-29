@@ -1,6 +1,8 @@
 <?php
 global $post, $MODEL;
-$ContentType = $MODEL->getSettings('post_type', ['page_id', $post->ID]);
+/** Polylang class */
+$langIds = PLL()->model->post->get_translations(get_the_ID());
+$ContentType = $MODEL->getSettings('post_type', ['page_id', $langIds['en']]);
 $args = [ 'post_type' => $ContentType, 'orderby' => 'menu_order', 'posts_per_page' => -1];
 $ContentQuery = new WP_Query( $args );
 if ($ContentQuery->have_posts( )):
