@@ -50,7 +50,7 @@
     
     loadingInterval = window.setInterval(function() {
       ShowAnimation();
-      if (FavoriteWorks.length >= items) clearInterval( loadingInterval );
+      if (FavoriteContents.length <= items || FavoriteWorks.length >= items) clearInterval( loadingInterval );
     }, 200);
 
     $( '.fw-background-container' )
@@ -126,7 +126,11 @@
        * On ajoute un contenue avec la clé injectable, 
        * si la souris est sur une des boxs
        */
-      if (typeof post == "undefined") { post = currentSelected[ keyInjectable ]; }
+      if (typeof post == "undefined") { 
+        if (null === keyInjectable) return;
+        post = currentSelected[ keyInjectable ];
+        keyInjectable = null; 
+      }
       if (typeof post == "undefined") return;
       fw_background
         .css({
