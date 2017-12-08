@@ -24,7 +24,7 @@
       var header_category = $('.header-category-nav').height();
       var scrollStatus = false;
       var meta = $("meta[name='page:type']");
-      var primaryContent = $('#primary-content');
+      var primaryContent = $('#primary');
 
       /** Liens d'ancrage pour les elements pour class 'span.goup' */
       $( 'span.goup' )
@@ -94,16 +94,25 @@
       }
 
       function resizeImageonMobile() {
-
+        var w = primaryContent.width();
+        var primaryContentWidth = parseFloat( w );
+        var imgElements = $( "img.vc_single_image-img" );
+        imgElements.each(function() {
+          if (primaryContentWidth < 750) {
+            $(this).removeClass( "resize-single-img" ).addClass( "resize-single-img" );
+          } else {
+            $(this).removeClass( "resize-single-img" );
+          }
+        });
       }
-
-      
+      resizeImageonMobile();
       var metaContent = meta.attr("content").trim();
       if (metaContent === "single")
         resizeFirstImage();
       $( window ).resize(function(  ) {
         if (metaContent === "single")
           resizeFirstImage();
+        resizeImageonMobile();
       });
       /**
        * Ajouter une class 'uk-active' pour le lien 'PORTFOLIO'.
