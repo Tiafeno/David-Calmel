@@ -81,8 +81,8 @@
       }
 
       /**
-       * Diminuer la taille de l'image ( si #primary-content < 750px), 
-       * in single page       
+       * Diminuer la taille de la premiere image dans le document
+       * @return {void} 
        * */
       function resizeFirstImage() {
         primaryContent = primaryContent.width();
@@ -92,7 +92,11 @@
           imgElement.first().removeClass( "resize-single-img" ).addClass( "resize-single-img" );
         } else imgElement.first().removeClass( "resize-single-img" );
       }
-
+      /**
+       * Redimensionner  les images sur la version mobile.
+       * @param {void}
+       * @return {void}
+       */
       function resizeImageonMobile() {
         var w = primaryContent.width();
         var primaryContentWidth = parseFloat( w );
@@ -116,6 +120,7 @@
       });
       /**
        * Ajouter une class 'uk-active' pour le lien 'PORTFOLIO'.
+       * A pour condition, que le titre du site soit egale  
        */
       var navbarTitleValue = navbarTitle.text().trim();
       if (/^portfolio/.test( navbarTitleValue.toLowerCase() )){
