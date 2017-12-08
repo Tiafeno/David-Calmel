@@ -6,7 +6,9 @@
  * @subpackage David-Calmel
  * @since David Calmel 1.0
  */
-
+add_action('wp_head', function() {
+  echo '<meta name="page:type" content="template" />';
+});
  get_header();
  ?>
  <div id="primary" class="uk-container  uk-container-small" style="padding-top: 35px">

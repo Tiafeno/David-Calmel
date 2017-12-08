@@ -10,8 +10,11 @@
  * @subpackage David-Calmel
  * @since David Calmel 1.0
  */
-
- get_header(); ?>
+add_action('wp_head', function() {
+  echo '<meta name="page:type" content="page" />';
+});
+get_header(); 
+?>
 
  <div id="primary"  class="uk-section uk-section-large uk-padding-remove-left uk-padding-remove-top uk-padding-remove-right cover-container">
    <?php if ( have_posts() ) : ?>

@@ -23,6 +23,8 @@
       var header_category_offcanvas = $('.header-category-nav-offcanvas').height();
       var header_category = $('.header-category-nav').height();
       var scrollStatus = false;
+      var meta = $("meta[name='page:type']");
+      var primaryContent = $('#primary-content');
 
       /** Liens d'ancrage pour les elements pour class 'span.goup' */
       $( 'span.goup' )
@@ -82,17 +84,26 @@
        * Diminuer la taille de l'image ( si #primary-content < 750px), 
        * in single page       
        * */
-      function resizeImage() {
-        var primaryContent = $('#primary-content').width();
+      function resizeFirstImage() {
+        primaryContent = primaryContent.width();
         var primaryContentWidth = parseFloat( primaryContent );
         var imgElement = $('img.vc_single_image-img');
         if (primaryContentWidth < 750) {
           imgElement.first().removeClass( "resize-single-img" ).addClass( "resize-single-img" );
         } else imgElement.first().removeClass( "resize-single-img" );
       }
-      resizeImage();
+
+      function resizeImageonMobile() {
+
+      }
+
+      
+      var metaContent = meta.attr("content").trim();
+      if (metaContent === "single")
+        resizeFirstImage();
       $( window ).resize(function(  ) {
-        resizeImage();
+        if (metaContent === "single")
+          resizeFirstImage();
       });
       /**
        * Ajouter une class 'uk-active' pour le lien 'PORTFOLIO'.

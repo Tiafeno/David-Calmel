@@ -70,14 +70,14 @@ body{
   padding-bottom: 2px;
 }
 .header-nav-down .navbar-card-slogan span{
-  font-size: 10.5px;
-  letter-spacing: 1.8px;
+  font-size: 11.5px;
+  letter-spacing: 1.1px;
   word-break: normal;
-  line-height: 1.6;
   display: block;
   color: #4b8ac4;
   font-weight: 700;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 10px;
 }
 
 .header-nav-top .container-nav-top{

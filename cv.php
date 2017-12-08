@@ -7,6 +7,9 @@
  * @since David Calmel 1.1
  */
  wp_enqueue_script( 'ancre', get_template_directory_uri().'/assets/js/ancre.script.js', array('jquery'), false );
+ add_action('wp_head', function() {
+  echo '<meta name="page:type" content="template" />';
+});
  get_header();
  ?>
  <script type="text/javascript">

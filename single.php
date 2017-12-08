@@ -6,7 +6,9 @@
  * @subpackage David-Calmel
  * @since David Calmel 1.0
  */
-
+add_action('wp_head', function() {
+  echo '<meta name="page:type" content="single" />';
+});
  get_header('home'); ?>
 
  <div id="primary"  class="uk-container-large uk-padding-remove-right">

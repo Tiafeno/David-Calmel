@@ -6,7 +6,12 @@
  * @subpackage David-Calmel
  * @since David Calmel 1.0
  */
- get_header('home'); ?>
+add_action('wp_head', function() {
+  echo '<meta name="page:type" content="template" />';
+});
+get_header('home'); 
+
+ ?>
 
  <div id="primary"  class="uk-padding-remove-left uk-padding-remove-right">
    <?php if ( have_posts() ) : get_template_part( 'sidebar','top'); ?>
