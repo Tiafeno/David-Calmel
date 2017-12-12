@@ -138,7 +138,7 @@ Visit https://www.falicrea.com to know our current or former work.
       padding-right: 0px;
       display: inline-block;
       padding-left: 0px;
-      margin: 10px 0 10px 0;
+      margin: 10px 0 0 0;
     }
     ul.cv-offcanvas {
       display: inline-flex;
@@ -247,6 +247,38 @@ Visit https://www.falicrea.com to know our current or former work.
     }
     .resize-single-img {
       width: 50% !important;
+    }
+    ul[id*='menu-cv'] {
+      margin-bottom: 7px;
+    }
+    footer {
+      background: #f5f2f2;
+    }
+    footer p{
+      font-size: 10px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .footer__copyright__title {
+      font-weight: 700;
+      margin: 0;
+      font-size: 12px;
+      letter-spacing: .5px;
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+      margin-top: 15px;
+    }
+    .footer__reserved {
+      font-size: small;
+      text-align: center;
+    }
+    .footer__logo {
+      margin: auto;
+      display: block;
+    }
+    .footer__contact {
+      font-size: 14px;
+      font-weight: 700;
     }
   </style>
 

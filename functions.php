@@ -79,6 +79,16 @@ function davidcalmel_widgets_init() {
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
+  ) );
+  
+	register_sidebar( array(
+		'name'          => 'Footer',
+		'id'            => 'footer',
+		'description'   => 'Add widgets here to appear in your footer.',
+		'before_widget' => '<div id="%1$s" class="%2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="widget-title uk-hidden">',
+		'after_title'   => '</h2>',
 	) );
 }
 
