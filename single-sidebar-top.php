@@ -1,22 +1,17 @@
 <?php
 
 global $post, $MODEL;
-$POST = (array)unserialize( POST );
 
-function gtTitle( $posttype, $POST ){
-  foreach ($POST as $postConfig) {
-    if ($posttype == $postConfig['type']){
-      return [
-        'name' => $postConfig['name'],
-        'type' => $posttype
-      ];
-    }
-  }
+function getTitleLang( $id ) {
+  $indication = "slug";
+  $current_lang = pll_current_language( $indication );
+  $trad_id = pll_get_post($id, $current_lang);
+  $trad_post = get_post( (int)$trad_id );
+  return $trad_post;
 }
-$Title = (object)gtTitle( $post->post_type , $POST );
-$objTitle = (object) $Title;
 
-$post_id = $MODEL->getSettings('page_id', ['post_type', $post->post_type])
+$post_id = $MODEL->getSettings('page_id', [ 'post_type', $post->post_type ]);
+$title = getTitleLang( $post_id );
 ?>
 
 <header class="header-category-nav-offcanvas uk-hidden@m">
@@ -35,7 +30,7 @@ $post_id = $MODEL->getSettings('page_id', ['post_type', $post->post_type])
     </div>
     <div class="uk-container" style="margin-bottom: 10px;">
       <h2 class="header-offcanvas-title uk-padding-remove">
-        <a href="<?= get_permalink( $post_id ) ?>" style="color: white"><?= strtoupper($Title->name) ?></a>
+        <a href="<?= get_permalink( $post_id ) ?>" style="color: white"><?= strtoupper($title->post_title) ?></a>
       </h2>
     </div>
   </div>
@@ -47,7 +42,7 @@ $post_id = $MODEL->getSettings('page_id', ['post_type', $post->post_type])
       <div class="uk-navbar-left">
         <ul class="uk-navbar-nav category-title">
             <li class="uk-active">
-              <h2><a href="<?= get_permalink( $post_id ) ?>" style="color: white"><?= strtoupper($Title->name) ?></a></h2>
+              <h2><a href="<?= get_permalink( $post_id ) ?>" style="color: white"><?= strtoupper($title->post_title) ?></a></h2>
             </li>
         </ul>
       </div>
