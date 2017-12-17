@@ -87,7 +87,7 @@ function davidcalmel_widgets_init() {
 		'description'   => 'Add widgets here to appear in your footer.',
 		'before_widget' => '<div id="%1$s" class="%2$s">',
 		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="widget-title uk-hidden">',
+		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 }
