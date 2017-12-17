@@ -29,8 +29,8 @@ $title = getTitleLang( $post_id );
         ?><!-- .secondary-navigation -->
     </div>
     <div class="uk-container" style="margin-bottom: 10px;">
-      <h2 class="header-offcanvas-title uk-padding-remove">
-        <a href="<?= get_permalink( $post_id ) ?>" style="color: white"><?= strtoupper($title->post_title) ?></a>
+      <h2 class="header-offcanvas-title uk-padding-remove uk-text-uppercase">
+        <a href="<?= get_permalink( $post_id ) ?>" style="color: white"><?= cleanString($title->post_title) ?></a>
       </h2>
     </div>
   </div>
@@ -42,7 +42,7 @@ $title = getTitleLang( $post_id );
       <div class="uk-navbar-left">
         <ul class="uk-navbar-nav category-title">
             <li class="uk-active">
-              <h2><a href="<?= get_permalink( $post_id ) ?>" style="color: white"><?= strtoupper($title->post_title) ?></a></h2>
+              <h2 class="uk-text-uppercase"><a href="<?= get_permalink( $post_id ) ?>" style="color: white"><?= cleanString($title->post_title)?></a></h2>
             </li>
         </ul>
       </div>
