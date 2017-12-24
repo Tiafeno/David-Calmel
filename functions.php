@@ -38,7 +38,6 @@ if ( ! defined( 'POSTTYPE' ) ) {
 	define( 'POSTTYPE', serialize( [
 		'360deg',
 		'digital',
-		// 'marketing',
 		'advertising',
 		'edition',
 		'packaging',
@@ -48,18 +47,30 @@ if ( ! defined( 'POSTTYPE' ) ) {
 	] ) );
 }
 
+if (function_exists("pll_register_string")) {
+  pll_register_string("dc", "Digital");
+  pll_register_string("dc", "Advertising");
+  pll_register_string("dc", "Edition");
+  pll_register_string("dc", "Packaging");
+  pll_register_string("dc", "Branding");
+  pll_register_string("dc", "Event");
+  pll_register_string("dc", "Store & Booth");
+} else throw new Exception("Function `pll_register_string` is not define, please active polylang plugins", 1);
+
 if ( ! defined( 'POST' ) ) {
+  if ( ! function_exists("pll__")) 
+    throw new Exception("Function `pll__` is not define, please install or active polylang plugins", 1);
+  
 	define( 'POST', serialize( [
-		[ 'type' => '360deg', 'name' => '360°' ],
-		[ 'type' => 'digital', 'name' => 'Digital' ],
-		// [ 'type' => 'marketing', 'name' => 'Marketing' ],
-		[ 'type' => 'advertising', 'name' => 'Advertising' ],
-		[ 'type' => 'edition', 'name' => 'Edition' ],
-		[ 'type' => 'packaging', 'name' => 'Packaging' ],
-		[ 'type' => 'branding', 'name' => 'Branding' ],
-		[ 'type' => 'event', 'name' => 'Event' ],
-		[ 'type' => 'store_booth', 'name' => 'Store & Booth' ]
-	] ) );
+		[ 'type' => '360deg', 'name' => pll__('360°') ],
+		[ 'type' => 'digital', 'name' => pll__('Digital') ],
+		[ 'type' => 'advertising', 'name' => pll__('Advertising') ],
+		[ 'type' => 'edition', 'name' => pll__('Edition') ],
+		[ 'type' => 'packaging', 'name' => pll__('Packaging') ],
+		[ 'type' => 'branding', 'name' => pll__('Branding') ],
+		[ 'type' => 'event', 'name' => pll__('Event') ],
+		[ 'type' => 'store_booth', 'name' => pll__('Store & Booth') ]
+  ] ) );
 }
 
 // This theme uses wp_nav_menu() in 3 locations.
@@ -151,31 +162,6 @@ function uk_active_nav_class( $classes, $item ) {
 }
 
 add_filter( 'nav_menu_css_class', 'uk_active_nav_class', 10, 2 );
-
-function get_Title() {
-	$parent_terms = get_the_category();
-	if ( is_category( get_cat_ID( single_term_title( "", false ) ) ) ) {
-		$child  = get_category( get_cat_ID( single_term_title( "", false ) ) );
-		$parent = $child->parent;
-		if ( $parent > 0 ):
-			$pname = get_category( $parent );
-
-			return $pname->name;
-		endif;
-	}
-	if ( is_array( $parent_terms ) && empty( $parent_terms ) ) {
-		return get_the_title();
-	}
-	foreach ( $parent_terms as $pterm ) {
-		//Get the Child terms
-		if ( $pterm->parent != 0 || $pterm->term_id === 1 ) {
-			continue;
-		}
-
-		return $pterm->name;
-	}
-
-}
 
 function cleanString( $string ) {
   $utf8 = array(
