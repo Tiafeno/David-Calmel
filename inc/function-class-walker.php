@@ -38,3 +38,12 @@ class CV_Walker extends Walker_Nav_Menu {
     $output .= sprintf( "\n<li> <span class='scroll' data-href='%s'> %s </span> \n", $item->url, strtoupper($item->title));
   }
 }
+
+class Social_Walker extends Walker_Nav_Menu {
+  var $db_fields = array(
+    'id'     => 'db_id' 
+  );
+  function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
+    $output .= sprintf("\n<a href='%s' class='uk-icon-button' uk-icon='icon: %s'></a>\n", $item->url, $item->title);
+  }
+}

@@ -13,6 +13,16 @@
                 dynamic_sidebar( 'footer' ); 
               endif; 
         ?>
+        <?php if ( has_nav_menu( 'social' ) ) : 
+                wp_nav_menu( array(
+                  'menu_class' => ' ',
+                  'container_class' => ' ',
+                  'theme_location' => 'social',
+                  'container_class' => ' ',
+                  'walker' => new Social_Walker()
+                  ) );
+              ?>
+          <?php endif; ?> <!-- .social -->
         </div>
       </div>
     </div>
