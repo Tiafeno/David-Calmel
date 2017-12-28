@@ -18,7 +18,7 @@ global $post;
         ?><!-- .secondary-navigation -->
     </div>
     <div class="uk-container" style="margin-bottom: 10px;">
-          <h2 class="header-offcanvas-title uk-padding-remove"><?= strtoupper($post->post_title) ?></h2>
+          <h2 class="header-offcanvas-title uk-padding-remove uk-text-uppercase"><?= cleanString($post->post_title) ?></h2>
     </div>
   </div>
 </header>
@@ -28,7 +28,7 @@ global $post;
     <nav class="uk-navbar-transparent uk-navbar" uk-navbar>
       <div class="uk-navbar-left">
         <ul class="uk-navbar-nav category-title">
-            <li class="uk-active"><a href="#" class="uk-padding-remove-left"><h2><?= strtoupper($post->post_title) ?></h2></a></li>
+            <li class="uk-active"><a href="#" class="uk-padding-remove-left uk-text-uppercase"><h2><?= cleanString($post->post_title) ?></h2></a></li>
         </ul>
       </div>
 

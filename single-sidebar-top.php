@@ -1,22 +1,24 @@
 <?php
 
-global $post, $MODEL;
-$POST = (array)unserialize( POST );
+global $post, $MODEL, $post_id;
+$indication = "slug";
+$current_lang = pll_current_language( $indication );
 
-function gtTitle( $posttype, $POST ){
-  foreach ($POST as $postConfig) {
-    if ($posttype == $postConfig['type']){
-      return [
-        'name' => $postConfig['name'],
-        'type' => $posttype
-      ];
-    }
-  }
+function getTitleLang( $id ) {
+  // Returns the post (or page) translation
+  $trad_id = pll_get_post($id, $current_lang);
+  // Returns the post 
+  $trad_post = get_post( (int)$trad_id );
+  return $trad_post;
 }
-$Title = (object)gtTitle( $post->post_type , $POST );
-$objTitle = (object) $Title;
 
-$post_id = $MODEL->getSettings('page_id', ['post_type', $post->post_type])
+function getRubricLink( $id ) {
+  $_id_post = pll_get_post((int)$id, $current_lang);
+  return get_permalink($_id_post);
+}
+
+$id = $MODEL->getSettings('page_id', [ 'post_type', $post->post_type ]);
+$title = getTitleLang( $id );
 ?>
 
 <header class="header-category-nav-offcanvas uk-hidden@m">
@@ -28,14 +30,14 @@ $post_id = $MODEL->getSettings('page_id', ['post_type', $post->post_type])
             'container_class' => '',
             'theme_location' => 'secondary',
             'container_class' => 'container_class_menu sidebar-top',
-            'post_id' => $post_id,
+            'post_id' => $id,
             'walker' => new Secondary_Walker()
             ) );
         ?><!-- .secondary-navigation -->
     </div>
     <div class="uk-container" style="margin-bottom: 10px;">
-      <h2 class="header-offcanvas-title uk-padding-remove">
-        <a href="<?= get_permalink( $post_id ) ?>" style="color: white"><?= strtoupper($Title->name) ?></a>
+      <h2 class="header-offcanvas-title uk-padding-remove uk-text-uppercase">
+        <a href="<?= getRubricLink( $id ) ?>" style="color: white"><?= cleanString($title->post_title) ?></a>
       </h2>
     </div>
   </div>
@@ -47,7 +49,7 @@ $post_id = $MODEL->getSettings('page_id', ['post_type', $post->post_type])
       <div class="uk-navbar-left">
         <ul class="uk-navbar-nav category-title">
             <li class="uk-active">
-              <h2><a href="<?= get_permalink( $post_id ) ?>" style="color: white"><?= strtoupper($Title->name) ?></a></h2>
+              <h2 class="uk-text-uppercase"><a href="<?= getRubricLink( $id ) ?>" style="color: white"><?= cleanString($title->post_title)?></a></h2>
             </li>
         </ul>
       </div>
@@ -60,7 +62,7 @@ $post_id = $MODEL->getSettings('page_id', ['post_type', $post->post_type])
               'container_class' => '',
               'theme_location' => 'secondary',
               'container_class' => 'container_class_menu',
-              'post_id' => $post_id,
+              'post_id' => $id,
               'walker' => new Secondary_Walker()
               ) );
           ?><!-- .secondary-navigation -->
