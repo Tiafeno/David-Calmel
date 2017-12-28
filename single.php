@@ -17,7 +17,7 @@ add_action('wp_head', function() {
 
         get_template_part( 'single', 'sidebar-top' );
      ?>
-     <div id="primary-content" class="uk-container  uk-container-large animated  slideInUp ">
+     <div id="primary-content" class="uk-container  uk-container-large">
      <?php
      while ( have_posts() ) : the_post();
      /*
