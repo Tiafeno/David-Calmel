@@ -85,8 +85,8 @@
        * in single page       
        * */
       function resizeFirstImage() {
-        primaryContent = primaryContent.width();
-        var primaryContentWidth = parseFloat( primaryContent );
+        var pC = primaryContent.width();
+        var primaryContentWidth = parseFloat( pC );
         var imgElement = $('img.vc_single_image-img');
         if (primaryContentWidth < 750) {
           imgElement.first().removeClass( "resize-single-img" ).addClass( "resize-single-img" );
