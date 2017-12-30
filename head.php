@@ -122,7 +122,7 @@ Visit https://www.falicrea.com to know our current or former work.
       height: 40px;
       display: block;
       width: 1px;
-      margin-right: 50px;
+      margin-right: 58px;
     }
 
     header.header-category-nav, .uk-container.section-offcanvas{
