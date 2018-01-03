@@ -21,23 +21,31 @@ set_query_var( 'title', "PORTFOLIO" );
   </span>
   <header class="header-nav-top">
     <header class="container-nav-top">
-      <div class="uk-container uk-container-small animated slideInDown">
+      <div class="uk-container uk-container-small">
         <?php get_template_part('navbar', 'top'); ?>
       </div>
     </header>
     <header class="header-middle-top">
-      <header class="header-nav-down animated slideInRight">
-        <div class="uk-container uk-container-small HeaderSlogan">
-          <?php get_template_part('navbar', 'middle'); ?>
-        </div>
-      </header>
       <header class="HeaderMenu">
         <div class="uk-container uk-container-small">
           <?php get_template_part( 'navbar','bottom');?>
         </div>
       </header>
     </header>
+
+    <?php 
+    if ( have_posts() ) : 
+      if ( ! defined('SINGLE'))
+        get_template_part( 'sidebar','top');
+    endif;
+
+    if (defined('SINGLE')):
+      if (SINGLE == true) {
+        get_template_part( 'single', 'sidebar-top' );
+      }
+    endif;
+    ?>
   </header>
 
-  <div id="main-content" class="uk-section uk-section-default"> <!-- uk-padding-remove-top -->
+  <div id="main-content" class="uk-section uk-section-default uk-padding-remove-top"> <!-- uk-padding-remove-top -->
  <!-- </body> -->

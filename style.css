@@ -54,13 +54,6 @@ body{
 .header-nav-top .navbar-card-slogan p{
   font-weight: bold;
 }
-.header-nav-down, .HeaderMenu{
-  /* background: #2D2E83; */
-}
-
-.header-nav-down{
-  border-top: 3px solid #fff;
-}
 
 .uk-container .uk-card-default{
   background: none;
@@ -97,7 +90,7 @@ body{
 }
 
 header nav .uk-navbar-right ul li{
-  width: 120px;
+  width: 100px;
   float: left;
 }
 
@@ -123,6 +116,9 @@ header nav .uk-navbar-right ul li{
 .uk-navbar-right ul.uk-navbar-nav{
   display: block;
   width: 390px;
+}
+.dc-primary-menu > ul {
+  width: 369px !important;
 }
 
 .uk-navbar-right .container_class_menu{
@@ -155,17 +151,13 @@ header.header-category-nav h2{
 
 header.header-category-nav ul.category-menu li{
   float: left;
-  width: 120px;
+  width: 100px;
 }
 /* header.header-category-nav ul.uk-navbar-nav{
   width: 450px;
 } */
 header.header-category-nav ul li > a{
   color: white !important;
-}
-
-header.header-category-nav  .category-title{
-  /* width: 500px; */
 }
 
 @media(max-width: 640px){

@@ -124,9 +124,24 @@ Visit https://www.falicrea.com to know our current or former work.
       width: 1px;
       margin-right: 58px;
     }
+    .dc-icon-image {
+      width: 150px;
+      display: block;
+      background-size: contain;
+      height: 40px;
+      background-repeat: no-repeat;
+      background-position: center left;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    #menu-social-menu .uk-icon-button {
+      width: 30px !important;
+      height: 30px !important;
+    }
 
     header.header-category-nav, .uk-container.section-offcanvas{
-      background: url(<?= get_template_directory_uri() . '/images/bg-sub-menu.png'?>) repeat top left;
+      background: url(<?= get_template_directory_uri() . '/images/bg-sub-menu.png'?>) repeat 0px -34px;
     }
     header.header-middle-top{
       background: url(<?= get_template_directory_uri() . '/images/bg-header-menu.png'?>) repeat top left;

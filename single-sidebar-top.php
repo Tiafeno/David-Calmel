@@ -30,7 +30,7 @@ $title = getTitleLang( $id );
             'container_class' => '',
             'theme_location' => 'secondary',
             'container_class' => 'container_class_menu sidebar-top',
-            'post_id' => $id,
+            'post_id' => $title->ID,
             'walker' => new Secondary_Walker()
             ) );
         ?><!-- .secondary-navigation -->
@@ -62,7 +62,7 @@ $title = getTitleLang( $id );
               'container_class' => '',
               'theme_location' => 'secondary',
               'container_class' => 'container_class_menu',
-              'post_id' => $id,
+              'post_id' => $title->ID,
               'walker' => new Secondary_Walker()
               ) );
           ?><!-- .secondary-navigation -->

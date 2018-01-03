@@ -9,14 +9,13 @@
 add_action('wp_head', function() {
   echo '<meta name="page:type" content="single" />';
 });
- get_header('home'); ?>
+if (!defined('SINGLE')) :
+  define('SINGLE', true);
+endif;
+get_header('home'); ?>
 
  <div id="primary"  class="uk-container-large uk-padding-remove-right">
    <?php if ( have_posts() ) : ?>
-     <?php
-
-        get_template_part( 'single', 'sidebar-top' );
-     ?>
      <div id="primary-content" class="uk-container  uk-container-large">
      <?php
      while ( have_posts() ) : the_post();

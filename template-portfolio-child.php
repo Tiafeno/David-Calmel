@@ -31,9 +31,7 @@ get_header('home');
 </style>
 
  <div id="primary"  class="uk-padding-remove-left uk-padding-remove-right">
-<?php if ( have_posts() ) : 
-       get_template_part( 'sidebar','top');
-    ?>
+<?php if ( have_posts() ) : ?>
      <div id="primary-content">
      <div hidden> <?= the_content() ?> </div>
       <div id="fw-containers" class="fw-containers uk-container uk-container-large uk-padding-remove-right uk-padding-remove-left">  

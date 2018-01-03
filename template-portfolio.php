@@ -9,7 +9,7 @@
 add_action('wp_head', function() {
   echo '<meta name="page:type" content="template" />';
 });
- get_header('home'); ?>
+ get_header(); ?>
 
  <div id="primary"  class=" uk-padding-remove-left uk-padding-remove-right">
    <?php if ( have_posts() ) : ?>

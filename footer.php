@@ -1,5 +1,5 @@
 <footer>
-  <div class="uk-section uk-section-large">
+  <div class="uk-section uk-section-large uk-padding-small">
     <div class="uk-container uk-container-small">
       <div uk-grid>
         <div class="uk-width-1-1 uk-width-1-2@m">
@@ -11,20 +11,15 @@
         <div class="uk-width-1-1 uk-width-1-2@m">
         <?php if ( is_active_sidebar( 'footer' ) ) :  
                 dynamic_sidebar( 'footer' ); 
-              endif; 
-        ?>
-        <?php if ( has_nav_menu( 'social' ) ) : 
-                wp_nav_menu( array(
-                  'menu_class' => ' ',
-                  'container_class' => ' ',
-                  'theme_location' => 'social',
-                  'container_class' => ' ',
-                  'walker' => new Social_Walker()
-                  ) );
-              ?>
-          <?php endif; ?> <!-- .social -->
+              endif; ?>
+        
         </div>
       </div>
     </div>
+  </div>
+
+  <div id="copyright">
+    <?php if (function_exists("pll_e")) ?>
+      <p class="uk-text-center uk-text-muted uk-padding-small"><?php pll_e("copyright"); ?></p>
   </div>
 </footer>

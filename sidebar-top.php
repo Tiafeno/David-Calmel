@@ -5,7 +5,7 @@ global $post;
 
 <header class="header-category-nav-offcanvas uk-hidden@m">
   <div class="uk-container uk-container-small uk-section-secondary section-offcanvas " >
-    <div class="uk-container uk-padding-remove" style="margin-top: 10px">
+    <div class="uk-container uk-padding-remove" >
         <?php
           wp_nav_menu( array(
             'menu_class' => 'category-nav-offcanvas uk-padding-remove-left',

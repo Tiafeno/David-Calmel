@@ -22,16 +22,11 @@ uk-icon="icon: chevron-up; ratio: 2" style="padding: 0px 5px 0px 5px; z-index: 9
 </span>
 <header class="header-nav-top">
   <header class="container-nav-top">
-    <div class="uk-container uk-container-small animated slideInDown">
+    <div class="uk-container uk-container-small">
       <?php get_template_part('navbar', 'top'); ?>
     </div>
   </header>
   <header class="header-middle-top">
-    <header class="header-nav-down animated slideInDown">
-      <div class="uk-container uk-container-small HeaderSlogan">
-        <?php get_template_part('navbar', 'middle'); ?>
-      </div>
-    </header>
     <header class="HeaderMenu">
       <div class="uk-container uk-container-small">
         <?php get_template_part( 'navbar','bottom');?>
@@ -40,6 +35,6 @@ uk-icon="icon: chevron-up; ratio: 2" style="padding: 0px 5px 0px 5px; z-index: 9
   </header>
 </header>
 
-<div id="main-content" class="uk-section uk-section-default"> <!-- uk-padding-remove-top -->
+<div id="main-content" class="uk-section uk-section-default uk-padding-remove-top"> <!-- uk-padding-remove-top -->
 <!-- </body> -->
 
