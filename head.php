@@ -277,8 +277,6 @@ Visit https://www.falicrea.com to know our current or former work.
     .footer__copyright__title {
       font-weight: 700;
       margin: 0;
-      font-size: 12px;
-      letter-spacing: .5px;
       font-family: 'Roboto', sans-serif;
       text-align: center;
       margin-top: 15px;
@@ -294,6 +292,10 @@ Visit https://www.falicrea.com to know our current or former work.
     .footer__contact {
       font-size: 14px;
       font-weight: 700;
+    }
+    .footer__description {
+      font-size: .775rem !important;
+      font-family: "Roboto", sans-serif;
     }
   </style>
 

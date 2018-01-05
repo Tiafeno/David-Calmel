@@ -2,9 +2,9 @@
   <div class="uk-width-2-3">
     <div class="uk-card uk-card-default uk-card-body navbar-card-slogan">
       <p class="bloginfo uk-flex"> 
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-        <span class="uk-icon dc-icon-image" style="background-image: url(<?= get_template_directory_uri().'/images/dc-logo.png' ?>);"></span>
-      </a>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+          <img class="uk-width-small uk-margin-small-top uk-margin-small-bottom" src="<?= get_template_directory_uri() . '/images/small-logo.png' ?>" alt="<?= get_bloginfo('name'); ?>" >
+        </a>
       </p>
     </div>
   </div>
