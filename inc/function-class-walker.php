@@ -44,6 +44,6 @@ class Social_Walker extends Walker_Nav_Menu {
     'id'     => 'db_id' 
   );
   function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
-    $output .= sprintf("\n<a href='%s' class='uk-icon-button' uk-icon='icon: %s'></a>\n", $item->url, $item->title);
+    $output .= sprintf("\n<a href='%s' class='uk-icon-button dc-social-icon' uk-icon='icon: %s'></a>\n", $item->url, $item->title);
   }
 }

@@ -110,6 +110,11 @@ Visit https://www.falicrea.com to know our current or former work.
       float: right;
     }
 
+    .dc-social-icon {
+      background: rgba(125, 125, 125, 0.49) !important;
+      color: #abd6e6 !important;
+    }
+
     h1, .uk-h1, h2, .uk-h2, h3, .uk-h3, h4, .uk-h4, h5, .uk-h5, h6, .uk-h6{
       font-family: 'Playfair Display', serif;
     }
@@ -142,9 +147,12 @@ Visit https://www.falicrea.com to know our current or former work.
 
     header.header-category-nav, .uk-container.section-offcanvas{
       background: url(<?= get_template_directory_uri() . '/images/bg-sub-menu.png'?>) repeat 0px -34px;
+      background-size: 25.2rem;
+      background-position: top left;
     }
     header.header-middle-top{
       background: url(<?= get_template_directory_uri() . '/images/bg-header-menu.png'?>) repeat top left;
+      background-size: 25.2em;
     }
     header nav.uk-navbar {
       /* min-height: 44px; */
@@ -267,7 +275,8 @@ Visit https://www.falicrea.com to know our current or former work.
       margin-bottom: 7px;
     }
     footer {
-      background: #f5f2f2;
+      background: url(<?= get_template_directory_uri() . '/images/bg-header-menu.png'?>) repeat top left;
+      background-size: 26em;
     }
     footer p{
       font-size: 10px;
@@ -279,7 +288,6 @@ Visit https://www.falicrea.com to know our current or former work.
       margin: 0;
       font-family: 'Roboto', sans-serif;
       text-align: center;
-      margin-top: 15px;
     }
     .footer__reserved {
       font-size: small;
@@ -292,10 +300,6 @@ Visit https://www.falicrea.com to know our current or former work.
     .footer__contact {
       font-size: 14px;
       font-weight: 700;
-    }
-    .footer__description {
-      font-size: .775rem !important;
-      font-family: "Roboto", sans-serif;
     }
   </style>
 
