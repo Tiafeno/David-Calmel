@@ -6,6 +6,7 @@ $POST = (array)unserialize( POST );
 while (list(, $type) = each( $POSTTYPE )){
   $args = [
     'post_type' => $type,
+    'post_status' => 'publish',
     'posts_per_page' => -1
   ];
   $Contents = new WP_Query( $args );
