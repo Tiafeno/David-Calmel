@@ -21,7 +21,7 @@ $favicon_url = get_stylesheet_directory_uri().'/favicon/';
 Hi there, nice to meet you!
 Visit https://www.falicrea.com to know our current or former work.
 -->
-  <meta name="viewport" content="width=450, initial-scale=0.9">
+  <meta name="viewport" content="width=525, initial-scale=0.9">
   <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
   <?php endif; ?>
 
@@ -273,7 +273,7 @@ Visit https://www.falicrea.com to know our current or former work.
       margin-left: auto;
     }
     .resize-single-img {
-      width: 50% !important;
+      width: 100% !important;
     }
     ul[id*='menu-cv'] {
       margin-bottom: 7px;

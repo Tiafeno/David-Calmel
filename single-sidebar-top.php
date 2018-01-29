@@ -2,16 +2,14 @@
 
 global $post, $MODEL, $post_id;
 function getTitleLang( $id ) {
-  $current_lang = pll_current_language( 'slug' );
   // Returns the post (or page) translation
-  $trad_id = pll_get_post($id, $current_lang);
+  $trad_id = pll_get_post($id, pll_current_language( 'slug' ));
   // Returns the post 
-  $trad_post = get_post( (int)$trad_id );
-  return $trad_post;
+  return get_post( (int)$trad_id );
 }
 
 function getRubricLink( $id ) {
-  $_id_post = pll_get_post((int)$id, $current_lang);
+  $_id_post = pll_get_post((int)$id, pll_current_language( 'slug' ));
   return get_permalink($_id_post);
 }
 

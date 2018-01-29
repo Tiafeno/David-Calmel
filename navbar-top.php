@@ -4,8 +4,9 @@
       <p class="bloginfo uk-flex"> 
 
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" style="width:140px">
+        <!-- viewBox="0 0 214.4 110.8" enable-background="new 0 0 214.4 110.8"  -->
           <svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                viewBox="0 0 214.4 110.8" enable-background="new 0 0 214.4 110.8" xml:space="preserve">
+          width="140" height="72.34" viewBox="0 0 214.4 110.8"   xml:space="preserve">
             <g>
               <g>
                 <rect x="8.5" y="30.1" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -27.005 34.6045)" fill="#1D77CB" width="39.5" height="39.5"/>
