@@ -43,7 +43,8 @@ if ( ! defined( 'POSTTYPE' ) ) {
 		'packaging',
 		'branding',
 		'event',
-		'store_booth'
+		'store_booth',
+		'plus_brand'
 	] ) );
 }
 
@@ -55,6 +56,7 @@ if (function_exists("pll_register_string")) {
   pll_register_string("dc", "Branding");
   pll_register_string("dc", "Event");
   pll_register_string("dc", "Store & Booth");
+  // pll_register_string("dc", "Brand places");
   /* Copyright translation chaine */
   pll_register_string("dc", "copyright");
 } else throw new Exception("Function `pll_register_string` is not define, please active polylang plugins", 1);
@@ -71,7 +73,8 @@ if ( ! defined( 'POST' ) ) {
 		[ 'type' => 'packaging', 'name' => pll__('Packaging') ],
 		[ 'type' => 'branding', 'name' => pll__('Branding') ],
 		[ 'type' => 'event', 'name' => pll__('Event') ],
-		[ 'type' => 'store_booth', 'name' => pll__('Store & Booth') ]
+		[ 'type' => 'store_booth', 'name' => pll__('Store & Booth') ],
+		[ 'type' => 'plus_brand', 'name' => "+" ]
   ] ) );
 }
 
@@ -107,6 +110,20 @@ function davidcalmel_widgets_init() {
 
 add_action( 'widgets_init', 'davidcalmel_widgets_init' );
 
+add_action('init', function() {
+	$plus_brand = "plus_brand";
+	if (post_type_exists( $plus_brand ))
+			register_taxonomy(
+				'brand_place',
+				$plus_brand,
+				array(
+					'label' => "Brand Place",
+					'rewrite' => ['slug' => 'brand_place'],
+					'hierarchical' => true,
+					'show_ui' => true
+				)
+				);
+});
 /**
  * Enqueues scripts and styles.
  *
@@ -132,7 +149,7 @@ function davidcalmel_scripts() {
 	wp_enqueue_script( 'morphext', get_template_directory_uri() . '/dist/js/morphext.min.js', array( 'jquery' ), false );
 	wp_enqueue_script( 'uikit-icons', get_template_directory_uri() . '/dist/js/uikit-icons.min.js', array( 'uikit' ), false );
 	wp_enqueue_script( 'sticky', get_template_directory_uri() . '/dist/sticky/jquery.sticky.js', array( 'jquery' ), false, false );
-	wp_enqueue_script( 'block-animate', get_template_directory_uri().'/assets/js/anim.v2-3.js', ['jquery', 'bleubird']);
+	wp_enqueue_script( 'block-animate', get_template_directory_uri().'/assets/js/anim.v2-3.js', ['jquery', 'bluebird']);
 	wp_enqueue_script( 'davidcalmel-script', get_template_directory_uri() . '/assets/js/scripts.v1-5.js', array(
 		'jquery',
 		'bluebird',

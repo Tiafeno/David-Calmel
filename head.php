@@ -144,6 +144,10 @@ Visit https://www.falicrea.com to know our current or former work.
       width: 30px !important;
       height: 30px !important;
     }
+    
+    #menu-social-menu li {
+      display: inline-block;
+    }
 
     header.header-category-nav, .uk-container.section-offcanvas{
       background: url(<?= get_template_directory_uri() . '/images/bg-sub-menu.png'?>) repeat 0px -34px;

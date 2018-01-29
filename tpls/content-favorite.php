@@ -13,13 +13,17 @@ while (list(, $type) = each( $POSTTYPE )){
   if ($Contents->have_posts()){
     while ( $Contents->have_posts() ) : $Contents->the_post();
       if ( (int)get_post_meta($Contents->post->ID, 'favorite_works', true) === 1 ){
+        /** Récuperer l'url d'image à la une de l'article */
         $thumbnail = get_the_post_thumbnail_url( $Contents->post->ID, 'full' );
+
+        /** detecter si le champ d'url gif exist */
         $gifurl = get_post_meta($Contents->post->ID, 'gifs', true);
         $url = ($gifurl || !empty( $gifurl )) ? $gifurl : $thumbnail;
+        $post_type = $Contents->post->post_type;
         $FavoriteContents[] = [
           'title' => get_the_title( $Contents->post->ID ),
           'name' => $Contents->post->post_name,
-          'type' => $Contents->post->post_type,
+          'type' => $post_type,
           //'content' => $Contents->post->post_content,
           'thumbnail_url' => $url,
           'link' => get_permalink( $Contents->post->ID )
@@ -27,6 +31,13 @@ while (list(, $type) = each( $POSTTYPE )){
       }
     endwhile;
   }
+
+  /** 
+   * ******************
+   * Ne pas toucher 
+   * Pour modifer: functions.php line 68
+   * ******************
+   **/
   foreach ($POST as $key => $value) {
     if ($type === $value[ 'type' ]){
       $Brands[] = [
@@ -35,6 +46,7 @@ while (list(, $type) = each( $POSTTYPE )){
       ];
     }
   }
+  /*** ************* */
 
 }
 ?> 

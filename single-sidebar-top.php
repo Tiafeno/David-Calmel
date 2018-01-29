@@ -1,10 +1,8 @@
 <?php
 
 global $post, $MODEL, $post_id;
-$indication = "slug";
-$current_lang = pll_current_language( $indication );
-
 function getTitleLang( $id ) {
+  $current_lang = pll_current_language( 'slug' );
   // Returns the post (or page) translation
   $trad_id = pll_get_post($id, $current_lang);
   // Returns the post 
