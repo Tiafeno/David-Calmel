@@ -56,7 +56,8 @@ while (list(, $type) = each( $POSTTYPE )){
   var DefaultCover = "<?= get_template_directory_uri().'/images/cover.jpg'; ?>";
 </script>
 
-  <div id="fw-containers" class="fw-containers uk-container uk-container-large uk-padding-remove-right uk-padding-remove-left">
+  <div id="fw-containers" data-width="" class="fw-containers uk-container uk-container-large uk-padding-remove-right uk-padding-remove-left">
+    <div class="fw_loading"></div>
 <?php
 foreach($Brands as $key => $brand): ?>
         <div class="fw-background-container" id="brand_<?= $key ?>" data-name="" data-container='{"w":225, "h":"auto"}' style=" width:225px; height: 200px">

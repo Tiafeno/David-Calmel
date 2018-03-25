@@ -209,6 +209,7 @@ Visit https://www.falicrea.com to know our current or former work.
       background: url(<?= get_template_directory_uri() . '/assets/img/striped.png'?>);
       background-size: cover;
     }
+    
 
     .fw-background-container a {
       font-size: 170%;
@@ -304,6 +305,19 @@ Visit https://www.falicrea.com to know our current or former work.
     .footer__contact {
       font-size: 14px;
       font-weight: 700;
+    }
+
+    div.fw_loading {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      background: url(https://media.giphy.com/media/k0RechlPcfQeA/giphy.gif);
+      background-position: center center;
+      z-index: 99;
+      background-repeat: no-repeat;
+      background-color: rgba(255, 255, 255, 0.6);
+      visibility: visible;
     }
   </style>
 

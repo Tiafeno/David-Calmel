@@ -1,5 +1,8 @@
 (function($){
   'use strict'
+  var fwContainers = $( 'div#fw-containers' );
+  var fwLoading = fwContainers.find( '.fw_loading' );
+  var hiddenClass =  "uk-hidden";
   var FavoriteWorks = [];
   var DOMElements = [];
   var selectedFavoriteWorks = [];
@@ -10,6 +13,23 @@
   var loadingInterval = null;
   var items = 0;
 
+  /**
+   * Détecter si le (height et width) de la balise container des blocs a changé
+   * S'il y a changer, on change aussi certains propriété style du loading element
+   * @librarie jquery.resize.js
+   */
+  var onContainerResize = function() {
+    var heightContainer = fwContainers.height();
+      fwLoading
+        .css({ height: heightContainer + 'px'});
+  };
+  fwContainers.resize( onContainerResize );
+
+  /**
+   * Convertir les images en encodage base64
+   * @param post
+   * @returns {*}
+   */
   var toDataURL = function( post ) {
     return new Promise(function(resolve, reject) {
       if (false == post.thumbnail_url) post.thumbnail_url = window.DefaultCover;
@@ -26,11 +46,12 @@
       xhr.responseType = 'blob';
       xhr.send();
     });
-  }
+  };
+
   /**
-  * Initialize animation 
-  * first call to animate block
-  */
+   *
+   * @constructor
+   */
   var Initialize = function() {
     var ElementsHTML = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var FavoriteContents = arguments[1];
@@ -49,8 +70,16 @@
     });
     
     loadingInterval = window.setInterval(function() {
-      ShowAnimation();
-      if (FavoriteContents.length <= items || FavoriteWorks.length >= items) clearInterval( loadingInterval );
+      if (FavoriteWorks.length >= items) {
+        ShowAnimation();
+        fwLoading.addClass(hiddenClass);
+      } else {
+        if (fwLoading.hasClass(hiddenClass)) {
+          fwLoading.removeClass(hiddenClass);
+        }
+      }
+      if (FavoriteContents.length <= items || FavoriteWorks.length >= items)
+        clearInterval( loadingInterval );
     }, 200);
 
     $( '.fw-background-container' )
@@ -63,7 +92,7 @@
       })
       .mouseleave(function(){
         HoverSelectedContentID = HoverSelectedContentNAME =  null;
-      })
+      });
 
     /** 
     * Animate the DOM element content to infinie
@@ -74,18 +103,22 @@
     }, 10000);
   };
 
-  /** 
-  * Animate content in block 
-  * @function ShowAnimation
-  * @param void
-  * @return void
-  */
+  /**
+   * Afficher l'annimation
+   * @constructor ShowAnimation
+   */
   var ShowAnimation = function() {
     var currentSelected = [];
     var pull = _.concat( FavoriteWorks );
     var selected = null;
-    var restricted = ["branding"];
-
+    /*
+    ** Liste des type de poste à afficher san titre dans la page favorite works
+    */
+    var restricted = [ "branding" ];
+    /*
+    ** Cette variable contient le numéro de la clé de DOM
+    *  NB: Position de la souris actuelle
+    */
     var keyInjectable = null;
     
     /*
